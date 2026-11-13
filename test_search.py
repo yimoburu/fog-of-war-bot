@@ -126,7 +126,8 @@ class SearchTests(unittest.TestCase):
         self.assertIn(tiny, state.reconstruct()[1])
 
         def exhausted(*args, **kwargs):
-            return search_root(*args, **kwargs, node_limit=1)
+            kwargs['node_limit'] = 1
+            return search_root(*args, **kwargs)
 
         with patch('bot.search_root', side_effect=exhausted):
             chosen = choose_move(state, 180, random.Random(7), now=lambda: 0)
@@ -138,7 +139,8 @@ class SearchTests(unittest.TestCase):
         outputs = []
 
         def bounded(*args, **kwargs):
-            return search_root(*args, **kwargs, node_limit=128)
+            kwargs['node_limit'] = 128
+            return search_root(*args, **kwargs)
 
         for _ in range(2):
             state = state_for(FowBoard(), seed=91)
@@ -177,7 +179,8 @@ class SearchTests(unittest.TestCase):
             clock[0] = .07  # Beyond 35% of the 180ms inference allowance.
 
         def bounded(*args, **kwargs):
-            return search_root(*args, **kwargs, node_limit=128)
+            kwargs['node_limit'] = 128
+            return search_root(*args, **kwargs)
 
         with patch.object(state.belief, 'observe', side_effect=expensive_update) as infer, \
                 patch.object(state.belief, 'sample') as sample, \

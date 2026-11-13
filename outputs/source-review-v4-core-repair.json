@@ -1,0 +1,81 @@
+{
+  "id": "artifact-3b580563-6a7e-4e1d-a24c-645e1ae43d46",
+  "kind": "review",
+  "content": "Source-only verdict: Pass for artifact-9dfdc12a-405c-4669-976e-cd1a0a24f046, revision 1, limited to the B1 deadline repair. B1 is cleared at source level for the exact supplied new bot.py. The prior Fail for artifact-dab79946-ff15-4586-ba53-08c2c0027d9f remains unchanged.\n\nGoverning basis: supplied SoloCo v0.21 and team_sha256 7dc8081a08646135a7e021f1651eb3ac2952af9f63cf48ed0418efdcab8695b3. Review performed by standalone QA instance qa-e6bc9950-8147-404e-8581-ba848ba17b09 using supplied text only. No tools, commands, external access, tests or hash recomputation were performed.\n\nFindings:\n1. choose_move now checks the shared absolute deadline at the start of every detailed candidate's survival/risk computation, independently of current_particles. An absent bank or a bank suppressed by queued observation events cannot bypass this checkpoint.\n2. Immediately after predict_risk returns, a second check returns the retained fallback on expiry, before blending the prediction or publishing a risk-ranked shortlist. Consequently a prediction crossing the deadline cannot trigger further predictions or search. Partial survival scores remain local and do not replace the fallback.\n3. For absent or stale particles, fallback remains the completed conservative detailed-score choice, including the generic blocker penalty. For current particles, the existing revision of detailed scores likewise does not replace that fallback before survival scoring completes. Existing particle push/pop restoration remains intact.\n4. The added regression covers both an empty bank and a populated but stale bank. Its injected clock reaches 0.07 seconds during detail scoring, beyond the 0.063-second inference allowance but below the 0.18-second overall optional deadline. The mocked predictor advances it to 0.20 seconds. Assertions require exactly one prediction, no search, retained move b1a1 and fallback status. This meaningfully targets the reported defect. It directly exercises the post-prediction checkpoint; the independent pre-candidate checkpoint is established by source inspection rather than an isolated regression assertion.\n5. Timing remains cooperative. Individual operations may overrun a checkpoint, and mandatory initial work remains outside the optional-work enforcement. This repair does not establish a hard complete-response time bound. No new material defect was identified within this bounded repair review.\n\nEvidence limits: The runner reports 29 targeted tests passing in 0.063 seconds. That is host-reported evidence, not independently verified execution; no raw execution transcript or environment binding was supplied. The scoped Pass concerns source correctness and regression design, not runtime qualification.\n\nExact supplied bindings, not independently recomputed:\nbot.py: 0d00f07a120166821b76a04e5ef2eb991c8197701bb4392d082ebbec5d4a85e8\ntest_v4_policy.py: 24019435a44654e6c8d8341b15dae1dc41aa8907042441a380045026d8004804\n\nBlockers: None for this source-only B1 disposition. Model/trainer review, evaluation-harness audit, candidate-specific runtime timing and broader acceptance remain separate requirements. Both previous mechanism probes remain failed; the repair supplies no replacement mechanism or strength evidence. No promotion, packaging, Linux qualification, MIT Elo acceptance or execution authority is granted.\n\nReceiver: runner. Record this exact-source supplemental closure while preserving the historical Fail and failed probes; continue only separately authorized review and evaluation work under the existing plan and stop conditions.",
+  "author_role": "qa",
+  "author_instance": "qa-e6bc9950-8147-404e-8581-ba848ba17b09",
+  "revision": 1,
+  "status": "Submitted",
+  "job_id": "job-c5c56a04-cc8d-4309-a7cf-e66b78205daf",
+  "inputs": [
+    {
+      "id": "artifact-0259a9e6-0c1d-4e5a-a571-abb4e415bbfa",
+      "revision": 1
+    },
+    {
+      "id": "artifact-9194a3ff-904f-468b-b987-b62a3ddf18d2",
+      "revision": 1
+    },
+    {
+      "id": "artifact-9dfdc12a-405c-4669-976e-cd1a0a24f046",
+      "revision": 1
+    },
+    {
+      "id": "artifact-dab79946-ff15-4586-ba53-08c2c0027d9f",
+      "revision": 1
+    },
+    {
+      "id": "artifact-ff82939b-0fb9-4d25-bf2b-29577e2f7b66",
+      "revision": 1
+    },
+    {
+      "id": "decision-23352f20-cb56-4e86-84a0-471ee16e22f8",
+      "revision": 1
+    },
+    {
+      "id": "decision-5bb19ad8-645e-4255-ae18-2e0e2893f792",
+      "revision": 1
+    },
+    {
+      "id": "decision-81b8c6d6-c6ee-4703-8422-dda6c9e36789",
+      "revision": 1
+    },
+    {
+      "id": "decision-cd9026aa-f192-4894-996a-2234398f1902",
+      "revision": 1
+    },
+    {
+      "id": "development-authorization-6dadf1f3-ee7d-4dd4-a45f-02c8b692137f",
+      "revision": 1
+    },
+    {
+      "id": "intent-29a81338-5a22-4976-bd0f-2058ceb3a529",
+      "revision": 1
+    },
+    {
+      "id": "intent-2f26bb5a-aba1-4800-ba28-a66c73b6355b",
+      "revision": 2
+    },
+    {
+      "id": "intent-ba2d0d71-23b3-4922-9d2b-e06d62cff97e",
+      "revision": 1
+    },
+    {
+      "id": "intent-ca1fe87f-6849-4941-87aa-0358ee68923d",
+      "revision": 1
+    },
+    {
+      "id": "plan-3829e7c4-593e-4acc-965a-b8a243137ab0",
+      "revision": 1
+    }
+  ],
+  "review_of": {
+    "id": "artifact-9dfdc12a-405c-4669-976e-cd1a0a24f046",
+    "revision": 1
+  },
+  "review": {
+    "verdict": "Pass",
+    "reason": "The exact supplied repair adds a particle-independent deadline check before every candidate's risk computation and an immediate post-prediction check that returns the retained conservative fallback before partial scores can affect selection. The new regression targets both absent and stale banks and asserts one prediction, no search and fallback retention after expiry. B1 is cleared for the supplied bot.py at source level only; test execution is host-reported, prior failures remain intact, and no broader acceptance or authority is granted."
+  },
+  "created_at": "2026-11-13T16:10:27.422Z"
+}

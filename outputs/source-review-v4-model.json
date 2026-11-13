@@ -1,0 +1,81 @@
+{
+  "id": "artifact-567bc5a9-a3e4-46bf-912f-ad1db2992966",
+  "kind": "review",
+  "content": "Scoped source-and-method verdict: Pass for artifact-2be7d4ec-d1a8-47be-b400-7e3368d882a2, revision 1. This accepts the inspected model implementation and training-method structure as an experimental observation-prefix risk estimator. It does not independently verify training execution, provenance, calibration, integrated policy performance or playing strength.\n\nReviewer: standalone QA instance qa-3fe580e5-b5f1-4697-9adf-5e51dff36e39. Governing basis: supplied SoloCo v0.21 and team_sha256 7dc8081a08646135a7e021f1651eb3ac2952af9f63cf48ed0418efdcab8695b3. Review used supplied text only. No tools, external access, commands, tests, file changes or hash recomputation occurred.\n\nFindings:\n1. Observation boundary: features reads side, tracker.current and the independent RiskHistory prefix. It does not read belief particles, evaluator truth, future observations or search values. The trainer supplies reconstructed observation boards to features; full truth supplies replay checks and counterfactual labels. Its truth-derived turn check and legal-set equality assertion do not introduce hidden-position feature values. Supplied tests meaningfully exercise forbidden incidental channels, identical observations with different hidden positions, stale inputs and truth-expanded boards. These tests are host-reported as passing, not independently executed.\n2. Input validation checks observed piece identity, side, current observation and the move-projected after-board. It does not authenticate all metadata, prove move legality or validate an arbitrary caller's observation provenance. This is a controlled integration boundary, not a security boundary. Production conformance remains dependent on observation reconstruction and lifecycle integration covered separately.\n3. Capture accounting records known own captures once per committed move, with en-passant's displaced victim square handled for both colors. Projected candidate captures affect features without mutating history; opponent captures do not increment own capture counts. Castling projection includes the rook. Promotion inventory is explicitly heuristic: captured promoted pieces cannot be distinguished from originals, and phase-based promotion allowance is neither a conservation proof nor a posterior inventory estimate. Hidden sightings describe decayed past locations, not verified current enemy locations.\n4. Grouping and fitting: read_inputs requires exactly one white and one black match for each distinct ordered seed pair. split_pairs deterministically assigns whole pairs by salted SHA256 order; for the supplied 100 pairs the intended split is 70/15/15. Normalization uses training rows only. Each regularization candidate fits training rows only; selection uses validation log-loss with the declared larger-regularization tie break. The selected model is not refitted. Test labels are extracted in advance, but the inspected code does not use them in fitting or selection. The geometric calibration and prevalence comparator likewise use training data only.\n5. The code writes the design before feature extraction and fitting, and checks source hashes again before publication. This establishes program ordering, not an independently timestamped preregistration or proof of globally single-use testing. Fresh output paths cannot prevent repeated runs under different names. The reported final_test_evaluations=1 describes the intended execution path; historical absence of test-driven adaptation remains a supplied assertion. Preserve this test partition as consumed.\n6. The supplied weights and normalization values appear finite and consistent with the declared 54-feature schema. Runtime validation rejects nonfinite coefficients, invalid scales and incompatible schemas; bounded normalization and stable logistic evaluation produce clipped soft probabilities. Predictions cannot certify zero or certain risk. The reported runtime/NumPy difference of 3.3306690738754696e-16 is useful host evidence, but the trainer checks a regularly spaced subset of rows rather than every prediction.\n7. All four current fits and the geometric fit are reported converged. The trainer's failure to reject future nonconverged fits is a real hardening issue, not evidence that this fitted candidate failed convergence. The numerical-warning investigation reports bounded synthetic checks with finite outputs and close scalar agreement. This narrows concern but does not establish the warnings' cause or independently validate the actual training matrix, Hessians or optimization trajectory. Finite output and convergence reports alone are not proofs of numerical correctness.\n8. Replay construction checks frame boards, both observations, legal played moves and final replay outcome against the local referee. Counterfactual labels use outcome after the candidate move with fresh repetition counts and classify the reason 'King capturable'. This is consistent with isolating immediate king-capturability rather than eventual loss, conditional on the pinned referee's outcome semantics and precedence. referee.py and uniform_random.py implementations are not supplied in this model packet, so official-rule equivalence is a dependency, not a new finding established here.\n\nReported evidence and interpretation:\nThe report contains 180490 actions from 7080 turns, 200 matches and 100 seed pairs; partition action counts sum to the reported corpus total. The test partition contains 28403 actions, 781 positives and 1069 turns. Reported learned log-loss is 0.106240 versus 0.115487 geometric and 0.126668 constant; Brier scores are 0.024983, 0.026092 and 0.026787 respectively. Risk-only top-choice fatal counts are 18, 24 and 38. These descriptive comparisons favor the learned estimator on this supplied test sample. The constant top-choice comparator uses UCI tie-breaking and must not be called a random policy; the report separately supplies an expected uniform-random fatal rate.\n\nCalibration remains materially imperfect. In the learned test bin [0.01,0.025), 18343 actions average 0.01694 predicted risk but 0.00485 observed frequency. In [0.4,0.6), 130 actions average 0.47295 prediction but 0.26923 observed frequency. The highest bin has only six actions. Better aggregate proper scores do not establish well-calibrated probabilities, especially under policy-induced distribution shift.\n\nTop-12 safe-turn retention is 1065/1067 for learned versus 1064/1067 geometric: one additional retained turn, with a near-ceiling denominator. It does not establish a substantial or statistically reliable advantage, retention of all safe actions, eventual survival, or the integrated policy's shortlist performance. Actions and adjacent turns are correlated; the test has only 15 seed-pair groups. No uncertainty estimates supporting population-level superiority are supplied. Training weights actions equally, so positions with more eligible actions contribute more weight. Shared openings and the V3-versus-frozen-V2 source distribution limit generalization.\n\nThe supplied record reports both integrated policies failed the separate mechanism probe: 3 fatal choices in 90 prefixes and 0/2 traps avoided. These failures remain intact and outweigh any attempt to infer integrated success from the offline ranking metrics. The microbenchmark measures one repeated feature/prediction fixture, not cold model loading, full-response latency or resource compliance.\n\nActionable issues, without granting execution or new attempts:\n- Before future training is accepted, fail closed on nonconvergence and nonfinite diagnostics, and compute convergence diagnostics at the final returned coefficients.\n- Preserve the current test as consumed. Any model or feature selection informed by these results requires separately governed fresh evaluation evidence.\n- Any future calibration or superiority claim should include pair-level uncertainty and evidence on the intended policy distribution. The current probabilities should remain described as experimental empirical scores.\n- Retain numerical warnings and their unresolved cause. Stronger numerical assurance would require checks on the actual frozen training computation, without selecting parameters from the consumed test.\n\nBlockers: None for this narrowly scoped static model-and-method acceptance. Independent reproduction, universal calibration, integrated mechanism success and strength are not accepted conditions of this verdict and remain unestablished. No missing evidence is converted into a verified execution fact.\n\nExact supplied file bindings reviewed, not independently recomputed:\nrisk_model.py: 042df37ae31e3a587b654184189e4c2e39c76c34ffa0d6530f8e83509ae37a81\nrisk_model.json: fb517196cf82698e6224cbe20ca6e1e02fe63d18d8d490dc0a5f29f813e5028b\ntrain_risk_model.py: d84a4218be88b998053fec6a1268f159e1d100c9f6c6aa642ca0681e5738648f\ntest_risk_model.py: 5976d0a7ffad537a16e3b15be105b11c5b304933db84da0403aa68e67c15a1ae\nTraining report: artifact-5abecd69-b401-42e5-bce2-754551cf4f02, revision 1; no complete-report digest supplied.\nDeclared design digest: 5de47aa769789087aff342ec96ee54a9b336b77276ee8a47d3bf75bb0872a750.\nDeclared referee dependency: 2f82ac292bfad29bcb2d701b73c060d1ca8281378b4598f08a620fe5c97255be.\nDeclared observation/candidate dependency: a9d2d69c1893652dae938c596be59fc16fdf1edba3ccf491d9cf2c92d75b514a.\n\nHistorical disposition: The supplied B1 closure remains limited to its exact core repair; historical Fail verdicts remain unchanged. Cancelled/rejected review dispatches are not model verdicts. This review does not resolve the pending founder notice or extend the separate search/evaluation-harness reviews.\n\nReceiver: runner/Chief of Staff. Record this scoped verdict against the exact draft and preserve the failed mechanism evidence. The experiment remains unpromoted. No execution, retraining, packaging, release, Linux qualification, arena submission or MIT Elo acceptance is granted.",
+  "author_role": "qa",
+  "author_instance": "qa-3fe580e5-b5f1-4697-9adf-5e51dff36e39",
+  "revision": 1,
+  "status": "Submitted",
+  "job_id": "job-2af7352f-a399-47eb-81dd-47ea83baa4a1",
+  "inputs": [
+    {
+      "id": "artifact-0259a9e6-0c1d-4e5a-a571-abb4e415bbfa",
+      "revision": 1
+    },
+    {
+      "id": "artifact-2be7d4ec-d1a8-47be-b400-7e3368d882a2",
+      "revision": 1
+    },
+    {
+      "id": "artifact-3b580563-6a7e-4e1d-a24c-645e1ae43d46",
+      "revision": 1
+    },
+    {
+      "id": "artifact-5abecd69-b401-42e5-bce2-754551cf4f02",
+      "revision": 1
+    },
+    {
+      "id": "artifact-9194a3ff-904f-468b-b987-b62a3ddf18d2",
+      "revision": 1
+    },
+    {
+      "id": "artifact-ff82939b-0fb9-4d25-bf2b-29577e2f7b66",
+      "revision": 1
+    },
+    {
+      "id": "decision-23352f20-cb56-4e86-84a0-471ee16e22f8",
+      "revision": 1
+    },
+    {
+      "id": "decision-5bb19ad8-645e-4255-ae18-2e0e2893f792",
+      "revision": 1
+    },
+    {
+      "id": "decision-81b8c6d6-c6ee-4703-8422-dda6c9e36789",
+      "revision": 1
+    },
+    {
+      "id": "decision-cd9026aa-f192-4894-996a-2234398f1902",
+      "revision": 1
+    },
+    {
+      "id": "development-authorization-6dadf1f3-ee7d-4dd4-a45f-02c8b692137f",
+      "revision": 1
+    },
+    {
+      "id": "intent-29a81338-5a22-4976-bd0f-2058ceb3a529",
+      "revision": 1
+    },
+    {
+      "id": "intent-2f26bb5a-aba1-4800-ba28-a66c73b6355b",
+      "revision": 2
+    },
+    {
+      "id": "intent-ba2d0d71-23b3-4922-9d2b-e06d62cff97e",
+      "revision": 1
+    },
+    {
+      "id": "intent-ca1fe87f-6849-4941-87aa-0358ee68923d",
+      "revision": 1
+    }
+  ],
+  "review_of": {
+    "id": "artifact-2be7d4ec-d1a8-47be-b400-7e3368d882a2",
+    "revision": 1
+  },
+  "review": {
+    "verdict": "Pass",
+    "reason": "Static inspection supports observation-prefix-only feature construction, known-capture and en-passant accounting, whole-pair splitting, training-only normalization, validation-only parameter selection, and bounded finite runtime inference for the supplied exact model. Current fit convergence and metrics are host-reported and internally coherent; imperfect calibration, unresolved numerical-warning cause, correlated samples and failed integrated mechanism probes materially limit interpretation. This Pass accepts only the scoped experimental model source and method, not independent execution, calibrated probability guarantees, promotion or playing strength."
+  },
+  "created_at": "2026-11-13T16:15:47.659Z"
+}

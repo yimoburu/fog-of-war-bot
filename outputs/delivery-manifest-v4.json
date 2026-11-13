@@ -1,0 +1,283 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-11-13T16:20:46.202714+00:00",
+  "branch": "experiment/belief-search-v4",
+  "base_commit": "42980befaf018f27b47f17c2e76ffe65e6096b6e",
+  "release_main": "65fde033a2e65394a676e44969a992832ee17470",
+  "status": "experimental_mechanism_failed_not_promoted",
+  "strength_stage": "not_started_development_completion_deviation_documented",
+  "no_arena_rating": true,
+  "files": {
+    "README.md": {
+      "bytes": 6625,
+      "sha256": "452b847e040f6d6fb3d5e7ec0f9c8ee2199daa35d4d708ff1864b855281f02ac"
+    },
+    "SOURCES.md": {
+      "bytes": 4608,
+      "sha256": "be263dcbf5e314767f05d32e33f3e2175ac6390452eed5edfb9d63a3da217c29"
+    },
+    "analysis/experiment-v4.md": {
+      "bytes": 7883,
+      "sha256": "886e257c588d2ccec82ae357b098d10975369bab5d2818768ef6fb5a4896efcd"
+    },
+    "analysis/outcome-v4-review.md": {
+      "bytes": 8313,
+      "sha256": "aec8927f693532c421383781e35cb589ab7521b496c062e80e89a5289ef3d2da"
+    },
+    "analysis/public-arena-v4/analysis.json": {
+      "bytes": 13131,
+      "sha256": "a8e754392adaa2b954ab1dd83d2f6abe5e9a268d8c08b0766df5f69d1aacb98e"
+    },
+    "analysis/public-arena-v4/audit_public_replays.py": {
+      "bytes": 6834,
+      "sha256": "aaa633f6af9c19cc2de549deac030f38b35a05d7899105518a9eb340356e6744"
+    },
+    "analysis/public-arena-v4/games-0729dbf4b76c841d7582c2dddea32faa.json": {
+      "bytes": 17786,
+      "sha256": "1f516b81076eb0e5e55c064b4af3d8c6e0628af76467e57a0d2a84af150fe438"
+    },
+    "analysis/public-arena-v4/games-f394d843d970454f868c38c7f6963cc9.json": {
+      "bytes": 17977,
+      "sha256": "3a77c9293d683dde8efb01b35e52dc6e56272bdb9c21f0daaeb3aed3205b5468"
+    },
+    "analysis/public-arena-v4/games-strongly-invisible.json": {
+      "bytes": 17609,
+      "sha256": "5f2a766fedcc58d6e3dd18313d16539fac0d9c545c187ab467103a2ee6c8c50e"
+    },
+    "analysis/public-arena-v4/leaderboard.json": {
+      "bytes": 159895,
+      "sha256": "0af8d81b18c0d680ba5abbcd6f1a62fdf9519f9ac0b383a008ac608867e88130"
+    },
+    "analysis/public-arena-v4/manifest.json": {
+      "bytes": 1908,
+      "sha256": "53b876b2bff3d95f9ffd089f8d0504d16d9518dae8e30b46c119bc4cd8f3da0f"
+    },
+    "analysis/public-arena-v4/replay-0n28sr75.json": {
+      "bytes": 31781,
+      "sha256": "258998ca76479f3e3e0daf0117ce6f9662ceb1022ecdc9e6a912d3f6a6493638"
+    },
+    "analysis/public-arena-v4/replay-5cpqe9fe.json": {
+      "bytes": 32604,
+      "sha256": "05c9e4d67fc4396c24c1d336eb0eef043a81583a6b39e047f4b87aa8d5aaac48"
+    },
+    "analysis/public-arena-v4/replay-a015fk3y.json": {
+      "bytes": 35159,
+      "sha256": "0b78b0201b2c7a4b7d309c25e995e4ca8bb7e82060a9482e3404ad9cef915120"
+    },
+    "analysis/public-arena-v4/replay-nnjy0an4.json": {
+      "bytes": 8686,
+      "sha256": "18eec129b144ce999a64a5642853d7728578ccc67fd19e5118d52dfd31c73534"
+    },
+    "analysis/public-arena-v4/replay-ssy68mio.json": {
+      "bytes": 62221,
+      "sha256": "3cf6da862e570e874cf8b7f345f78a8d601580a02f1dbad7807516d7bea148f5"
+    },
+    "analysis/public-arena-v4/replay-z5ss8ecx.json": {
+      "bytes": 29193,
+      "sha256": "efd451a9e54f60cce38cfbc2c80435b08141e378822b12c022a777e7b009d57d"
+    },
+    "analysis/public-arena-v4/selected.json": {
+      "bytes": 4925,
+      "sha256": "cedd1587c9a22fe4236cbaf8687b13310143a602eb868f48da391d596b833b27"
+    },
+    "analysis/public-arena-v4/sources.json": {
+      "bytes": 3678,
+      "sha256": "edbf9add5c8e91aa23b8ac800f88f62b290bf369f303d1fb06925814b0792b0b"
+    },
+    "analysis/research-v4-arena-evaluation.md": {
+      "bytes": 19191,
+      "sha256": "f35b49df6e4c90dec5d09387c4725650f31e28644bf8a0ea8024c1f59dfcf5c8"
+    },
+    "analysis/research-v4-literature.md": {
+      "bytes": 20852,
+      "sha256": "e1709fcb12bfd1c61877edeb54d05068874e2cf847ffaad225b57a92c9bca220"
+    },
+    "arena_eval.py": {
+      "bytes": 11293,
+      "sha256": "b674c8c649eec2626b5d55d40c9acca967d2afe4aa2fb5e6c21dd5efa6ef27ba"
+    },
+    "belief.py": {
+      "bytes": 17971,
+      "sha256": "fdfe6c78ad8911e259a52c1a645e294a62e94e4f20ebf053218471db1119841e"
+    },
+    "bot.py": {
+      "bytes": 18637,
+      "sha256": "0d00f07a120166821b76a04e5ef2eb991c8197701bb4392d082ebbec5d4a85e8"
+    },
+    "fast_observation.py": {
+      "bytes": 3109,
+      "sha256": "dd537258e8b4afda6acdd0ff46409a98e58a6a7d290795f8bdedb5faf3af092f"
+    },
+    "opponents/v2/provenance.json": {
+      "bytes": 885,
+      "sha256": "c816c4683a3fa776420b1c1c59dce8fe58af30846329b6c53a9629377707c833"
+    },
+    "outputs/belief-quality-v3-smoke-638900-analysis.json": {
+      "bytes": 3740,
+      "sha256": "4695c99112902780636ea09632bdde77196fe5545c5707362f4abcf70ca3b9e1"
+    },
+    "outputs/belief-quality-v3-smoke-638900-source.zip": {
+      "bytes": 63701,
+      "sha256": "c7b4ac1a4529eec29ed10ed0c4e274fc36064354d97eafe1d4d7a520ac6c4a73"
+    },
+    "outputs/belief-quality-v3-smoke-638900.json": {
+      "bytes": 2167870,
+      "sha256": "92a7d9beb3551862095b221ae63215b741e3a7d4b5e60210d01dd84f4a4fb574"
+    },
+    "outputs/experiment-v4-registration.json": {
+      "bytes": 1299,
+      "sha256": "9dc20d465384b9c3f3fb39e31e8ce5ef36391dd1d9f861d928f2fcd118e3e2be"
+    },
+    "outputs/observation-profile-v4.json": {
+      "bytes": 36917,
+      "sha256": "e2ff693d674826e420cfe860c631bfe5669d2ef8767d09a94c87dc869c76c941"
+    },
+    "outputs/package-check-v4.json": {
+      "bytes": 316016,
+      "sha256": "02e00483a52692b2c921740993f7101463b264cf05595cff39e79c7a0be2a68a"
+    },
+    "outputs/policy-replay-v4-bank.json": {
+      "bytes": 5095687,
+      "sha256": "b4bf61bd957b0f001e19a766b869fcf226c2146eac42c5f2d4618151b8cc1d2e"
+    },
+    "outputs/policy-replay-v4-learned.json": {
+      "bytes": 4847231,
+      "sha256": "eca69565e0972b2c0e44dc78adefc7fd23b3af4a5b0e12f4f2a3181f0529bd87"
+    },
+    "outputs/policy-replay-v4-source.zip": {
+      "bytes": 459488,
+      "sha256": "50b2863765547ca19f42b5dc5d4119022c25a6dad6186ee25af13b71191e04ff"
+    },
+    "outputs/research-review-v4.json": {
+      "bytes": 10338,
+      "sha256": "39380a4f36c418da0905e89010508a818a84c8330252940c13c573091853cfda"
+    },
+    "outputs/risk-model-training-v4.json": {
+      "bytes": 44653,
+      "sha256": "441c02c76e63b53bcc2c0d3f7a2b9e6b70b8c7dab0d8e8c7e233255bdbab532b"
+    },
+    "outputs/source-review-v4-core-failed.json": {
+      "bytes": 10778,
+      "sha256": "f54776036a0b8e828f0dbf1c8ed53894b03278a78b32bfcc5e56cbe78a9eb0a9"
+    },
+    "outputs/source-review-v4-core-repair.json": {
+      "bytes": 6057,
+      "sha256": "bea9c12538e8c4ebefd91919ca6bfe0686b947f613c26bd680c10bd59d15ce1a"
+    },
+    "outputs/source-review-v4-model.json": {
+      "bytes": 12556,
+      "sha256": "2e13bf1a9639620b184b5a3ae5dbc3a7e55cbccb4b6ce32d3828dbc01e12d63f"
+    },
+    "outputs/submission-v4-experimental.zip": {
+      "bytes": 136627,
+      "sha256": "87e50d29be61d203df65438cbacc3bf80a3584c59de0d887affcf31fb2064792"
+    },
+    "outputs/v3-holdout-171980/batch-000.json": {
+      "bytes": 4555114,
+      "sha256": "1988073a8a227d3bee73e123a479668219f330de07863397c80bd88300f91ef6"
+    },
+    "outputs/v3-holdout-171980/batch-001.json": {
+      "bytes": 4884880,
+      "sha256": "c3ceca6589e141a12f78ff4fc40bb87c24e2f7a780fba6890646f268be13e93c"
+    },
+    "outputs/v3-holdout-171980/batch-002.json": {
+      "bytes": 4617552,
+      "sha256": "362046cac308b1ba8341db619be39820e053a0ce9db34bf31f9c9f5d7dd6b535"
+    },
+    "outputs/v3-holdout-171980/batch-003.json": {
+      "bytes": 4604963,
+      "sha256": "0e5a6ff77bb4ec6bbece4a9ae0d76f88c5767c299b98a813efc2ac9ce1ef03ee"
+    },
+    "outputs/validation-v4.md": {
+      "bytes": 10360,
+      "sha256": "678b535d7d42ab389a4bbdd4eb17228497f0ef5e16aeec3e8b4dfd05ad929cf3"
+    },
+    "package.test.mjs": {
+      "bytes": 2326,
+      "sha256": "57b7a6a7e24f22c30e8655e717ff9b6bbb24c750e727f6d6033c556d7e82222c"
+    },
+    "package_submission.py": {
+      "bytes": 2634,
+      "sha256": "03dba996f01561bf820697b93476dcda34a2e6c4a24b13ebf2aee92561c26b25"
+    },
+    "profile_belief_quality.py": {
+      "bytes": 29353,
+      "sha256": "60d940e08b7287fc165c96cabe7e04da9f2986aa9d8f1500d3d7664d68be9703"
+    },
+    "profile_observation.py": {
+      "bytes": 9313,
+      "sha256": "7bd41b416dc459d45a34cdb429b979c403bc6f7d8a03d146f1b7a8acf66fcb7a"
+    },
+    "profile_policy_replay.py": {
+      "bytes": 27574,
+      "sha256": "01e322024935844af7e61a1e48e68d20b0f2b756ab45fa68cdf94eccd77b7c71"
+    },
+    "referee.py": {
+      "bytes": 32118,
+      "sha256": "2f82ac292bfad29bcb2d701b73c060d1ca8281378b4598f08a620fe5c97255be"
+    },
+    "requirements.txt": {
+      "bytes": 34,
+      "sha256": "391e529739e99dc63461425af4ad7afb10d89aa275922928ceb8e2f5dffa7149"
+    },
+    "risk_model.json": {
+      "bytes": 18545,
+      "sha256": "fb517196cf82698e6224cbe20ca6e1e02fe63d18d8d490dc0a5f29f813e5028b"
+    },
+    "risk_model.py": {
+      "bytes": 16598,
+      "sha256": "042df37ae31e3a587b654184189e4c2e39c76c34ffa0d6530f8e83509ae37a81"
+    },
+    "run.sh": {
+      "bytes": 108,
+      "sha256": "d3ccf8f4ecaa20374e0d1d293abd303ab2f8812da01878ec47d70e8b796eaec0"
+    },
+    "run_paired_suite.py": {
+      "bytes": 18266,
+      "sha256": "aced8453cf75991c35d9ea0c4e976193528b0336e58d045a91a852e2c036e969"
+    },
+    "search.py": {
+      "bytes": 16186,
+      "sha256": "f8bf2df2008936c77950e0d35da00bc986ac89e14d400b0813c2768e0be0f1b1"
+    },
+    "test_belief.py": {
+      "bytes": 13018,
+      "sha256": "2af2820ca263e2961f6ef30ad60d19d7153b3feadc73069b05620fdb2b59b2f2"
+    },
+    "test_belief_v4.py": {
+      "bytes": 8372,
+      "sha256": "738d49569e23c484eed3d9dfaaf471e617760d005373b4e32e3afe7362688d3c"
+    },
+    "test_fast_observation.py": {
+      "bytes": 4178,
+      "sha256": "1a9fb4edfe2e797aecccf6051c6861f272e7c7a6a775524dd3b8f68d35c4957c"
+    },
+    "test_risk_model.py": {
+      "bytes": 8938,
+      "sha256": "5976d0a7ffad537a16e3b15be105b11c5b304933db84da0403aa68e67c15a1ae"
+    },
+    "test_search.py": {
+      "bytes": 13897,
+      "sha256": "b5a5db5bc728e0a7d90e9e30d21089694c6fda482da6252d80a057413283e8ed"
+    },
+    "test_v4_policy.py": {
+      "bytes": 5743,
+      "sha256": "24019435a44654e6c8d8341b15dae1dc41aa8907042441a380045026d8004804"
+    },
+    "train_risk_model.py": {
+      "bytes": 20316,
+      "sha256": "d84a4218be88b998053fec6a1268f159e1d100c9f6c6aa642ca0681e5738648f"
+    },
+    "uniform_random.py": {
+      "bytes": 7595,
+      "sha256": "a9d2d69c1893652dae938c596be59fc16fdf1edba3ccf491d9cf2c92d75b514a"
+    }
+  },
+  "total_files": 66,
+  "total_bytes": 32703693,
+  "exclusions": [
+    "This manifest itself (avoids recursive hash).",
+    ".company and .venv state.",
+    "Unchanged historical repository files except named training/provenance inputs."
+  ]
+}

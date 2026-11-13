@@ -295,7 +295,7 @@ class Search:
 
 def search_root(worlds, moves, priors, deadline, now=time.monotonic,
                 complete=True, max_depth=3, node_limit=18000,
-                utility_scale=None, immediate_risks=None):
+                utility_scale=None, immediate_risks=None, loss_cost=None):
     """Only publish a completed common-depth/common-world batch.
 
     Default priors contain root safety/uncertainty penalties. With bounded
@@ -306,6 +306,10 @@ def search_root(worlds, moves, priors, deadline, now=time.monotonic,
         return None, {'depth': 0, 'nodes': 0}
     if utility_scale is not None and (not math.isfinite(utility_scale) or utility_scale <= 0):
         raise ValueError('Utility scale must be finite and positive')
+    if loss_cost is not None and (utility_scale is None or not math.isfinite(loss_cost)
+                                  or loss_cost <= 0):
+        raise ValueError('Loss cost requires bounded utility and a finite positive value')
+    loss_cost = utility_scale if loss_cost is None else loss_cost
     if immediate_risks is not None and (utility_scale is None or any(
             move not in immediate_risks or not math.isfinite(immediate_risks[move])
             or not 0 <= immediate_risks[move] <= 1 for move in moves)):
@@ -319,6 +323,7 @@ def search_root(worlds, moves, priors, deadline, now=time.monotonic,
         return survives, scores[move]
     best = max(moves, key=rank)
     completed = 0
+    stopped_by = 'depth'
     order = sorted(moves, key=rank, reverse=True)
     try:
         for depth in range(1, max_depth + 1):
@@ -354,13 +359,14 @@ def search_root(worlds, moves, priors, deadline, now=time.monotonic,
                 continuation = .8 * mean + .2 * tail
                 if immediate_risks is not None:
                     risk = immediate_risks[move]
-                    continuation = (1 - risk) * continuation - risk * utility_scale
+                    continuation = (1 - risk) * continuation - risk * loss_cost
                 batch[move] = continuation + priors[move]
             scores = batch
             best = max(order, key=rank)
             completed = depth
             order.sort(key=rank, reverse=True)
     except SearchExpired:
-        pass
+        stopped_by = 'nodes' if engine.nodes >= node_limit else 'deadline'
     return best, {'depth': completed, 'nodes': engine.nodes,
-                  'worlds': len(worlds), 'score': scores[best]}
+                  'worlds': len(worlds), 'score': scores[best],
+                  'stopped_by': stopped_by}

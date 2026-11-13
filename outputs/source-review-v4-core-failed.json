@@ -1,0 +1,81 @@
+{
+  "id": "artifact-0259a9e6-0c1d-4e5a-a571-abb4e415bbfa",
+  "kind": "review",
+  "content": "Source-only verdict: Fail for artifact-dab79946-ff15-4586-ba53-08c2c0027d9f, revision 1. One deadline-enforcement defect requires repair. This is static inspection of supplied text only: no tools, commands, tests, external access or hash recomputation were performed. The reported 116 passing tests are host-reported evidence, not independently verified execution.\n\nGoverning basis: supplied SoloCo v0.21 and team_sha256 7dc8081a08646135a7e021f1651eb3ac2952af9f63cf48ed0418efdcab8695b3.\n\nBlockers:\nB1 — bot.py, choose_move: learned-risk scoring lacks deadline checks when the current particle bank is empty or stale. The survival loop checks now() only inside `for world in current_particles`. With no current particles, that loop executes zero times, so every detailed candidate receives predict_risk without any intervening deadline check. This can happen deliberately when queued observation events remain. The implementation can therefore begin and continue an entire optional model-scoring batch after its deadline. The subsequent check before search does not bound that earlier work. This contradicts the prospective plan's requirement that optional risk scoring share the absolute deadline. It is distinct from the acknowledged bounded mandatory safety pass and from a single operation overrunning a cooperative checkpoint.\nClearing condition: check the shared deadline before each candidate's optional risk computation, independently of particle availability, and check after prediction before accepting the batch. On expiry return the previously retained fallback without publishing partially scored candidates. Add a regression with absent or stale particles and a mocked predictor that advances the injected clock beyond the deadline; verify that remaining predictions are skipped and the conservative fallback is retained. The authorized runtime must execute the regression and return the changed exact source for independent review. This review grants no execution permission or additional attempts.\n\nOther findings:\n1. Observation-only integration is coherent in the inspected production path. State.observe updates RiskHistory once per received observation; State.record_move records the observed capture before committing tracker state. Feature validation checks observed piece identity, side, current observation and the projected move. Production prediction receives the reconstructed observation board, not a belief particle or evaluator truth. Tests injecting full boards do not establish a production truth channel. Model coefficients, training provenance and empirical calibration remain outside this review. Piece-signature validation does not authenticate all board metadata, so it is not a general security boundary against arbitrary callers.\n2. The visibility implementation explicitly handles pawn pushes and blockers, occupied capture diagonals, active-side en passant with the displaced victim square, and castling destinations. Promoted pieces use their current types; promoted kings are excluded from castling. The supplied differential tests cover both observer colors, mirrored special positions, generated promotion successors, reached positions and stale en-passant visibility. They are useful coverage, not exhaustive equivalence evidence. referee.py, uniform_random.py and dependency bytes are not supplied here; official-rule equivalence remains conditional on those dependencies and unverified test execution.\n3. Belief processing retains ordered queued observations and own moves. Outstanding events suppress use of stale particles. Successor acceptance checks current visible pieces, exact visibility, continuation and phase. Particle and expansion caps are finite; recovery receives the same absolute update deadline rather than a fresh allowance. Recovery withdraws exact-history claims and resets repetition counts. Once depleted, the bank does not spontaneously recover on later observations. Larger capacity does not establish posterior completeness or retention of hidden promotion branches.\n4. The historical repetition-cache repair remains present: cache identity includes the full repetition counter, and each sampled world binds its own history. Recursive push/pop restores counters and boards. Belief continuation includes a no-pseudo-legal-move check. Complete-board search handles no surviving move before quiescence stand-pat. These conclusions retain the stated dependency on FowBoard semantics.\n5. Root utility matches the declared equation: C is the weighted mean/tail of bounded surviving-world values, followed by `(1-p)*C - 3200*p + prior`. Immediate-death samples are excluded from continuation averaging; an all-dead sample receives C=-800. Thus sampled root death is not separately charged again through mate scores. The prior remains unbounded, and sampled survivors need not represent the learned conditional survival distribution. This is a heuristic, not calibrated expected utility or general survival-first dominance.\n6. The learned policy blends model and current-bank risk once, and uses the model alone when the bank is unavailable. Because model output is clipped strictly below one, blending can make even bank-unanimous death have p<1. The bank-only certain-death exclusion must not be attributed to learned mode. The plan appropriately disclaims survival-first optimization.\n7. Completed common-depth batches replace earlier search results; partial depth batches do not. Survival and recursive search restore pushed boards in finally blocks. Before survival completion the prior fallback remains retained. B1 is the missing cooperative expiry boundary in the no-bank learned path; these otherwise useful safeguards do not resolve it.\n\nProspective plan assessment:\nplan-3829e7c4-593e-4acc-965a-b8a243137ab0, revision 1, supplies the previously missing utility equation, numerical mechanism thresholds, exact four-worker policy, response-time thresholds, comparator allowance and deterministic A-before-B selection rule. It distinguishes optional 600 ms work from complete-response timing and fixes development blocks, fresh final pairs and separate controls. The 238.5/400-point threshold is consistent with the stated strict Hoeffding lower-bound criterion for 200 independent bounded pair outcomes. Independence remains an assumption. The plan deliberately accepts mandatory work outside the optional deadline; it must not be described as implementing Research's proposed complete-response deadline. Candidate-specific timing evidence is still required, and B1 prevents accepting the claimed optional-work enforcement as implemented.\nThe plan's preregistration timestamp, seed freshness, model lineage, replay audit implementation and actual execution bindings remain supplied assertions or separately reviewed dependencies. This scoped review does not approve the model or evaluation harness.\n\nHistorical disposition:\nThe supplied artifact-dc7dc956-c3e0-40d3-ba56-e67ca7700d48 and artifact-d7bc3564-c004-46f0-8301-e2da70be8b2d explicitly resolve the earlier source and evaluation blocks within their V3 scopes. Research's earlier statement that closure was unavailable is superseded by this packet's evidence. Historical Fail and Blocked verdicts remain unchanged; their supplemental closures do not approve V4 or establish strength.\n\nExact supplied file bindings reviewed, not independently recomputed:\nbot.py: ce6353897f810625b3cf217e65f57ac569ccc0dae5f0129092658250a1ce60f9\nbelief.py: fdfe6c78ad8911e259a52c1a645e294a62e94e4f20ebf053218471db1119841e\nsearch.py: f8bf2df2008936c77950e0d35da00bc986ac89e14d400b0813c2768e0be0f1b1\nfast_observation.py: dd537258e8b4afda6acdd0ff46409a98e58a6a7d290795f8bdedb5faf3af092f\nrisk_model.py: 042df37ae31e3a587b654184189e4c2e39c76c34ffa0d6530f8e83509ae37a81\ntest_v4_policy.py: c681671a82bdcfffeeccf03ece2fc0d53548f09bc6fd4091b89a3541235ff96b\ntest_fast_observation.py: 1a9fb4edfe2e797aecccf6051c6861f272e7c7a6a775524dd3b8f68d35c4957c\ntest_belief_v4.py: 738d49569e23c484eed3d9dfaaf471e617760d005373b4e32e3afe7362688d3c\n\nReceiver and resolver: runner. Next permitted action is bounded repair under existing host authority, followed by candidate-specific regression evidence and independent source review. No deadline was supplied. No release, accept_local_development, package, strength, Linux qualification or MIT Elo acceptance is granted.",
+  "author_role": "qa",
+  "author_instance": "qa-657128db-43dd-4fef-b7a0-e8ab8342f4dc",
+  "revision": 1,
+  "status": "Submitted",
+  "job_id": "job-9ba0616f-0727-42f6-96b4-05095414db4e",
+  "inputs": [
+    {
+      "id": "artifact-55004532-fba2-4b5e-a5b8-074a54f4dedb",
+      "revision": 1
+    },
+    {
+      "id": "artifact-9194a3ff-904f-468b-b987-b62a3ddf18d2",
+      "revision": 1
+    },
+    {
+      "id": "artifact-d7bc3564-c004-46f0-8301-e2da70be8b2d",
+      "revision": 1
+    },
+    {
+      "id": "artifact-dab79946-ff15-4586-ba53-08c2c0027d9f",
+      "revision": 1
+    },
+    {
+      "id": "artifact-dc7dc956-c3e0-40d3-ba56-e67ca7700d48",
+      "revision": 1
+    },
+    {
+      "id": "artifact-ff82939b-0fb9-4d25-bf2b-29577e2f7b66",
+      "revision": 1
+    },
+    {
+      "id": "decision-23352f20-cb56-4e86-84a0-471ee16e22f8",
+      "revision": 1
+    },
+    {
+      "id": "decision-5bb19ad8-645e-4255-ae18-2e0e2893f792",
+      "revision": 1
+    },
+    {
+      "id": "decision-cd9026aa-f192-4894-996a-2234398f1902",
+      "revision": 1
+    },
+    {
+      "id": "development-authorization-6dadf1f3-ee7d-4dd4-a45f-02c8b692137f",
+      "revision": 1
+    },
+    {
+      "id": "intent-29a81338-5a22-4976-bd0f-2058ceb3a529",
+      "revision": 1
+    },
+    {
+      "id": "intent-2f26bb5a-aba1-4800-ba28-a66c73b6355b",
+      "revision": 2
+    },
+    {
+      "id": "intent-ba2d0d71-23b3-4922-9d2b-e06d62cff97e",
+      "revision": 1
+    },
+    {
+      "id": "intent-ca1fe87f-6849-4941-87aa-0358ee68923d",
+      "revision": 1
+    },
+    {
+      "id": "plan-3829e7c4-593e-4acc-965a-b8a243137ab0",
+      "revision": 1
+    }
+  ],
+  "review_of": {
+    "id": "artifact-dab79946-ff15-4586-ba53-08c2c0027d9f",
+    "revision": 1
+  },
+  "review": {
+    "verdict": "Fail",
+    "reason": "The exact supplied bot.py can continue optional learned-risk predictions without checking the shared deadline when particles are absent or stale, violating the declared optional-work compute contract. Repair and candidate-specific regression evidence are required. Other inspected integration and historical correctness repairs are coherent within the stated dependency limits; model training, evaluation-harness integrity, runtime success and promotion are not approved."
+  },
+  "created_at": "2026-11-13T16:05:09.778Z"
+}

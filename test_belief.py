@@ -167,7 +167,7 @@ class BeliefTests(unittest.TestCase):
                 belief.observe(invalid)
         self.assertEqual(belief.diagnostics, prior)
         with self.assertRaises(ValueError):
-            Belief(True, max_particles=65)
+            Belief(True, max_particles=1025)
 
     def test_expired_deadline_bounds_transition_and_recovery_without_stale_samples(self):
         truth = FowBoard()

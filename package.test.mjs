@@ -13,7 +13,8 @@ const upstream = {
 };
 const generated = ['README.md', 'SOURCES.md', 'bot.py', 'evaluate.py',
   'package.test.mjs', 'package_submission.py', 'run.sh', 'test_bot.py',
-  'belief.py', 'search.py', 'legacy_bot.py', 'arena_eval.py', 'profile_resources.py',
+  'belief.py', 'search.py', 'fast_observation.py', 'risk_model.py', 'risk_model.json',
+  'legacy_bot.py', 'arena_eval.py', 'profile_resources.py',
   'test_belief.py', 'test_search.py', 'test_arena_eval.py'];
 const url = name => new URL(name, import.meta.url);
 const bytes = name => readFileSync(url(name));
@@ -38,5 +39,6 @@ test('launcher and explicit runtime manifest', () => {
   const match = bytes('package_submission.py').toString().match(/RUNTIME_FILES = \(([\s\S]*?)\)/);
   assert.ok(match);
   assert.deepEqual([...match[1].matchAll(/'([^']+)'/g)].map(m => m[1]),
-    ['bot.py', 'belief.py', 'search.py', 'referee.py', 'uniform_random.py', 'run.sh', 'requirements.txt', 'SOURCES.md']);
+    ['bot.py', 'belief.py', 'search.py', 'fast_observation.py', 'risk_model.py', 'risk_model.json',
+      'referee.py', 'uniform_random.py', 'run.sh', 'requirements.txt', 'SOURCES.md']);
 });

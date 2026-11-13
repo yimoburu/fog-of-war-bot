@@ -12,7 +12,8 @@ from collections import Counter
 
 import chess
 
-from referee import FowBoard, fow_moves, observation
+from fast_observation import matches_masks, observation_masks, visible_mask
+from referee import FowBoard, fow_moves
 from uniform_random import OBSERVATION_CHARACTERS, infer_en_passant
 
 
@@ -45,22 +46,7 @@ def forced_blockers(view, side):
 
 
 def _view_masks(view, side):
-    visible = occupied = ours = 0
-    pieces = {}
-    for square, symbol in enumerate(view):
-        if symbol == '?':
-            continue
-        bit = chess.BB_SQUARES[square]
-        visible |= bit
-        if symbol == '-':
-            continue
-        occupied |= bit
-        if symbol.isupper() == side:
-            ours |= bit
-        piece = chess.Piece.from_symbol(symbol)
-        key = piece.piece_type, piece.color
-        pieces[key] = pieces.get(key, 0) | bit
-    return visible, occupied, ours, pieces
+    return observation_masks(view, side)
 
 
 def _quick_matches(board, masks, side):
@@ -141,8 +127,8 @@ class Belief:
     MAX_RECOVERY_PROPOSALS = 64
 
     def __init__(self, side, seed=0, max_particles=64):
-        if not isinstance(max_particles, int) or not 1 <= max_particles <= 64:
-            raise ValueError('max_particles must be between 1 and 64')
+        if type(max_particles) is not int or not 1 <= max_particles <= 1024:
+            raise ValueError('max_particles must be an integer between 1 and 1024')
         self.side = bool(side)
         self.max_particles = max_particles
         self.particles = []
@@ -170,7 +156,7 @@ class Belief:
             particles=len(boards),
             elapsed_seconds=time.monotonic() - started, **details)
 
-    def _repair_current(self, base, view, previous, perturb):
+    def _repair_current(self, base, view, previous, perturb, masks):
         """Reconcile a prior inventory; never claim the rearrangement occurred."""
         enemy = not self.side
         pool = [(square, base.piece_at(square), bool(base.promoted & chess.BB_SQUARES[square]))
@@ -258,11 +244,11 @@ class Belief:
         rebuilt.castling_rights = rebuilt.clean_castling_rights()
         # The rearrangement certifies no earlier repetition history.
         rebuilt.fow_repetitions = Counter({repetition_key(rebuilt): 1})
-        if not _continued(rebuilt) or observation(rebuilt, self.side) != view:
+        if not _continued(rebuilt) or not matches_masks(rebuilt, self.side, masks):
             return None
         return rebuilt
 
-    def _recover(self, parents, pending, view, previous, deadline=None):
+    def _recover(self, parents, pending, view, previous, masks, deadline=None):
         started = time.monotonic()
         stop_at = started + self.MAX_RECOVERY_SECONDS
         if deadline is not None:
@@ -288,7 +274,8 @@ class Belief:
                 base.ep_square = None
                 base.halfmove_clock = 0  # Unknown opponent move may reset it.
             proposals += 1
-            board = self._repair_current(base, view, previous, perturb=index > 0)
+            board = self._repair_current(base, view, previous, perturb=index > 0,
+                                         masks=masks)
             if board is None or _key(board) in seen:
                 continue
             seen.add(_key(board))
@@ -322,10 +309,11 @@ class Belief:
                                 truncated=False, recovery_proposals=0,
                                 recovery_status='not_needed')
         previous, self._last_view = self._last_view, view
+        masks = _view_masks(view, self.side)
         if not self._initialized:
             self._initialized = True
             initial = FowBoard()
-            if observation(initial, self.side) == view:
+            if matches_masks(initial, self.side, masks):
                 self._history_exact = True
                 initial.fow_repetitions = Counter({repetition_key(initial): 1})
                 self._finish([initial], 'tracking', started)
@@ -337,13 +325,16 @@ class Belief:
             self._finish([], 'depleted', started)
             return
 
-        masks = _view_masks(view, self.side)
         parents = list(self.particles)
         self._rng.shuffle(parents)
         survivors, seen = [], set()
         expansions = visibility_checks = survivor_count = 0
         truncated = False
         phase_error = False
+        # Grow transition coverage with the bank, retaining a hard work cap.
+        # MAX_EXPANSIONS remains adjustable for bounded-work regression tests.
+        expansion_limit = min(16384, self.MAX_EXPANSIONS *
+                              max(64, self.max_particles) // 64)
         for parent in parents:
             if pending is not None:
                 if parent.turn != self.side:
@@ -357,7 +348,7 @@ class Belief:
                 moves = fow_moves(parent)
                 self._rng.shuffle(moves)
             for move in moves:
-                if (expansions >= self.MAX_EXPANSIONS
+                if (expansions >= expansion_limit
                         or time.monotonic() >= stop_at):
                     truncated = True
                     break
@@ -368,7 +359,7 @@ class Belief:
                 if not _quick_matches(child, masks, self.side) or not _continued(child):
                     continue
                 visibility_checks += 1
-                if observation(child, self.side) != view:
+                if visible_mask(child, self.side) != masks[0]:
                     continue
                 key = _key(child)
                 if key in seen:
@@ -384,7 +375,8 @@ class Belief:
             if truncated:
                 break
         if not survivors and not phase_error:
-            survivors = self._recover(parents, pending, view, previous, deadline)
+            survivors = self._recover(parents, pending, view, previous, masks,
+                                      stop_at)
         status = (('tracking' if self._history_exact else 'tracking_approximate_history')
                   if survivors else 'missing_or_out_of_phase_own_move'
                   if phase_error else 'depleted_by_work_limit' if truncated

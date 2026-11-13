@@ -11,7 +11,8 @@ import subprocess
 import sys
 import time
 
-from arena_eval import checkpoint, classify, schedule, source_hashes, summarize
+from arena_eval import (ROOT_RUNTIME_DEPENDENCIES, checkpoint, classify, schedule,
+                        source_hashes, summarize)
 
 ROOT = Path(__file__).resolve().parent
 V2_SNAPSHOT_FILES = ('bot.py', 'belief.py', 'search.py', 'referee.py',
@@ -262,6 +263,8 @@ def main(argv=None):
     dependencies = [ROOT / name for name in ('run_paired_suite.py', 'arena_eval.py', 'referee.py',
                     'uniform_random.py', 'requirements.txt', 'belief.py', 'search.py')
                     if (ROOT / name).exists()]
+    if any(path.resolve() == ROOT / 'bot.py' for path in (args.candidate, args.opponent)):
+        dependencies.extend(ROOT / name for name in ROOT_RUNTIME_DEPENDENCIES)
     if any(path.resolve() == ROOT / 'v2_bot.py' for path in (args.candidate, args.opponent)):
         dependencies.extend(ROOT / 'opponents' / 'v2' / name for name in V2_SNAPSHOT_FILES)
     sources = sorted({path.resolve() for path in [args.candidate, args.opponent, *dependencies, *args.source]})
