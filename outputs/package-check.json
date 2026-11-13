@@ -1,0 +1,27 @@
+{
+  "archive_sha256": "8aaa8158eef152e4788ba234d8885aa034e1d8e573cebfc9ba980652af15814c",
+  "archive_bytes": 52654,
+  "files": {
+    "bot.py": "3df007f50369f53c5c473988d69a30557c3823a1b28b81943312e5761d21e57a",
+    "referee.py": "2f82ac292bfad29bcb2d701b73c060d1ca8281378b4598f08a620fe5c97255be",
+    "uniform_random.py": "a9d2d69c1893652dae938c596be59fc16fdf1edba3ccf491d9cf2c92d75b514a",
+    "run.sh": "d3ccf8f4ecaa20374e0d1d293abd303ab2f8812da01878ec47d70e8b796eaec0",
+    "requirements.txt": "391e529739e99dc63461425af4ad7afb10d89aa275922928ceb8e2f5dffa7149",
+    "SOURCES.md": "14fb0dfab00416646454fb86ba2b888199d7ab4534702ea08823d12c6d94d15a"
+  },
+  "matches": [
+    {
+      "bot_color": "white",
+      "result": "1-0",
+      "reason": "King capturable",
+      "plies": 36
+    },
+    {
+      "bot_color": "black",
+      "result": "0-1",
+      "reason": "King capturable",
+      "plies": 11
+    }
+  ],
+  "status": "passed"
+}

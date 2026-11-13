@@ -1,0 +1,34 @@
+test_candidate_sets_match_many_reachable_games (test_uniform_random.UniformRandomTests.test_candidate_sets_match_many_reachable_games) ... ok
+test_castling_out_of_through_and_into_attack (test_uniform_random.UniformRandomTests.test_castling_out_of_through_and_into_attack) ... ok
+test_castling_rights_never_return_when_rook_or_king_returns (test_uniform_random.UniformRandomTests.test_castling_rights_never_return_when_rook_or_king_returns) ... ok
+test_each_promotion_is_a_separate_move_and_captures_not_preferred (test_uniform_random.UniformRandomTests.test_each_promotion_is_a_separate_move_and_captures_not_preferred) ... ok
+test_ep_inference_under_varied_obstructions_and_captures (test_uniform_random.UniformRandomTests.test_ep_inference_under_varied_obstructions_and_captures) ... ok
+test_identical_current_views_need_history_to_disambiguate_en_passant (test_uniform_random.UniformRandomTests.test_identical_current_views_need_history_to_disambiguate_en_passant) ... ok
+test_initial_moves_and_blocked_pawn (test_uniform_random.UniformRandomTests.test_initial_moves_and_blocked_pawn) ... ok
+test_persistent_bots_complete_games_without_protocol_or_move_forfeits (test_uniform_random.UniformRandomTests.test_persistent_bots_complete_games_without_protocol_or_move_forfeits) ... ok
+test_pinned_en_passant_is_legal_for_both_colors (test_uniform_random.UniformRandomTests.test_pinned_en_passant_is_legal_for_both_colors) ... ok
+test_revealing_a_stationary_pawn_does_not_create_en_passant (test_uniform_random.UniformRandomTests.test_revealing_a_stationary_pawn_does_not_create_en_passant) ... ok
+test_seeded_protocol_is_reproducible (test_uniform_random.UniformRandomTests.test_seeded_protocol_is_reproducible) ... ok
+test_starting_pawn_capture_that_reveals_other_pawn_is_not_en_passant (test_uniform_random.UniformRandomTests.test_starting_pawn_capture_that_reveals_other_pawn_is_not_en_passant) ... ok
+test_two_pawns_can_capture_the_same_en_passant_target (test_uniform_random.UniformRandomTests.test_two_pawns_can_capture_the_same_en_passant_target) ... ok
+test_archive_contents_reproducibility_and_rejections (test_bot.EvidenceTests.test_archive_contents_reproducibility_and_rejections) ... ok
+test_schedule_and_denominators (test_bot.EvidenceTests.test_schedule_and_denominators) ... ok
+test_real_sighting_contradiction (test_bot.HistoryTests.test_real_sighting_contradiction) ... ok
+test_same_current_view_different_ep_history_and_protocol (test_bot.HistoryTests.test_same_current_view_different_ep_history_and_protocol) ... ok
+test_sighting_decay_expiry_and_invalid_observation (test_bot.HistoryTests.test_sighting_decay_expiry_and_invalid_observation) ... ok
+test_both_colors_and_seeded_inprocess_output (test_bot.ProtocolTests.test_both_colors_and_seeded_inprocess_output) ... ok
+test_complete_matches_both_colors_both_opponents (test_bot.ProtocolTests.test_complete_matches_both_colors_both_opponents) ... ok
+test_imports_have_no_output (test_bot.ProtocolTests.test_imports_have_no_output) ... ok
+test_negative_protocol_cases (test_bot.ProtocolTests.test_negative_protocol_cases) ... ok
+test_attacking_enemy_king_is_not_terminal (test_bot.StrategyTests.test_attacking_enemy_king_is_not_terminal) ... ok
+test_castling_crossing_vs_finishing_attack (test_bot.StrategyTests.test_castling_crossing_vs_finishing_attack) ... ok
+test_hidden_blocker_and_promotions_match_oracle (test_bot.StrategyTests.test_hidden_blocker_and_promotions_match_oracle) ... ok
+test_horizontal_ep_removes_both_blockers (test_bot.StrategyTests.test_horizontal_ep_removes_both_blockers) ... ok
+test_known_attack_and_moving_blocker_bait (test_bot.StrategyTests.test_known_attack_and_moving_blocker_bait) ... ok
+test_reached_games_candidate_and_safety_invariants (test_bot.StrategyTests.test_reached_games_candidate_and_safety_invariants) ... ok
+test_seed_clock_and_all_unsafe_fallback (test_bot.StrategyTests.test_seed_clock_and_all_unsafe_fallback) ... ok
+
+----------------------------------------------------------------------
+Ran 29 tests in 11.051s
+
+OK
