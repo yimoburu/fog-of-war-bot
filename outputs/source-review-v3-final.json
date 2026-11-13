@@ -1,0 +1,69 @@
+{
+  "id": "artifact-d7bc3564-c004-46f0-8301-e2da70be8b2d",
+  "kind": "review",
+  "content": "Supplemental source-only verdict: Pass for artifact-2d02d9bd-8f92-4ea1-b4fe-c6ecf82b7461, revision 1, considered with artifact-9ca04948-c07d-4624-95f5-32c71ff3fd1f, revision 1. B1 and B2 are cleared for the assigned source-review scope. The original Blocked review artifact-ff82939b-0fb9-4d25-bf2b-29577e2f7b66 remains unchanged as the historical verdict on its incomplete evidence packet.\n\nEvidence boundary: static inspection of supplied text only. No tools, commands, tests, matches, external access, or hash recomputation were performed. Hashes below are supplied version bindings, not independently verified digests. This Pass covers the selected default and evaluation-code integrity under trusted local operation; it does not accept runtime results, strength improvement, packaging, official protocol fidelity, Linux qualification, or execution authority.\n\nB1 — cleared. arena_eval.py supplies the previously missing scheduling, classification, hashing, checkpointing, and statistical implementation. Each seed pair retains candidate and opponent seeds across reversed colors. The suite namespaces pair IDs across batches before inference. Paired uncertainty rejects incomplete, duplicate-color, failed, or unresolved pairs. For independent bounded pair means, sqrt(log(40)/(2*n)) is the correct radius for a two-sided 95% Hoeffding interval. At 100 pairs the radius is approximately 0.13581, so the predeclared lower-bound criterion requires mean score greater than approximately 0.63581: at least 127.5 game-score points out of 200. Zero execution failures and complete planned evidence are additional mandatory conditions. The source reports an interval; it does not automatically declare the strength criterion passed. The receiver must apply the strict lower-bound comparison to the completed audit. Independence remains an assumption, particularly with shared host contention; distinct seeds alone do not establish it. Relative Elo is correctly described as a logistic score transform without an absolute arena anchor, and saturated estimates retain nondegenerate score intervals.\n\nClassification accepts only recognized scored results with listed normal reasons and no failedSide key, nonempty studentReports, or warnings. Time forfeits and unrecognized failure reasons cannot count as clean completion; scored failures remain in raw accounting. Exceptions remain unresolved and abort execution. All failures suppress suite-level strength inference. 'Move limit reached' is deliberately accepted as a normal capped-game outcome under the declared 1000-ply experiment; this must remain disclosed when interpreting results. Classification trusts replay fields and does not validate board trajectories, reason/result consistency, or unreported referee failures. Full replay audit remains necessary and is outside this source Pass. The supplied tests exercise the principal classification and statistical boundaries, but their execution is unverified.\n\nB2 — cleared. The supplied actual plan declares four batches of 25 pairs, 200 games total, four workers, seed bases 171980/181980/191980/201980, time control 180+2, and 1000 maximum plies. The seed ranges are disjoint. Candidate arguments select hypothesis explicitly; opponent arguments are empty. Search duration consequently relies on implementation defaults rather than an explicit command argument. Candidate, wrapper, evaluation runner, dependencies, and all eight snapshot files are included in the plan's source bindings and forwarded child commands. The aggregator checks child completion, exit status, source declarations, configuration, schedule identities, recorded commands, and reclassified outcomes; errors suppress aggregate inference rather than selecting successful batches.\n\nThe v2 wrapper starts an isolated interpreter, verifies the declared commit and exact seven-file manifest membership, checks snapshot file digests, imports named application dependencies from the snapshot, and executes snapshot bot.py. The plan separately binds provenance.json. The wrapper itself does not hard-code the manifest digest; the supplied snapshot test does, and the suite's source binding covers persistent manifest changes. This is coherent for the expressly trusted-local scope. Provenance contents do not independently prove retrieval from Git commit 65fde033a2e65394a676e44969a992832ee17470; that lineage remains a supplied record assertion. Interpreter and installed third-party package bytes are not authenticated by this application-source manifest.\n\nFinal default binding: State, serve, and main consistently select hypothesis. The actual holdout plan explicitly requests that same policy. The prior review's three-default-literal comparison supports the narrow change; this review does not reopen unchanged core algorithms. Robust-policy survival-first guarantees must not be attributed to hypothesis mode. Development selection results do not establish a gain.\n\nExact supplied bindings covered:\nbot.py: 38f327bdb2b14b1d9983478ca7c27c9c105cd80c54fc4150a979973dadf1f2d8\nrun_paired_suite.py: 5699a40ffeb1a76e0c3a2a3d13000e5c35f1fad898387cf2cf8113893ad36082\narena_eval.py: 423b99eb9d4cdf462e8541caffb4d6884570bd3fe877407462ce73d5bca9fb79\ntest_arena_eval.py: fcf10fef497d025e7bf2a7ae1c5238a4ce014c16d41003343da5b71fbd3fb516\ntest_paired_suite.py: 085cc88f73a13910c458aad2ad1613d569bcfb92d1ee365eac2a0934702ffa5f\nv2_bot.py: f3c236892586cf2577745f310b4bd9c37321c158ea0c15b17dc388d20f831ed8\ntest_snapshot.py: aaedc75067b4aff53670568b5c7a0b4625743d5129c9944a95da75faf68d1a10\nopponents/v2/provenance.json: c816c4683a3fa776420b1c1c59dce8fe58af30846329b6c53a9629377707c833\noutputs/v3-holdout-171980/plan.json: df08cbee1081e92a7f0cef7de550cb176b2e5b9a1d48a603a65ff9d2538975e2\n\nBlockers: none for this supplemental source-only acceptance. Pending conditions for broader acceptance are candidate-bound execution evidence, all 200 games and replay audit, the predeclared statistical criterion, diverse controls for broader improvement claims, and reproducible package evidence. The supplied 92-test footer alone does not satisfy those conditions. Persistent-change detection is supported; hostile tamper resistance and attestation of every executed byte are not claimed. Cancellation escalation still leaves descendant closure requiring host verification.\n\nReceiver: runner. Record this supplemental disposition alongside the retained historical Blocked and Fail records and separately scoped core Pass. Next action is to complete and audit the already authorized host evidence, then apply the predeclared criterion without optional stopping or selective aggregation. This review grants no new execution permission or promotion.",
+  "author_role": "qa",
+  "author_instance": "qa-ef339a8f-56cd-4e99-9c17-7c808534312a",
+  "revision": 1,
+  "status": "Submitted",
+  "job_id": "job-08d76a7d-208e-4897-93b1-db42bc1b4074",
+  "inputs": [
+    {
+      "id": "artifact-2d02d9bd-8f92-4ea1-b4fe-c6ecf82b7461",
+      "revision": 1
+    },
+    {
+      "id": "artifact-9194a3ff-904f-468b-b987-b62a3ddf18d2",
+      "revision": 1
+    },
+    {
+      "id": "artifact-9ca04948-c07d-4624-95f5-32c71ff3fd1f",
+      "revision": 1
+    },
+    {
+      "id": "artifact-dc7dc956-c3e0-40d3-ba56-e67ca7700d48",
+      "revision": 1
+    },
+    {
+      "id": "artifact-ff82939b-0fb9-4d25-bf2b-29577e2f7b66",
+      "revision": 1
+    },
+    {
+      "id": "decision-23352f20-cb56-4e86-84a0-471ee16e22f8",
+      "revision": 1
+    },
+    {
+      "id": "decision-5bb19ad8-645e-4255-ae18-2e0e2893f792",
+      "revision": 1
+    },
+    {
+      "id": "decision-cd9026aa-f192-4894-996a-2234398f1902",
+      "revision": 1
+    },
+    {
+      "id": "development-authorization-6dadf1f3-ee7d-4dd4-a45f-02c8b692137f",
+      "revision": 1
+    },
+    {
+      "id": "intent-29a81338-5a22-4976-bd0f-2058ceb3a529",
+      "revision": 1
+    },
+    {
+      "id": "intent-2f26bb5a-aba1-4800-ba28-a66c73b6355b",
+      "revision": 2
+    },
+    {
+      "id": "intent-ca1fe87f-6849-4941-87aa-0358ee68923d",
+      "revision": 1
+    }
+  ],
+  "review_of": {
+    "id": "artifact-2d02d9bd-8f92-4ea1-b4fe-c6ecf82b7461",
+    "revision": 1
+  },
+  "review": {
+    "verdict": "Pass",
+    "reason": "The supplied exact evaluation implementation, statistical/classification tests, actual plan, isolated v2 wrapper, and provenance resolve B1/B2 for static source review. The paired Hoeffding formula, failure exclusion, complete-suite aggregation, selected hypothesis default, and plan/source/command bindings are coherent within trusted local operation. Historical verdicts remain intact; runtime completion, replay validity, strength promotion, and official arena claims remain unaccepted."
+  },
+  "created_at": "2026-11-13T07:35:49.939Z"
+}

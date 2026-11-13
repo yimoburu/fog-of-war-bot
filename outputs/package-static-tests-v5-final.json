@@ -1,0 +1,27 @@
+{
+  "created_utc": "2026-11-13T18:51:07.775564+00:00",
+  "reason": "Recheck documentation-size bound after replacing pending status with actual completed results",
+  "command": [
+    "node",
+    "--test",
+    "package.test.mjs"
+  ],
+  "returncode": 0,
+  "stdout": "TAP version 13\n# Subtest: exact upstream hashes, bounded development files and runtime payload\nok 1 - exact upstream hashes, bounded development files and runtime payload\n  ---\n  duration_ms: 958.595875\n  type: 'test'\n  ...\n# Subtest: launcher and explicit runtime manifest\nok 2 - launcher and explicit runtime manifest\n  ---\n  duration_ms: 0.693333\n  type: 'test'\n  ...\n1..2\n# tests 2\n# suites 0\n# pass 2\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 1187.198625\n",
+  "stderr": "",
+  "source_sha256_before": {
+    "README.md": "281936d2e79c9150947ece18c05093c59e9662d6fe1a7b529e2fca24c63f08ca",
+    "SOURCES.md": "2c5c5314b17cfe01a29a3bb690d8ea52dd35aea9d701869545cb050630670102",
+    "package.test.mjs": "bdaf202bd29d1baef2be1b3bece7ee0993246a41b2f33bb7cb4686967aeade79",
+    "run.sh": "bf1f24f9805b0d3e1c39876be7dc21f7af5beef75f3c05a4e19d1255e9166f36",
+    "package_submission.py": "03dba996f01561bf820697b93476dcda34a2e6c4a24b13ebf2aee92561c26b25"
+  },
+  "source_sha256_after": {
+    "README.md": "281936d2e79c9150947ece18c05093c59e9662d6fe1a7b529e2fca24c63f08ca",
+    "SOURCES.md": "2c5c5314b17cfe01a29a3bb690d8ea52dd35aea9d701869545cb050630670102",
+    "package.test.mjs": "bdaf202bd29d1baef2be1b3bece7ee0993246a41b2f33bb7cb4686967aeade79",
+    "run.sh": "bf1f24f9805b0d3e1c39876be7dc21f7af5beef75f3c05a4e19d1255e9166f36",
+    "package_submission.py": "03dba996f01561bf820697b93476dcda34a2e6c4a24b13ebf2aee92561c26b25"
+  },
+  "source_unchanged": true
+}

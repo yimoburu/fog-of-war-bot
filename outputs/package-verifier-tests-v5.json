@@ -1,0 +1,31 @@
+{
+  "command": [
+    "/Users/xwli/Documents/soloco/allearn/ffwb/.venv/bin/python",
+    "-B",
+    "-m",
+    "unittest",
+    "-v",
+    "test_verify_v5_package"
+  ],
+  "cwd": "/Users/xwli/Documents/soloco/allearn/ffwb",
+  "finished_utc": "2026-11-13T18:39:06.412233+00:00",
+  "python_version": "3.13.2 (v3.13.2:4f8bb3947cf, Feb  4 2025, 11:51:10) [Clang 15.0.0 (clang-1500.3.9.4)]",
+  "returncode": 0,
+  "schema_version": 1,
+  "scope": "Synthetic package-verifier tests only. Fork, signaling and referee matches mocked; no package games or core/runtime edits.",
+  "source_sha256_after": {
+    "/Users/xwli/Documents/soloco/allearn/ffwb/test_verify_v5_package.py": "608ff1c770584795b7803bbd1e5ac62313f18fd477d440d40b4e5bdd7fe24258",
+    "/Users/xwli/Documents/soloco/allearn/ffwb/verify_v5_package.py": "d9e4eae565de22900e57d1d9d4ee4891f8be2347ff2da2e441bb1cfad543943b"
+  },
+  "source_sha256_before": {
+    "/Users/xwli/Documents/soloco/allearn/ffwb/test_verify_v5_package.py": "608ff1c770584795b7803bbd1e5ac62313f18fd477d440d40b4e5bdd7fe24258",
+    "/Users/xwli/Documents/soloco/allearn/ffwb/verify_v5_package.py": "d9e4eae565de22900e57d1d9d4ee4891f8be2347ff2da2e441bb1cfad543943b"
+  },
+  "source_unchanged": true,
+  "started_utc": "2026-11-13T18:38:59.921397+00:00",
+  "status": "passed",
+  "stderr": "test_child_setup_error_is_saved_without_real_fork (test_verify_v5_package.PackageVerifierTests.test_child_setup_error_is_saved_without_real_fork) ... ok\ntest_exact_archive_modes_and_argument_binding (test_verify_v5_package.PackageVerifierTests.test_exact_archive_modes_and_argument_binding) ... ok\ntest_failed_controls_reject_before_any_game (test_verify_v5_package.PackageVerifierTests.test_failed_controls_reject_before_any_game) ... ok\ntest_first_cancellation_during_close_does_not_interrupt_other_bot_cleanup (test_verify_v5_package.PackageVerifierTests.test_first_cancellation_during_close_does_not_interrupt_other_bot_cleanup) ... ok\ntest_registered_constructor_failure_is_closed (test_verify_v5_package.PackageVerifierTests.test_registered_constructor_failure_is_closed) ... ok\ntest_reject_odd_modes_symlink_extra_file_and_oversized_payload (test_verify_v5_package.PackageVerifierTests.test_reject_odd_modes_symlink_extra_file_and_oversized_payload) ... ok\ntest_worker_runtime_failure_retains_failed_output (test_verify_v5_package.PackageVerifierTests.test_worker_runtime_failure_retains_failed_output) ... ok\n\n----------------------------------------------------------------------\nRan 7 tests in 5.177s\n\nOK\n",
+  "stdout": "",
+  "tests_run": 7,
+  "wall_seconds": 6.490362792043015
+}

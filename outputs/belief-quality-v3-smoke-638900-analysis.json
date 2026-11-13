@@ -1,0 +1,73 @@
+{
+  "aggregate": {
+    "all_candidate_legal_sets_match_referee": true,
+    "all_observed_current_banks_match_views": true,
+    "candidate_immediate_loss_attributions": {
+      "avoidable_loss_ranking_despite_shortlisted_safe_move": 2
+    },
+    "candidate_turns": 90,
+    "duplicate_physical_slot_fraction": 0.09146537842190017,
+    "duplicate_physical_slots_observed": 284,
+    "failures": 0,
+    "game_loss_attributions": {
+      "avoidable_loss_ranking_despite_shortlisted_safe_move": 2
+    },
+    "games": 2,
+    "immediate_loss_evidence_axes_nonexclusive": {
+      "all_actual_killing_pieces_absent_from_bank": 2,
+      "avoidable_at_this_turn": 2,
+      "chosen_looks_safer_than_all_true_safe_alternatives": 1,
+      "true_safe_alternative_has_lower_bank_risk": 1,
+      "true_safe_alternative_in_actual_shortlist": 2
+    },
+    "mean_phase_ms": {
+      "choose_seconds": 152.84670046789364,
+      "diagnostic_seconds_excluded": 6.208871728611282,
+      "inference_seconds": 14.16560003805595,
+      "other_choose_seconds": 2.7570092850106045,
+      "search_seconds": 135.9240911448271
+    },
+    "particle_slots_observed": 3105,
+    "raw_candidate_wdl": {
+      "loss": 2
+    },
+    "search_depth_counts": {
+      "1": 4,
+      "2": 61,
+      "3": 25
+    },
+    "search_world_slots": 336,
+    "turns_with_current_particles": 90,
+    "turns_with_full_true_repetition_history_in_bank": 3,
+    "turns_with_true_physical_position_in_bank": 44,
+    "turns_with_true_placement_in_bank": 44,
+    "unique_search_world_slots": 327
+  },
+  "analysis_source_sha256": "1a6974eefce56c7ee9f3b85b3da62aa1b20ee5dd2f36a0dbf7264ff78e29a581",
+  "input_path": "outputs/belief-quality-v3-smoke-638900.json",
+  "input_sha256": "92a7d9beb3551862095b221ae63215b741e3a7d4b5e60210d01dd84f4a4fb574",
+  "kind": "postprocessed_live_diagnostics",
+  "limitations": [
+    "Derived from the unchanged smoke artifact; no additional games were run.",
+    "The original exclusive attribution is retained; new axes are explicitly non-exclusive.",
+    "Profiler changes after the run only add summary axes and move a pure oracle repetition-key calculation into the harness itself; no policy implementation changed."
+  ],
+  "measurement_source_sha256": {
+    "belief.py": "7c9f57397d5552c90eb70c425aac5cec80363d707ac71c632480bae93e504d63",
+    "bot.py": "38f327bdb2b14b1d9983478ca7c27c9c105cd80c54fc4150a979973dadf1f2d8",
+    "opponents/v2/SOURCES.md": "c64d82f80b5c364dd28f37d56297d264688db01a8ec0f52b2b1e07279ce379a2",
+    "opponents/v2/belief.py": "7c9f57397d5552c90eb70c425aac5cec80363d707ac71c632480bae93e504d63",
+    "opponents/v2/bot.py": "99be8f7028bed556459bedab5b0163799bac4970686e33f33adea6b86c891232",
+    "opponents/v2/provenance.json": "c816c4683a3fa776420b1c1c59dce8fe58af30846329b6c53a9629377707c833",
+    "opponents/v2/referee.py": "2f82ac292bfad29bcb2d701b73c060d1ca8281378b4598f08a620fe5c97255be",
+    "opponents/v2/requirements.txt": "391e529739e99dc63461425af4ad7afb10d89aa275922928ceb8e2f5dffa7149",
+    "opponents/v2/search.py": "a2cb6000bf92c026edba87d790d0b49f47ef759e77d7ed27a1ae4a5a6791992e",
+    "opponents/v2/uniform_random.py": "a9d2d69c1893652dae938c596be59fc16fdf1edba3ccf491d9cf2c92d75b514a",
+    "profile_belief_quality.py": "f6af0dfed7880039ddb8db0a830b7dba48ede0e678844e3358137aedc39aaa07",
+    "referee.py": "2f82ac292bfad29bcb2d701b73c060d1ca8281378b4598f08a620fe5c97255be",
+    "requirements.txt": "391e529739e99dc63461425af4ad7afb10d89aa275922928ceb8e2f5dffa7149",
+    "search.py": "84bff0b72c8c5114bfcd35ced7d7a9f4a15e6875915eb3b4bb20e11385810529",
+    "uniform_random.py": "a9d2d69c1893652dae938c596be59fc16fdf1edba3ccf491d9cf2c92d75b514a",
+    "v2_bot.py": "f3c236892586cf2577745f310b4bd9c37321c158ea0c15b17dc388d20f831ed8"
+  }
+}

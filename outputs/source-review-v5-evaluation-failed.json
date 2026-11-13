@@ -1,0 +1,81 @@
+{
+  "id": "artifact-76e945a0-ff81-4430-8d2f-4dc6a88da9ad",
+  "kind": "review",
+  "content": "Source-only verdict: Fail for artifact-7a4115ce-84f4-4be0-b3e8-c13411a6d66f, revision 1. Static inspection only; no tools, commands, tests, games, external access or hash recomputation performed. Governing basis: supplied SoloCo v0.21 and team_sha256 7dc8081a08646135a7e021f1651eb3ac2952af9f63cf48ed0418efdcab8695b3.\n\nBlockers:\nB1 — Frozen interpreter is not enforced. initialize records design['python_executable'], but run_stage does not enforce or propagate it. run_paired_suite.main instead records its current sys.executable, and arena_eval.run_game uses its own sys.executable. Initializing with interpreter A and invoking development or final with interpreter B can therefore pass the source checks and child-command checks while executing a different interpreter from the frozen design. The checks establish internal agreement with the newly generated child plan, not agreement with the global interpreter commitment. Clearing condition: reject interpreter drift before starting any stage, bind child plans and recorded commands to the design interpreter, and supply a runtime-executed synthetic regression showing that an alternate interpreter is rejected without launching matches. Bind relevant dependency versions to the reviewed execution environment as well; requirements.txt alone does not prove installed dependency identity.\nB2 — Exact wave and opponent bindings are missing. The global design is supplied, but the registered wave plan, its source manifest/archive binding, actual four configurations, v2_bot.py and snapshot provenance are absent. The code can freeze these inputs, but this packet cannot establish which candidate and opponent bytes the running screens actually use, or their relationship to released v2 commit 65fde033a2e65394a676e44969a992832ee17470. Supply exact version-bound records for these inputs and candidate-bound runtime evidence. No supplemental record IDs and hashes for them were supplied, so I cannot issue a valid supplemental-read request.\n\nSupported findings:\n1. The final mathematics is coherent: alpha=.05/3, n=200 bounded pair means, radius=sqrt(log(120)/400), approximately .10940. The strict lower-bound criterion requires more than approximately 243.76 points in 400 games, hence 244 points is the first attainable passing score. Bonferroni supports at most three final attempts in the declared family, conditional on valid per-final inference. Fresh integer seeds alone do not prove independent pair outcomes or a representative seed distribution.\n2. The supplied schedule separates stages and waves, while intentionally sharing development panels across candidates. Historical scanning reserves 2000 values after detected historical seeds. It covers recognized fields in JSON under ROOT/outputs, not unrecorded runs, other directories or every possible seed representation. The supplied historical maximum is below the new namespace, but completeness and historical file contents remain unverified. Future final seeds are visible in advance; non-use for tuning requires attributable execution records and procedural discipline.\n3. Screen ranking, tie-breaking, two confirmation blocks and final selection match the declared rules. Maximum strength-game arithmetic is 3*(64+128+400)=1776. Release controls are separately specified and are not executed by this driver.\n4. Child aggregation checks complete schedules, seed/color identities, recorded argv, sources, process exits, replay classifications and match counts. Failed or incomplete suites suppress aggregate inference. The replay auditor reconstructs moves, observations, termination and plausible clock changes. It is independent of recorded aggregates, but shares the referee implementation; it does not independently prove official-rule equivalence or actual process execution.\n5. In sequential use, exclusive stage directories, an existing wave result and the final-started marker prevent ordinary retries. Development stops at final_ready. A nonempty readiness note records an assertion; it does not verify independent QA acceptance or exclusive-host availability. Those conditions must be established outside this driver before final execution.\n6. Concurrency is not safely serialized. Two final invocations can both pass the initial existence checks; the loser of exclusive marker creation catches the error and can overwrite result.json with status='aborted' while the winner runs. register then accepts that status as a finished wave. Require a documented and enforced single-invocation boundary, or repair ownership/locking before allowing overlapping orchestration. This is distinct from the intended four match workers.\n7. Source archives and repeated hashes provide useful preservation and persistent-drift detection. Execution still reads live paths; transient changes between checks are not excluded. Describe this as trusted-local change detection, not enforcement of an immutable executable snapshot. Aborted process escalation explicitly leaves descendant closure unverified; cleanup evidence is required before claiming exclusive-host readiness.\n8. The explicit unequal internal budgets, equal 180+2 clocks, separation of statistical acceptance from release, and absence of absolute arena Elo claims are appropriate. Ordinary 95% intervals emitted by arena_eval are descriptive here; the multiplicity-adjusted final_gate must govern the V5 claim.\n\nSupplied bindings reviewed, not recomputed:\nv5_experiments.py: 7be06f1cf1e4800dd466a7728cf2d7111c22fe0d152e34ec961cfc7d41687379\nrun_paired_suite.py: aced8453cf75991c35d9ea0c4e976193528b0336e58d045a91a852e2c036e969\narena_eval.py: b674c8c649eec2626b5d55d40c9acca967d2afe4aa2fb5e6c21dd5efa6ef27ba\naudit_replays.py: 38421d2c45ca61cd2f298f246b7fd14038e6bff680ed347bb98dfea06626f2f8\noutputs/v5-cycle-20261113/design.json: 0ada87aaaba292f0f6fd2aaa8f258d861c769deb94ce2c1aa289027a352203f5\n\nReceiver/resolver: runner. Keep the final barrier closed. Preserve running-screen evidence and the original frozen design; do not edit frozen sources in place or silently reinitialize the experiment to erase consumed work. Under existing host authority, prepare a prospective repair/disposition, obtain runtime regression evidence, supply the missing bindings and return for independent review. This review grants no execution permission, additional attempt, release acceptance or strength claim. Core/model acceptance and historical verdicts remain outside this review. No resolution deadline was supplied.",
+  "author_role": "qa",
+  "author_instance": "qa-db9cd4d5-6ab4-44d9-a2da-610709801ae4",
+  "revision": 1,
+  "status": "Submitted",
+  "job_id": "job-bf12c8d7-f05a-4e09-8848-5e66c71ef418",
+  "inputs": [
+    {
+      "id": "artifact-0259a9e6-0c1d-4e5a-a571-abb4e415bbfa",
+      "revision": 1
+    },
+    {
+      "id": "artifact-7a4115ce-84f4-4be0-b3e8-c13411a6d66f",
+      "revision": 1
+    },
+    {
+      "id": "artifact-9194a3ff-904f-468b-b987-b62a3ddf18d2",
+      "revision": 1
+    },
+    {
+      "id": "artifact-ff82939b-0fb9-4d25-bf2b-29577e2f7b66",
+      "revision": 1
+    },
+    {
+      "id": "decision-23352f20-cb56-4e86-84a0-471ee16e22f8",
+      "revision": 1
+    },
+    {
+      "id": "decision-5bb19ad8-645e-4255-ae18-2e0e2893f792",
+      "revision": 1
+    },
+    {
+      "id": "decision-81b8c6d6-c6ee-4703-8422-dda6c9e36789",
+      "revision": 1
+    },
+    {
+      "id": "decision-842e5db4-c60f-4e7e-adb5-066a3897c952",
+      "revision": 1
+    },
+    {
+      "id": "decision-cd9026aa-f192-4894-996a-2234398f1902",
+      "revision": 1
+    },
+    {
+      "id": "development-authorization-6dadf1f3-ee7d-4dd4-a45f-02c8b692137f",
+      "revision": 1
+    },
+    {
+      "id": "intent-29a81338-5a22-4976-bd0f-2058ceb3a529",
+      "revision": 1
+    },
+    {
+      "id": "intent-2f26bb5a-aba1-4800-ba28-a66c73b6355b",
+      "revision": 2
+    },
+    {
+      "id": "intent-63b28c01-b5a2-4769-b2e0-a384cd542538",
+      "revision": 1
+    },
+    {
+      "id": "intent-ba2d0d71-23b3-4922-9d2b-e06d62cff97e",
+      "revision": 1
+    },
+    {
+      "id": "intent-ca1fe87f-6849-4941-87aa-0358ee68923d",
+      "revision": 1
+    }
+  ],
+  "review_of": {
+    "id": "artifact-7a4115ce-84f4-4be0-b3e8-c13411a6d66f",
+    "revision": 1
+  },
+  "review": {
+    "verdict": "Fail",
+    "reason": "The supplied driver does not enforce the interpreter frozen in the global design: downstream execution and argv checks bind to the invocation's current interpreter instead. Exact registered-wave and released-v2 provenance evidence is also missing. Final statistics and sequential stage safeguards are coherent within stated assumptions, but they do not clear these source/provenance conditions or establish runtime readiness."
+  },
+  "created_at": "2026-11-13T17:22:52.762Z"
+}

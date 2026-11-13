@@ -1,0 +1,65 @@
+{
+  "id": "artifact-ff82939b-0fb9-4d25-bf2b-29577e2f7b66",
+  "kind": "review",
+  "content": "Source-only verdict: Blocked for artifact-9ca04948-c07d-4624-95f5-32c71ff3fd1f, revision 1. Static inspection supports the final default change and several harness safeguards, but the supplied packet does not establish the complete evaluation-integrity claim. No tools, commands, tests, matches, external access, or hash recomputation were performed.\n\nReviewed supplied identities:\n- bot.py: 38f327bdb2b14b1d9983478ca7c27c9c105cd80c54fc4150a979973dadf1f2d8\n- run_paired_suite.py: 5699a40ffeb1a76e0c3a2a3d13000e5c35f1fad898387cf2cf8113893ad36082\n- test_paired_suite.py: 085cc88f73a13910c458aad2ad1613d569bcfb92d1ee365eac2a0934702ffa5f\n- test_search_performance.py: 4a443e7d8aca4b2be42027f36551e0f4b3944a9829cdebf94c5e7336205e2d35\n\nFindings:\n1. Comparing the supplied bot texts, the three policy defaults change from robust to hypothesis in State, serve, and main. The policy implementation appears unchanged. The reconstructed prior hash is a supplied assertion, not independently recomputed evidence. Selecting hypothesis from development results is consistent with the disclosed experimental purpose; 10 wins and 6 losses do not establish an improvement. Robust-mode survival-first guarantees must not be attributed to the new default.\n2. plan_batches preserves whole pairs, bounds seed ranges, and rejects overlapping batch ranges. Aggregation checks expected child IDs, process exits, completion status, source declarations, configuration, match counts, scheduled identities, outcomes, and recorded command arguments. Namespacing pair IDs before summarization avoids collisions across batches. Detected errors suppress aggregate strength rather than selecting successful children.\n3. The harness includes all eight listed v2 snapshot files when the candidate or opponent resolves to ROOT/v2_bot.py. This is a useful explicit binding, but does not by itself prove that this wrapper executes those files or that the manifest covers every actual dependency.\n4. Exclusive output-directory creation and read-only plan files protect against accidental overwrite. Periodic and final digest checks detect persistent changes. They do not enforce an immutable executable snapshot: a transient edit between checks can escape detection. Interpret these as change-detection safeguards for trusted local execution, not proof that every executed byte remained unchanged.\n5. Cancellation initially signals the child process, then escalates to termination or killing. The code honestly records that descendant closure is unverified after escalation. An aborted suite suppresses aggregate inference; operational closure still needs host evidence.\n6. The added tests explicitly cover quiet underpromotions for both colors and complete-board no-pseudo-legal-move losses across horizons. These address the prior review's coverage requests. The supplied 92-test OK footer is host-reported evidence, without a complete invocation, environment, or candidate-bound manifest; I did not execute or independently verify it.\n7. The protocol wording is reconciled in intent revision 2. Official protocol conformance remains outside this source review because the official extracts and relevant dependency implementations are absent.\n\nBlockers:\nB1. arena_eval.py is not supplied. The new harness delegates schedule construction, replay failure classification, source hashing, checkpointing, and statistical summarization to schedule, classify, source_hashes, checkpoint, and summarize. Consequently I cannot verify that warnings, timeouts, truncation, malformed results, and other execution failures are excluded correctly, or that the lower 95% bounded-pair confidence limit implements the predeclared criterion. The tests use those same imported functions and synthetic result/reason records; they are not independent evidence of their correctness. Clearing evidence: exact version-bound arena_eval.py source and relevant statistical/classification tests or a suitably scoped independent review of those exact bytes.\nB2. The actual frozen plan is not supplied. Its asserted digest is df08cbee1081e92a7f0cef7de550cb176b2e5b9a1d48a603a65ff9d2538975e2, but the selection document is a proposal summary, not the complete plan. Exact candidate arguments, child commands, complete source hashes, and the connection to the preserved v2 opponent cannot be checked. Clearing evidence: the exact plan plus v2_bot.py and snapshot provenance tied to delivered v2 commit 65fde033a2e65394a676e44969a992832ee17470. A source record ID and exact hash for each missing input are needed for a version-bound supplemental read; none are supplied here.\n\nReceiver and resolver: runner. Next permitted action is to supply the missing evidence for independent source review within existing authority. No repair attempt or execution is authorized by this review. The historical Fail and prior narrowly scoped core Pass remain intact. Completion of 200 games, strength improvement, package readiness, resource compliance, and an MIT arena rating are not established. Fresh paired results and diverse controls remain necessary before the broader improvement claim can be accepted.",
+  "author_role": "qa",
+  "author_instance": "qa-430b195d-b50c-4c27-9d73-f18a4c407916",
+  "revision": 1,
+  "status": "Submitted",
+  "job_id": "job-b2ee2bba-2576-4a0d-8a20-3adfdd09dc05",
+  "inputs": [
+    {
+      "id": "artifact-697a3ffa-9287-41e2-b680-ebc8692150b5",
+      "revision": 1
+    },
+    {
+      "id": "artifact-9194a3ff-904f-468b-b987-b62a3ddf18d2",
+      "revision": 1
+    },
+    {
+      "id": "artifact-9ca04948-c07d-4624-95f5-32c71ff3fd1f",
+      "revision": 1
+    },
+    {
+      "id": "artifact-dc7dc956-c3e0-40d3-ba56-e67ca7700d48",
+      "revision": 1
+    },
+    {
+      "id": "decision-23352f20-cb56-4e86-84a0-471ee16e22f8",
+      "revision": 1
+    },
+    {
+      "id": "decision-5bb19ad8-645e-4255-ae18-2e0e2893f792",
+      "revision": 1
+    },
+    {
+      "id": "decision-cd9026aa-f192-4894-996a-2234398f1902",
+      "revision": 1
+    },
+    {
+      "id": "development-authorization-6dadf1f3-ee7d-4dd4-a45f-02c8b692137f",
+      "revision": 1
+    },
+    {
+      "id": "intent-29a81338-5a22-4976-bd0f-2058ceb3a529",
+      "revision": 1
+    },
+    {
+      "id": "intent-2f26bb5a-aba1-4800-ba28-a66c73b6355b",
+      "revision": 2
+    },
+    {
+      "id": "intent-ca1fe87f-6849-4941-87aa-0358ee68923d",
+      "revision": 1
+    }
+  ],
+  "review_of": {
+    "id": "artifact-9ca04948-c07d-4624-95f5-32c71ff3fd1f",
+    "revision": 1
+  },
+  "review": {
+    "verdict": "Blocked",
+    "reason": "The inspected default change and visible aggregation safeguards are coherent, but mandatory evaluation-integrity dependencies are missing: arena_eval.py owns failure classification and paired statistical inference, and the actual frozen plan and v2 execution/provenance binding are absent. Synthetic tests and a host test-summary footer cannot establish those properties. No execution, promotion, or rating acceptance is granted."
+  },
+  "created_at": "2026-11-13T07:32:16.640Z"
+}

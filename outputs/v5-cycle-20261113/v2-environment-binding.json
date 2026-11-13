@@ -1,0 +1,58 @@
+{
+  "source_commit": "65fde033a2e65394a676e44969a992832ee17470",
+  "all_exact": true,
+  "snapshot": [
+    {
+      "path": "SOURCES.md",
+      "sha256": "c64d82f80b5c364dd28f37d56297d264688db01a8ec0f52b2b1e07279ce379a2",
+      "matches_record": true,
+      "matches_git_blob": true
+    },
+    {
+      "path": "belief.py",
+      "sha256": "7c9f57397d5552c90eb70c425aac5cec80363d707ac71c632480bae93e504d63",
+      "matches_record": true,
+      "matches_git_blob": true
+    },
+    {
+      "path": "bot.py",
+      "sha256": "99be8f7028bed556459bedab5b0163799bac4970686e33f33adea6b86c891232",
+      "matches_record": true,
+      "matches_git_blob": true
+    },
+    {
+      "path": "referee.py",
+      "sha256": "2f82ac292bfad29bcb2d701b73c060d1ca8281378b4598f08a620fe5c97255be",
+      "matches_record": true,
+      "matches_git_blob": true
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "391e529739e99dc63461425af4ad7afb10d89aa275922928ceb8e2f5dffa7149",
+      "matches_record": true,
+      "matches_git_blob": true
+    },
+    {
+      "path": "search.py",
+      "sha256": "a2cb6000bf92c026edba87d790d0b49f47ef759e77d7ed27a1ae4a5a6791992e",
+      "matches_record": true,
+      "matches_git_blob": true
+    },
+    {
+      "path": "uniform_random.py",
+      "sha256": "a9d2d69c1893652dae938c596be59fc16fdf1edba3ccf491d9cf2c92d75b514a",
+      "matches_record": true,
+      "matches_git_blob": true
+    }
+  ],
+  "python_executable": "/Users/xwli/Documents/soloco/allearn/ffwb/.venv/bin/python",
+  "python_version": "3.13.2 (v3.13.2:4f8bb3947cf, Feb  4 2025, 11:51:10) [Clang 15.0.0 (clang-1500.3.9.4)]",
+  "platform": "macOS-26.7.1-arm64-arm-64bit-Mach-O",
+  "installed_versions": {
+    "chess": "1.11.2",
+    "python-chess": "1.999"
+  },
+  "chess_module": "/Users/xwli/Documents/soloco/allearn/ffwb/.venv/lib/python3.13/site-packages/chess/__init__.py",
+  "chess_module_sha256": "1fde6a8e932508d14b31f6a584497b49c2969fc3c7cdc675347f819f0d667a5b",
+  "scope": "Host executed comparison and current environment observation; no historical installed-package hash was captured at development start."
+}

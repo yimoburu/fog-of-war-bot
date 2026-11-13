@@ -1,0 +1,701 @@
+[
+  {
+    "id": "nnjy0an4",
+    "white": "Greek Gift",
+    "black": "Strongly Invisible",
+    "focus": "Greek Gift",
+    "color": "white",
+    "versions": [
+      28,
+      41
+    ],
+    "result": "1-0",
+    "reason": "King capturable",
+    "rules": "fow-v1",
+    "plies": 28,
+    "focus_moves": 14,
+    "time_s": {
+      "mean": 6.783749,
+      "median": 6.134429999999995,
+      "p95_linear": 8.720411700000003,
+      "max": 8.839402000000007,
+      "total": 94.972486,
+      "over_180ms": 14,
+      "ending_clock": 113.027514
+    },
+    "focus_first_12_moves": [
+      "d2d4",
+      "e2e4",
+      "c2c3",
+      "e4e5",
+      "f2f4",
+      "f1d3",
+      "f4e5",
+      "g1h3",
+      "e1g1",
+      "b1d2",
+      "d2f3",
+      "d1c2"
+    ],
+    "focus_captures": 2,
+    "noncapturing_moves_when_capture_available": 9,
+    "declines_examples": [
+      {
+        "ply": 7,
+        "move": "e4e5",
+        "available_captures": [
+          "e4d5"
+        ]
+      },
+      {
+        "ply": 9,
+        "move": "f2f4",
+        "available_captures": [
+          "e5f6"
+        ]
+      },
+      {
+        "ply": 11,
+        "move": "f1d3",
+        "available_captures": [
+          "e5f6"
+        ]
+      },
+      {
+        "ply": 15,
+        "move": "g1h3",
+        "available_captures": [
+          "d3h7"
+        ]
+      },
+      {
+        "ply": 17,
+        "move": "e1g1",
+        "available_captures": [
+          "d3f5"
+        ]
+      },
+      {
+        "ply": 19,
+        "move": "b1d2",
+        "available_captures": [
+          "d3f5",
+          "f1f5"
+        ]
+      }
+    ],
+    "castles": [
+      {
+        "ply": 17,
+        "move": "e1g1"
+      },
+      {
+        "ply": 20,
+        "move": "e8g8"
+      }
+    ],
+    "terminal": {
+      "losing_side": "black",
+      "move": "g8h7",
+      "is_capture": true,
+      "king_after": "h7",
+      "attackers": [
+        {
+          "square": "c2",
+          "piece": "Q",
+          "pre_move_observation": "?"
+        }
+      ],
+      "safe_alternatives": [
+        "g8h8",
+        "g8f7"
+      ],
+      "board_before_fen": "r2q1rk1/1ppbb1pB/2n1p3/3pP3/p2P1N1n/2P2N2/PPQ3PP/R1B2RK1 b - - 0 14"
+    }
+  },
+  {
+    "id": "z5ss8ecx",
+    "white": "In Pawn Sight",
+    "black": "Greek Gift",
+    "focus": "Greek Gift",
+    "color": "black",
+    "versions": [
+      14,
+      28
+    ],
+    "result": "0-1",
+    "reason": "King capturable",
+    "rules": "fow-v1",
+    "plies": 101,
+    "focus_moves": 50,
+    "time_s": {
+      "mean": 5.34592612,
+      "median": 5.8850345,
+      "p95_linear": 8.664824349999998,
+      "max": 9.090334999999982,
+      "total": 267.296306,
+      "over_180ms": 50,
+      "ending_clock": 12.703694
+    },
+    "focus_first_12_moves": [
+      "g8f6",
+      "d7d6",
+      "e7e5",
+      "e5d4",
+      "f8e7",
+      "e8g8",
+      "c7c6",
+      "f8e8",
+      "a7a5",
+      "e7f8",
+      "c8e6",
+      "b8d7"
+    ],
+    "focus_captures": 12,
+    "noncapturing_moves_when_capture_available": 30,
+    "declines_examples": [
+      {
+        "ply": 4,
+        "move": "d7d6",
+        "available_captures": [
+          "f6e4"
+        ]
+      },
+      {
+        "ply": 6,
+        "move": "e7e5",
+        "available_captures": [
+          "f6e4"
+        ]
+      },
+      {
+        "ply": 10,
+        "move": "f8e7",
+        "available_captures": [
+          "f6e4"
+        ]
+      },
+      {
+        "ply": 12,
+        "move": "e8g8",
+        "available_captures": [
+          "f6e4"
+        ]
+      },
+      {
+        "ply": 14,
+        "move": "c7c6",
+        "available_captures": [
+          "f6e4"
+        ]
+      },
+      {
+        "ply": 16,
+        "move": "f8e8",
+        "available_captures": [
+          "f6e4"
+        ]
+      }
+    ],
+    "castles": [
+      {
+        "ply": 12,
+        "move": "e8g8"
+      },
+      {
+        "ply": 15,
+        "move": "e1g1"
+      }
+    ],
+    "terminal": {
+      "losing_side": "white",
+      "move": "e3f4",
+      "is_capture": false,
+      "king_after": "f4",
+      "attackers": [
+        {
+          "square": "c4",
+          "piece": "r",
+          "pre_move_observation": "?"
+        }
+      ],
+      "safe_alternatives": [
+        "e3d3",
+        "e3f2",
+        "e3e2",
+        "e3d2",
+        "g5g6",
+        "a3a4"
+      ],
+      "board_before_fen": "7k/5p1p/5P2/p2b2Pp/2r5/P3K3/8/8 w - - 2 51"
+    }
+  },
+  {
+    "id": "a015fk3y",
+    "white": "Farsight",
+    "black": "duck",
+    "focus": "Farsight",
+    "color": "white",
+    "versions": [
+      31,
+      11
+    ],
+    "result": "1-0",
+    "reason": "King capturable",
+    "rules": "fow-v1",
+    "plies": 122,
+    "focus_moves": 61,
+    "time_s": {
+      "mean": 3.5996711311475407,
+      "median": 3.5688229999999805,
+      "p95_linear": 6.483915999999994,
+      "max": 6.85573500000001,
+      "total": 219.57993899999997,
+      "over_180ms": 60,
+      "ending_clock": 82.420061
+    },
+    "focus_first_12_moves": [
+      "d2d4",
+      "c2c4",
+      "c4d5",
+      "d1a4",
+      "b1c3",
+      "g1f3",
+      "c1g5",
+      "g5f6",
+      "c3d5",
+      "d5c3",
+      "e2e3",
+      "a4d1"
+    ],
+    "focus_captures": 12,
+    "noncapturing_moves_when_capture_available": 32,
+    "declines_examples": [
+      {
+        "ply": 9,
+        "move": "b1c3",
+        "available_captures": [
+          "a4a7",
+          "a4c6"
+        ]
+      },
+      {
+        "ply": 11,
+        "move": "g1f3",
+        "available_captures": [
+          "a4a7",
+          "a4c6",
+          "c3d5"
+        ]
+      },
+      {
+        "ply": 13,
+        "move": "c1g5",
+        "available_captures": [
+          "a4a7",
+          "a4c6",
+          "c3d5"
+        ]
+      },
+      {
+        "ply": 19,
+        "move": "d5c3",
+        "available_captures": [
+          "a4a7",
+          "a4c6"
+        ]
+      },
+      {
+        "ply": 21,
+        "move": "e2e3",
+        "available_captures": [
+          "a4a7",
+          "a4c6"
+        ]
+      },
+      {
+        "ply": 23,
+        "move": "a4d1",
+        "available_captures": [
+          "a4a7",
+          "a4c6"
+        ]
+      }
+    ],
+    "castles": [
+      {
+        "ply": 20,
+        "move": "e8g8"
+      },
+      {
+        "ply": 33,
+        "move": "e1g1"
+      }
+    ],
+    "terminal": {
+      "losing_side": "black",
+      "move": "h5f4",
+      "is_capture": false,
+      "king_after": "g7",
+      "attackers": [
+        {
+          "square": "d4",
+          "piece": "Q",
+          "pre_move_observation": "?"
+        }
+      ],
+      "safe_alternatives": [
+        "g7g8",
+        "g7f8",
+        "g7h7",
+        "g7h6",
+        "h5f6",
+        "f7f6"
+      ],
+      "board_before_fen": "8/5pk1/6p1/7n/3Q4/8/KP6/8 b - - 4 61"
+    }
+  },
+  {
+    "id": "0n28sr75",
+    "white": "duck",
+    "black": "Farsight",
+    "focus": "Farsight",
+    "color": "black",
+    "versions": [
+      11,
+      31
+    ],
+    "result": "1-0",
+    "reason": "King capturable",
+    "rules": "fow-v1",
+    "plies": 110,
+    "focus_moves": 55,
+    "time_s": {
+      "mean": 3.905920563636364,
+      "median": 4.153801000000001,
+      "p95_linear": 6.285994099999996,
+      "max": 7.253083000000004,
+      "total": 214.825631,
+      "over_180ms": 53,
+      "ending_clock": 75.174369
+    },
+    "focus_first_12_moves": [
+      "f7f5",
+      "g8f6",
+      "g7g6",
+      "f5e4",
+      "f8g7",
+      "b8a6",
+      "e8g8",
+      "d7d6",
+      "a6c5",
+      "h7h6",
+      "d6c5",
+      "f6e4"
+    ],
+    "focus_captures": 8,
+    "noncapturing_moves_when_capture_available": 24,
+    "declines_examples": [
+      {
+        "ply": 10,
+        "move": "f8g7",
+        "available_captures": [
+          "f6d5"
+        ]
+      },
+      {
+        "ply": 12,
+        "move": "b8a6",
+        "available_captures": [
+          "f6d5"
+        ]
+      },
+      {
+        "ply": 14,
+        "move": "e8g8",
+        "available_captures": [
+          "f6d5"
+        ]
+      },
+      {
+        "ply": 16,
+        "move": "d7d6",
+        "available_captures": [
+          "f6d5"
+        ]
+      },
+      {
+        "ply": 18,
+        "move": "a6c5",
+        "available_captures": [
+          "f6d5"
+        ]
+      },
+      {
+        "ply": 20,
+        "move": "h7h6",
+        "available_captures": [
+          "f6d5"
+        ]
+      }
+    ],
+    "castles": [
+      {
+        "ply": 14,
+        "move": "e8g8"
+      },
+      {
+        "ply": 35,
+        "move": "e1g1"
+      }
+    ],
+    "terminal": {
+      "losing_side": "black",
+      "move": "f6g7",
+      "is_capture": false,
+      "king_after": "e8",
+      "attackers": [
+        {
+          "square": "g8",
+          "piece": "R",
+          "pre_move_observation": "?"
+        }
+      ],
+      "safe_alternatives": [],
+      "board_before_fen": "4k1R1/2p1p3/1p2Bb1p/p1pP3P/2P5/6P1/P6K/8 b - - 8 55"
+    }
+  },
+  {
+    "id": "5cpqe9fe",
+    "white": "Strongly Invisible",
+    "black": "Greek Gift",
+    "focus": "Strongly Invisible",
+    "color": "white",
+    "versions": [
+      41,
+      28
+    ],
+    "result": "0-1",
+    "reason": "King capturable",
+    "rules": "fow-v1",
+    "plies": 113,
+    "focus_moves": 57,
+    "time_s": {
+      "mean": 3.9781548070175443,
+      "median": 3.701065,
+      "p95_linear": 5.839367199999988,
+      "max": 8.786298000000002,
+      "total": 226.754824,
+      "over_180ms": 57,
+      "ending_clock": 67.245176
+    },
+    "focus_first_12_moves": [
+      "d2d4",
+      "b1c3",
+      "c1f4",
+      "e2e3",
+      "f1d3",
+      "h2h3",
+      "g1f3",
+      "e1g1",
+      "d1d2",
+      "f1e1",
+      "f4h2",
+      "a2a4"
+    ],
+    "focus_captures": 10,
+    "noncapturing_moves_when_capture_available": 39,
+    "declines_examples": [
+      {
+        "ply": 5,
+        "move": "c1f4",
+        "available_captures": [
+          "c3d5"
+        ]
+      },
+      {
+        "ply": 7,
+        "move": "e2e3",
+        "available_captures": [
+          "f4b8",
+          "c3d5"
+        ]
+      },
+      {
+        "ply": 9,
+        "move": "f1d3",
+        "available_captures": [
+          "f4b8",
+          "c3d5"
+        ]
+      },
+      {
+        "ply": 11,
+        "move": "h2h3",
+        "available_captures": [
+          "f4b8",
+          "d3g6",
+          "c3d5"
+        ]
+      },
+      {
+        "ply": 13,
+        "move": "g1f3",
+        "available_captures": [
+          "f4b8",
+          "d3g6",
+          "c3d5"
+        ]
+      },
+      {
+        "ply": 15,
+        "move": "e1g1",
+        "available_captures": [
+          "f4b8",
+          "d3g6",
+          "c3d5"
+        ]
+      }
+    ],
+    "castles": [
+      {
+        "ply": 12,
+        "move": "e8g8"
+      },
+      {
+        "ply": 15,
+        "move": "e1g1"
+      }
+    ],
+    "terminal": {
+      "losing_side": "white",
+      "move": "a5b5",
+      "is_capture": true,
+      "king_after": "b5",
+      "attackers": [
+        {
+          "square": "c5",
+          "piece": "k",
+          "pre_move_observation": "?"
+        }
+      ],
+      "safe_alternatives": [],
+      "board_before_fen": "8/8/B5p1/Kpk2p1p/2p2P1P/1nP3P1/8/8 w - - 1 57"
+    }
+  },
+  {
+    "id": "ssy68mio",
+    "white": "Knight Vision",
+    "black": "Strongly Invisible",
+    "focus": "Strongly Invisible",
+    "color": "black",
+    "versions": [
+      36,
+      41
+    ],
+    "result": "1-0",
+    "reason": "King capturable",
+    "rules": "fow-v1",
+    "plies": 218,
+    "focus_moves": 109,
+    "time_s": {
+      "mean": 3.300721633027523,
+      "median": 2.923521000000001,
+      "p95_linear": 6.079825599999998,
+      "max": 9.062410999999997,
+      "total": 359.778658,
+      "over_180ms": 109,
+      "ending_clock": 38.221342
+    },
+    "focus_first_12_moves": [
+      "b8c6",
+      "g8f6",
+      "d7d5",
+      "f6d5",
+      "e7e5",
+      "d5c3",
+      "e8d8",
+      "c6e5",
+      "e5c6",
+      "c8d7",
+      "d8c8",
+      "a7a5"
+    ],
+    "focus_captures": 13,
+    "noncapturing_moves_when_capture_available": 30,
+    "declines_examples": [
+      {
+        "ply": 10,
+        "move": "e7e5",
+        "available_captures": [
+          "c6d4",
+          "d5e3",
+          "d5c3"
+        ]
+      },
+      {
+        "ply": 30,
+        "move": "h8e8",
+        "available_captures": [
+          "d6g3"
+        ]
+      },
+      {
+        "ply": 32,
+        "move": "d6e5",
+        "available_captures": [
+          "e8e3",
+          "d6g3"
+        ]
+      },
+      {
+        "ply": 34,
+        "move": "f6f5",
+        "available_captures": [
+          "e5g3"
+        ]
+      },
+      {
+        "ply": 36,
+        "move": "e5f6",
+        "available_captures": [
+          "e5f4"
+        ]
+      },
+      {
+        "ply": 38,
+        "move": "c6b4",
+        "available_captures": [
+          "e8e3"
+        ]
+      }
+    ],
+    "castles": [
+      {
+        "ply": 19,
+        "move": "e1c1"
+      }
+    ],
+    "terminal": {
+      "losing_side": "black",
+      "move": "d4e5",
+      "is_capture": false,
+      "king_after": "e5",
+      "attackers": [
+        {
+          "square": "f4",
+          "piece": "K",
+          "pre_move_observation": "?"
+        }
+      ],
+      "safe_alternatives": [
+        "d4d5",
+        "d4c5",
+        "d4c4",
+        "d4d3",
+        "d4c3"
+      ],
+      "board_before_fen": "8/7P/8/8/3k1K2/8/8/7R b - - 0 109"
+    }
+  }
+]

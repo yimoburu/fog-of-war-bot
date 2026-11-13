@@ -1,0 +1,113 @@
+{
+  "id": "artifact-2b07c45d-7ebf-4853-94da-3c9d93a886de",
+  "kind": "review",
+  "content": "Verdict: Fail for artifact-9ecfa18e-8e12-4f80-9dfb-43dafccc5323, revision 1, limited to delivery with the exact supplied README claims. The numerical result and supplied package evidence are coherent, but one strategy claim overstates the reviewed implementation. Hold publication of this exact documentation/package combination pending a bounded documentation correction and review. No additional games or runtime changes are requested.\n\nReviewer: standalone QA instance qa-bb170fc0-a5c1-43d9-8380-dad115d46f61. Governing basis: SoloCo v0.21 and team_sha256 7dc8081a08646135a7e021f1651eb3ac2952af9f63cf48ed0418efdcab8695b3. This review used supplied text only. No tools, commands, external access, tests, file changes or hash recomputation occurred. Host independent audits and this standalone evidence review are distinct.\n\nBlockers:\nB1 — README.md states: “Bounded continuation utility and a larger loss cost prevent ordinary material gains from overwhelming king survival.” The supplied exact-source review establishes a heuristic utility, an unbounded prior, imperfect model calibration and no general survival-first dominance. Learned mode can also assign risk below one to bank-unanimous death. The quoted statement presents the intended preference as an achieved behavioral property without those qualifications. A passing full-game score does not establish that property; the retained mechanism failures supply relevant counterevidence. Replace it with, for example: “The utility penalizes estimated immediate king loss heavily relative to bounded continuation value. This is a heuristic preference, not a survival guarantee; model error, sampling and the prior can still lead to fatal choices.” Supply the revised exact README text/hash and confirm that runtime, ZIP and recorded outcomes remain unchanged. Resolver: runner. No resolution deadline was supplied.\n\nArithmetic independently checked from the 200 supplied pair rows:\n- Batch 000: pair-score counts at 0, .25, .5, .75, 1 are 3, 0, 20, 3, 24; 71W/3D/26L, 72.5 points.\n- Batch 001: counts 9, 0, 23, 1, 17; 58W/1D/41L, 58.5 points.\n- Batch 002: counts 3, 1, 20, 1, 25; 71W/2D/27L, 72 points.\n- Batch 003: counts 8, 1, 20, 1, 20; 61W/2D/37L, 62 points.\nTotals are 23, 2, 83, 6, 86 across 200 pairs. Their score sum is 132.5, giving mean 0.6625 and 265/400 game points: 261 wins, eight draws, 131 losses. The supplied color totals also reconcile to these totals.\n\nWith alpha=.05/3, the declared radius is sqrt(log(120)/400), approximately .1094016881. The interval is [.5530983119,.7719016881]; its lower endpoint exceeds .5. The first attainable passing total is 244 points, and 265 clears it. This establishes the numerical gate outcome from the supplied table. Coverage remains conditional on independent bounded pair outcomes; neither distinct seeds nor 400 unique trajectories proves independence. Shared-host interference and unequal internal budgets prevent an unconditional or algorithm-only superiority claim.\n\nSelection and identity: supplied screen and confirmation results support selecting learned_600 under the frozen rule. Learned's two confirmation halves exceed 50%, and its overall confirmation score exceeds bank's. The displayed final seed ranges are distinct and disjoint from the displayed development ranges. Historical seed non-use, actual guarded invocation, process closure and archive equality remain host-reported findings. The readiness timestamps precede final entry and are consistent with the accepted prospective shared-host amendment. No contradictory binding was identified in this packet.\n\nControls and package: the supplied host audits report all 400 primary, 60 control and two package replays reconstructed successfully. Control scores 19/20, 20/20 and 20/20 exceed the respective .75, .90 and .95 thresholds; the legacy loss is not a process/rule failure. These controls are separate from primary strength evidence. The eleven-member manifest matches the packager's allowlist and selected launcher arguments. Reported payload 136506 bytes and ZIP size 137624 bytes are below 250000. Two extracted-launcher games support local operability only. Resource and latency statements appropriately distinguish completed-response timing, shared child RSS and unverified arena behavior.\n\nTests and correction: 188 Python tests and the later two static checks are host-reported passes. The initial static failure remains preserved. The revised supplied static test distinguishes the runtime payload from development files and retains a separate 200000-byte generated-file bound. This is a changed check, not merely a rerun of the failed check. The documented explanation is consistent with the actual runtime manifest and does not establish that every repository file falls within a single aggregate development limit.\n\nHistorical disposition: the B1 deadline repair, model/method review and prospective guard remedy remain accepted only within their recorded exact-source scopes. Historical Fail and Blocked verdicts, V3/V4 failures, numerical warnings and the unresolved cancellation notice remain intact. This review neither resolves that notice nor acknowledges it for the founder.\n\nExact supplied bindings, not independently recomputed:\nREADME.md: 281936d2e79c9150947ece18c05093c59e9662d6fe1a7b529e2fca24c63f08ca\nsubmission-v5-final.zip: 5b190981af47c62f9cd22834eb0bffc4be06611ac43cf6d106b6db910083d99c\nrun.sh: bf1f24f9805b0d3e1c39876be7dc21f7af5beef75f3c05a4e19d1255e9166f36\nbot.py: 0d00f07a120166821b76a04e5ef2eb991c8197701bb4392d082ebbec5d4a85e8\nbelief.py: fdfe6c78ad8911e259a52c1a645e294a62e94e4f20ebf053218471db1119841e\nsearch.py: f8bf2df2008936c77950e0d35da00bc986ac89e14d400b0813c2768e0be0f1b1\nfast_observation.py: dd537258e8b4afda6acdd0ff46409a98e58a6a7d290795f8bdedb5faf3af092f\nrisk_model.py: 042df37ae31e3a587b654184189e4c2e39c76c34ffa0d6530f8e83509ae37a81\nrisk_model.json: fb517196cf82698e6224cbe20ca6e1e02fe63d18d8d490dc0a5f29f813e5028b\nreferee.py: 2f82ac292bfad29bcb2d701b73c060d1ca8281378b4598f08a620fe5c97255be\nuniform_random.py: a9d2d69c1893652dae938c596be59fc16fdf1edba3ccf491d9cf2c92d75b514a\nrequirements.txt: 391e529739e99dc63461425af4ad7afb10d89aa275922928ceb8e2f5dffa7149\nSOURCES.md: 2c5c5314b17cfe01a29a3bb690d8ea52dd35aea9d701869545cb050630670102\n\nSupported reporting: the supplied host-audited local result is 66.25% against released v2 at 600 ms versus 180 ms under equal 180+2 clocks on a shared host; the numerical preregistered gate passes with conditional inference. No MIT Elo, Linux qualification, compute-matched superiority, native execution or company_develop acceptance is established.\n\nReceiver: runner/Chief of Staff. Preserve this Fail and return the bounded claim correction for supplemental review. This verdict does not grant or revoke founder execution authority, and it does not attest any repository head or completed publication.",
+  "author_role": "qa",
+  "author_instance": "qa-bb170fc0-a5c1-43d9-8380-dad115d46f61",
+  "revision": 1,
+  "status": "Submitted",
+  "job_id": "job-5bdff94c-299b-4ffc-b80c-96fb522900a0",
+  "inputs": [
+    {
+      "id": "artifact-0259a9e6-0c1d-4e5a-a571-abb4e415bbfa",
+      "revision": 1
+    },
+    {
+      "id": "artifact-3b580563-6a7e-4e1d-a24c-645e1ae43d46",
+      "revision": 1
+    },
+    {
+      "id": "artifact-4665fbff-f1bb-4c7a-97c9-630c29623fb1",
+      "revision": 1
+    },
+    {
+      "id": "artifact-567bc5a9-a3e4-46bf-912f-ad1db2992966",
+      "revision": 1
+    },
+    {
+      "id": "artifact-72371b3b-154a-48c0-8b4d-5bd22e53c49e",
+      "revision": 1
+    },
+    {
+      "id": "artifact-76e945a0-ff81-4430-8d2f-4dc6a88da9ad",
+      "revision": 1
+    },
+    {
+      "id": "artifact-9194a3ff-904f-468b-b987-b62a3ddf18d2",
+      "revision": 1
+    },
+    {
+      "id": "artifact-9ecfa18e-8e12-4f80-9dfb-43dafccc5323",
+      "revision": 1
+    },
+    {
+      "id": "artifact-ff82939b-0fb9-4d25-bf2b-29577e2f7b66",
+      "revision": 1
+    },
+    {
+      "id": "decision-23352f20-cb56-4e86-84a0-471ee16e22f8",
+      "revision": 1
+    },
+    {
+      "id": "decision-4ac64fd0-4f41-4c31-b530-80a56d233986",
+      "revision": 1
+    },
+    {
+      "id": "decision-5bb19ad8-645e-4255-ae18-2e0e2893f792",
+      "revision": 1
+    },
+    {
+      "id": "decision-81b8c6d6-c6ee-4703-8422-dda6c9e36789",
+      "revision": 1
+    },
+    {
+      "id": "decision-842e5db4-c60f-4e7e-adb5-066a3897c952",
+      "revision": 1
+    },
+    {
+      "id": "decision-cd9026aa-f192-4894-996a-2234398f1902",
+      "revision": 1
+    },
+    {
+      "id": "decision-fbd60390-3a43-4937-84e2-94b5b9ae3641",
+      "revision": 1
+    },
+    {
+      "id": "development-authorization-6dadf1f3-ee7d-4dd4-a45f-02c8b692137f",
+      "revision": 1
+    },
+    {
+      "id": "intent-29a81338-5a22-4976-bd0f-2058ceb3a529",
+      "revision": 1
+    },
+    {
+      "id": "intent-2f26bb5a-aba1-4800-ba28-a66c73b6355b",
+      "revision": 2
+    },
+    {
+      "id": "intent-63b28c01-b5a2-4769-b2e0-a384cd542538",
+      "revision": 1
+    },
+    {
+      "id": "intent-ba2d0d71-23b3-4922-9d2b-e06d62cff97e",
+      "revision": 1
+    },
+    {
+      "id": "intent-ca1fe87f-6849-4941-87aa-0358ee68923d",
+      "revision": 1
+    },
+    {
+      "id": "plan-dc7fa35d-a42a-4edf-92e7-e07017026ad9",
+      "revision": 1
+    }
+  ],
+  "review_of": {
+    "id": "artifact-9ecfa18e-8e12-4f80-9dfb-43dafccc5323",
+    "revision": 1
+  },
+  "review": {
+    "verdict": "Fail",
+    "reason": "All 200 supplied pair rows reconcile to 261W/8D/131L, 265/400 points and the passing conditional Hoeffding gate; supplied host audits coherently support controls and exact-package local operability. However, the exact README claims that utility weighting prevents material gains from overwhelming king survival, exceeding the prior exact-source finding of heuristic utility with an unbounded prior and no general survival-first dominance. Limited delivery with that claim is not accepted. Correct and rebind the documentation while preserving runtime, ZIP, outcomes and historical failures; no new matches are required by this finding."
+  },
+  "created_at": "2026-11-13T18:56:36.539Z"
+}

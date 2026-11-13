@@ -1,0 +1,44 @@
+{
+  "jobs": {
+    "batch-000": {
+      "finished_at": "2026-11-13T17:19:02.948162+00:00",
+      "log": "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v5-cycle-20261113/wave-001/screen-hypothesis_600/batch-000.log",
+      "output": "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v5-cycle-20261113/wave-001/screen-hypothesis_600/batch-000.json",
+      "pid": 87084,
+      "returncode": 0,
+      "started_at": "2026-11-13T17:17:11.641106+00:00",
+      "status": "completed"
+    },
+    "batch-001": {
+      "finished_at": "2026-11-13T17:19:33.651269+00:00",
+      "log": "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v5-cycle-20261113/wave-001/screen-hypothesis_600/batch-001.log",
+      "output": "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v5-cycle-20261113/wave-001/screen-hypothesis_600/batch-001.json",
+      "pid": 87085,
+      "returncode": 0,
+      "started_at": "2026-11-13T17:17:11.779298+00:00",
+      "status": "completed"
+    },
+    "batch-002": {
+      "finished_at": "2026-11-13T17:19:03.072680+00:00",
+      "log": "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v5-cycle-20261113/wave-001/screen-hypothesis_600/batch-002.log",
+      "output": "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v5-cycle-20261113/wave-001/screen-hypothesis_600/batch-002.json",
+      "pid": 87087,
+      "returncode": 0,
+      "started_at": "2026-11-13T17:17:11.875155+00:00",
+      "status": "completed"
+    },
+    "batch-003": {
+      "finished_at": "2026-11-13T17:18:58.169711+00:00",
+      "log": "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v5-cycle-20261113/wave-001/screen-hypothesis_600/batch-003.log",
+      "output": "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v5-cycle-20261113/wave-001/screen-hypothesis_600/batch-003.json",
+      "pid": 87089,
+      "returncode": 0,
+      "started_at": "2026-11-13T17:17:12.014769+00:00",
+      "status": "completed"
+    }
+  },
+  "pending": [],
+  "plan_sha256": "70460704d3532195ae0fea0a15ed85f39635bef1c8887727d69e91c6eb32adb6",
+  "reason": null,
+  "status": "running"
+}

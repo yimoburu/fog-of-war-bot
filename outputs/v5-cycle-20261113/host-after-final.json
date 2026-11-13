@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "observed_date_utc": "2026-11-13",
+  "phase": "after completed primary final; release-control checker had just started",
+  "method": "ps -A -o pid=,ppid=,pcpu=,comm= filtered to reported CPU above20%",
+  "other_python_processes": 5,
+  "other_python_reported_cpu_percent_sum": 350.8,
+  "security_service_processes": 5,
+  "security_service_reported_cpu_percent_sum": 413.7,
+  "scope": "Unrelated process categories only. Process-reported percentages are not precise instantaneous host utilization; command arguments and unrelated project paths are omitted.",
+  "limitation": "Bookend observations show continued variable shared-host activity. They neither reconstruct load throughout the final nor prove pair independence."
+}

@@ -8,7 +8,8 @@ import stat
 import zipfile
 
 ROOT = Path(__file__).resolve().parent
-RUNTIME_FILES = ('bot.py', 'belief.py', 'search.py', 'referee.py', 'uniform_random.py', 'run.sh',
+RUNTIME_FILES = ('bot.py', 'belief.py', 'search.py', 'fast_observation.py',
+                 'risk_model.py', 'risk_model.json', 'referee.py', 'uniform_random.py', 'run.sh',
                  'requirements.txt', 'SOURCES.md')
 UPSTREAM = {
     'referee.py': '2f82ac292bfad29bcb2d701b73c060d1ca8281378b4598f08a620fe5c97255be',

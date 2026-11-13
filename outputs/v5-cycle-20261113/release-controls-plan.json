@@ -1,0 +1,40 @@
+{
+  "artifact_policy": "Preserve every game and independently audit replays. Interrupted or failed evidence remains failed; no silent retry.",
+  "attempts": 1,
+  "batch_pairs": 5,
+  "candidate_binding": "Exact final_selection in the first final_passed_release_pending wave and its immutable source manifest; record resolution before executing.",
+  "clock": {
+    "base_seconds": 180,
+    "increment_seconds": 2,
+    "max_plies": 1000
+  },
+  "controls": [
+    {
+      "minimum_score": 0.75,
+      "name": "legacy_v1",
+      "opponent": "/Users/xwli/Documents/soloco/allearn/ffwb/legacy_bot.py",
+      "seed_base": 1950031861,
+      "sha256": "3df007f50369f53c5c473988d69a30557c3823a1b28b81943312e5761d21e57a"
+    },
+    {
+      "minimum_score": 0.9,
+      "name": "official_baseline",
+      "opponent": "/Users/xwli/Documents/soloco/allearn/ffwb/baseline.py",
+      "seed_base": 1950131861,
+      "sha256": "b2b9bfcde789a7c8bd86badd2c0c34d7cc243a8df1a1d75276acabd569498c3d"
+    },
+    {
+      "minimum_score": 0.95,
+      "name": "uniform_random",
+      "opponent": "/Users/xwli/Documents/soloco/allearn/ffwb/uniform_random.py",
+      "seed_base": 1950231861,
+      "sha256": "a9d2d69c1893652dae938c596be59fc16fdf1edba3ccf491d9cf2c92d75b514a"
+    }
+  ],
+  "failures_allowed": 0,
+  "pairs_per_opponent": 10,
+  "schema_version": 1,
+  "scope": "Prospective post-final release controls; execute only after first passing V5 final, using its exact selected source and arguments. Separate descriptive regression checks, no pooling with v2 strength.",
+  "seed_separation": "All control seeds exceed1.95b; current global V5 stage seeds end below1.796b, and pre-cycle historical maximum1084195699. No control seed was selected from played outcomes.",
+  "workers": 4
+}

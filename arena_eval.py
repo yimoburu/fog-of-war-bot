@@ -13,6 +13,7 @@ import sys
 from referee import run_match
 
 ROOT = Path(__file__).resolve().parent
+ROOT_RUNTIME_DEPENDENCIES = ('fast_observation.py', 'risk_model.py', 'risk_model.json')
 NORMAL_REASONS = {'King capturable', 'Threefold repetition', '50-move rule',
                   'No legal moves', 'Move limit reached'}
 SCORES = {'win': 1.0, 'draw': 0.5, 'loss': 0.0}
@@ -162,6 +163,8 @@ def main(argv=None):
         parser.error('Opponent paths must be unique')
     dependencies = [ROOT / name for name in ('arena_eval.py', 'referee.py', 'uniform_random.py',
                     'requirements.txt', 'belief.py', 'search.py') if (ROOT / name).exists()]
+    if ROOT / 'bot.py' in (candidate, *opponents):
+        dependencies.extend(ROOT / name for name in ROOT_RUNTIME_DEPENDENCIES)
     paths = sorted(set([candidate, *opponents, *dependencies, *args.source]))
     if any(not p.is_file() for p in paths):
         parser.error('Every script/source must be an existing regular file')

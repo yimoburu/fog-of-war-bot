@@ -1,0 +1,374 @@
+{
+  "wave_plan_sha256": "fa0976687f836343c5e348f18802ca2023214044bbd4848ea7c3dabbbfd818e4",
+  "archive_sha256": "6e5e24d581e26be307252662c540258de142c02513d54108bcddc995b3e878f4",
+  "archive_matches_plan": true,
+  "source_checks": [
+    {
+      "path": "/Users/xwli/Documents/soloco/allearn/ffwb/arena_eval.py",
+      "archived_sha256": "b674c8c649eec2626b5d55d40c9acca967d2afe4aa2fb5e6c21dd5efa6ef27ba",
+      "matches_current": true,
+      "matches_frozen": true
+    },
+    {
+      "path": "/Users/xwli/Documents/soloco/allearn/ffwb/audit_replays.py",
+      "archived_sha256": "38421d2c45ca61cd2f298f246b7fd14038e6bff680ed347bb98dfea06626f2f8",
+      "matches_current": true,
+      "matches_frozen": true
+    },
+    {
+      "path": "/Users/xwli/Documents/soloco/allearn/ffwb/belief.py",
+      "archived_sha256": "fdfe6c78ad8911e259a52c1a645e294a62e94e4f20ebf053218471db1119841e",
+      "matches_current": true,
+      "matches_frozen": true
+    },
+    {
+      "path": "/Users/xwli/Documents/soloco/allearn/ffwb/bot.py",
+      "archived_sha256": "0d00f07a120166821b76a04e5ef2eb991c8197701bb4392d082ebbec5d4a85e8",
+      "matches_current": true,
+      "matches_frozen": true
+    },
+    {
+      "path": "/Users/xwli/Documents/soloco/allearn/ffwb/fast_observation.py",
+      "archived_sha256": "dd537258e8b4afda6acdd0ff46409a98e58a6a7d290795f8bdedb5faf3af092f",
+      "matches_current": true,
+      "matches_frozen": true
+    },
+    {
+      "path": "/Users/xwli/Documents/soloco/allearn/ffwb/opponents/v2/SOURCES.md",
+      "archived_sha256": "c64d82f80b5c364dd28f37d56297d264688db01a8ec0f52b2b1e07279ce379a2",
+      "matches_current": true,
+      "matches_frozen": true
+    },
+    {
+      "path": "/Users/xwli/Documents/soloco/allearn/ffwb/opponents/v2/belief.py",
+      "archived_sha256": "7c9f57397d5552c90eb70c425aac5cec80363d707ac71c632480bae93e504d63",
+      "matches_current": true,
+      "matches_frozen": true
+    },
+    {
+      "path": "/Users/xwli/Documents/soloco/allearn/ffwb/opponents/v2/bot.py",
+      "archived_sha256": "99be8f7028bed556459bedab5b0163799bac4970686e33f33adea6b86c891232",
+      "matches_current": true,
+      "matches_frozen": true
+    },
+    {
+      "path": "/Users/xwli/Documents/soloco/allearn/ffwb/opponents/v2/provenance.json",
+      "archived_sha256": "c816c4683a3fa776420b1c1c59dce8fe58af30846329b6c53a9629377707c833",
+      "matches_current": true,
+      "matches_frozen": true
+    },
+    {
+      "path": "/Users/xwli/Documents/soloco/allearn/ffwb/opponents/v2/referee.py",
+      "archived_sha256": "2f82ac292bfad29bcb2d701b73c060d1ca8281378b4598f08a620fe5c97255be",
+      "matches_current": true,
+      "matches_frozen": true
+    },
+    {
+      "path": "/Users/xwli/Documents/soloco/allearn/ffwb/opponents/v2/requirements.txt",
+      "archived_sha256": "391e529739e99dc63461425af4ad7afb10d89aa275922928ceb8e2f5dffa7149",
+      "matches_current": true,
+      "matches_frozen": true
+    },
+    {
+      "path": "/Users/xwli/Documents/soloco/allearn/ffwb/opponents/v2/search.py",
+      "archived_sha256": "a2cb6000bf92c026edba87d790d0b49f47ef759e77d7ed27a1ae4a5a6791992e",
+      "matches_current": true,
+      "matches_frozen": true
+    },
+    {
+      "path": "/Users/xwli/Documents/soloco/allearn/ffwb/opponents/v2/uniform_random.py",
+      "archived_sha256": "a9d2d69c1893652dae938c596be59fc16fdf1edba3ccf491d9cf2c92d75b514a",
+      "matches_current": true,
+      "matches_frozen": true
+    },
+    {
+      "path": "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v5-cycle-20261113/design.json",
+      "archived_sha256": "0ada87aaaba292f0f6fd2aaa8f258d861c769deb94ce2c1aa289027a352203f5",
+      "matches_current": true,
+      "matches_frozen": true
+    },
+    {
+      "path": "/Users/xwli/Documents/soloco/allearn/ffwb/referee.py",
+      "archived_sha256": "2f82ac292bfad29bcb2d701b73c060d1ca8281378b4598f08a620fe5c97255be",
+      "matches_current": true,
+      "matches_frozen": true
+    },
+    {
+      "path": "/Users/xwli/Documents/soloco/allearn/ffwb/requirements.txt",
+      "archived_sha256": "391e529739e99dc63461425af4ad7afb10d89aa275922928ceb8e2f5dffa7149",
+      "matches_current": true,
+      "matches_frozen": true
+    },
+    {
+      "path": "/Users/xwli/Documents/soloco/allearn/ffwb/risk_model.json",
+      "archived_sha256": "fb517196cf82698e6224cbe20ca6e1e02fe63d18d8d490dc0a5f29f813e5028b",
+      "matches_current": true,
+      "matches_frozen": true
+    },
+    {
+      "path": "/Users/xwli/Documents/soloco/allearn/ffwb/risk_model.py",
+      "archived_sha256": "042df37ae31e3a587b654184189e4c2e39c76c34ffa0d6530f8e83509ae37a81",
+      "matches_current": true,
+      "matches_frozen": true
+    },
+    {
+      "path": "/Users/xwli/Documents/soloco/allearn/ffwb/run_paired_suite.py",
+      "archived_sha256": "aced8453cf75991c35d9ea0c4e976193528b0336e58d045a91a852e2c036e969",
+      "matches_current": true,
+      "matches_frozen": true
+    },
+    {
+      "path": "/Users/xwli/Documents/soloco/allearn/ffwb/search.py",
+      "archived_sha256": "f8bf2df2008936c77950e0d35da00bc986ac89e14d400b0813c2768e0be0f1b1",
+      "matches_current": true,
+      "matches_frozen": true
+    },
+    {
+      "path": "/Users/xwli/Documents/soloco/allearn/ffwb/uniform_random.py",
+      "archived_sha256": "a9d2d69c1893652dae938c596be59fc16fdf1edba3ccf491d9cf2c92d75b514a",
+      "matches_current": true,
+      "matches_frozen": true
+    },
+    {
+      "path": "/Users/xwli/Documents/soloco/allearn/ffwb/v2_bot.py",
+      "archived_sha256": "f3c236892586cf2577745f310b4bd9c37321c158ea0c15b17dc388d20f831ed8",
+      "matches_current": true,
+      "matches_frozen": true
+    },
+    {
+      "path": "/Users/xwli/Documents/soloco/allearn/ffwb/v5_experiments.py",
+      "archived_sha256": "7be06f1cf1e4800dd466a7728cf2d7111c22fe0d152e34ec961cfc7d41687379",
+      "matches_current": true,
+      "matches_frozen": true
+    }
+  ],
+  "all_sources_match": true,
+  "completed_screen_bindings": [
+    {
+      "path": "outputs/v5-cycle-20261113/wave-001/screen-bank_600/batch-000.json",
+      "sha256": "f4f783c0874dc0b572375b7123cfee9f9b01724d9128a540cc4b03db60958b3d",
+      "status": "completed",
+      "matches": 4,
+      "all_recorded_interpreters_match": true,
+      "source_unchanged": true,
+      "environment": {
+        "chess": "1.11.2",
+        "platform": "macOS-26.7.1-arm64-arm-64bit-Mach-O",
+        "python": "3.13.2 (v3.13.2:4f8bb3947cf, Feb  4 2025, 11:51:10) [Clang 15.0.0 (clang-1500.3.9.4)]",
+        "python_chess": "1.999"
+      }
+    },
+    {
+      "path": "outputs/v5-cycle-20261113/wave-001/screen-bank_600/batch-001.json",
+      "sha256": "7b0293bf917e7e7f8e7e87f24f245fe9cf2293695d5180503ab739e91b95e3a3",
+      "status": "completed",
+      "matches": 4,
+      "all_recorded_interpreters_match": true,
+      "source_unchanged": true,
+      "environment": {
+        "chess": "1.11.2",
+        "platform": "macOS-26.7.1-arm64-arm-64bit-Mach-O",
+        "python": "3.13.2 (v3.13.2:4f8bb3947cf, Feb  4 2025, 11:51:10) [Clang 15.0.0 (clang-1500.3.9.4)]",
+        "python_chess": "1.999"
+      }
+    },
+    {
+      "path": "outputs/v5-cycle-20261113/wave-001/screen-bank_600/batch-002.json",
+      "sha256": "81988a971f79874fa400f1977a9b45b232843a353517b712cc555bb34a329f6d",
+      "status": "completed",
+      "matches": 4,
+      "all_recorded_interpreters_match": true,
+      "source_unchanged": true,
+      "environment": {
+        "chess": "1.11.2",
+        "platform": "macOS-26.7.1-arm64-arm-64bit-Mach-O",
+        "python": "3.13.2 (v3.13.2:4f8bb3947cf, Feb  4 2025, 11:51:10) [Clang 15.0.0 (clang-1500.3.9.4)]",
+        "python_chess": "1.999"
+      }
+    },
+    {
+      "path": "outputs/v5-cycle-20261113/wave-001/screen-bank_600/batch-003.json",
+      "sha256": "b6de349f4ff75793e067630672e60f8b3ac63d8bbddebb1917518e7d3fd4663e",
+      "status": "completed",
+      "matches": 4,
+      "all_recorded_interpreters_match": true,
+      "source_unchanged": true,
+      "environment": {
+        "chess": "1.11.2",
+        "platform": "macOS-26.7.1-arm64-arm-64bit-Mach-O",
+        "python": "3.13.2 (v3.13.2:4f8bb3947cf, Feb  4 2025, 11:51:10) [Clang 15.0.0 (clang-1500.3.9.4)]",
+        "python_chess": "1.999"
+      }
+    },
+    {
+      "path": "outputs/v5-cycle-20261113/wave-001/screen-hypothesis_600/batch-000.json",
+      "sha256": "d448916110ba8fe9eba64f69fd62648150831188d9b7d870366d71e4566431e2",
+      "status": "completed",
+      "matches": 4,
+      "all_recorded_interpreters_match": true,
+      "source_unchanged": true,
+      "environment": {
+        "chess": "1.11.2",
+        "platform": "macOS-26.7.1-arm64-arm-64bit-Mach-O",
+        "python": "3.13.2 (v3.13.2:4f8bb3947cf, Feb  4 2025, 11:51:10) [Clang 15.0.0 (clang-1500.3.9.4)]",
+        "python_chess": "1.999"
+      }
+    },
+    {
+      "path": "outputs/v5-cycle-20261113/wave-001/screen-hypothesis_600/batch-001.json",
+      "sha256": "563972820353c372cd5774b720c9749ce49ff6ad12162a7630b2036c6b3984b8",
+      "status": "completed",
+      "matches": 4,
+      "all_recorded_interpreters_match": true,
+      "source_unchanged": true,
+      "environment": {
+        "chess": "1.11.2",
+        "platform": "macOS-26.7.1-arm64-arm-64bit-Mach-O",
+        "python": "3.13.2 (v3.13.2:4f8bb3947cf, Feb  4 2025, 11:51:10) [Clang 15.0.0 (clang-1500.3.9.4)]",
+        "python_chess": "1.999"
+      }
+    },
+    {
+      "path": "outputs/v5-cycle-20261113/wave-001/screen-hypothesis_600/batch-002.json",
+      "sha256": "0fd65d198f945290e61b2dbfa589fe4940a8cd0eb34de36a2068a2493e4eea04",
+      "status": "completed",
+      "matches": 4,
+      "all_recorded_interpreters_match": true,
+      "source_unchanged": true,
+      "environment": {
+        "chess": "1.11.2",
+        "platform": "macOS-26.7.1-arm64-arm-64bit-Mach-O",
+        "python": "3.13.2 (v3.13.2:4f8bb3947cf, Feb  4 2025, 11:51:10) [Clang 15.0.0 (clang-1500.3.9.4)]",
+        "python_chess": "1.999"
+      }
+    },
+    {
+      "path": "outputs/v5-cycle-20261113/wave-001/screen-hypothesis_600/batch-003.json",
+      "sha256": "4b01e1fe1441b4be645f3f6ed3c4c3c4308c84975e17e160627181a524f91cbe",
+      "status": "completed",
+      "matches": 4,
+      "all_recorded_interpreters_match": true,
+      "source_unchanged": true,
+      "environment": {
+        "chess": "1.11.2",
+        "platform": "macOS-26.7.1-arm64-arm-64bit-Mach-O",
+        "python": "3.13.2 (v3.13.2:4f8bb3947cf, Feb  4 2025, 11:51:10) [Clang 15.0.0 (clang-1500.3.9.4)]",
+        "python_chess": "1.999"
+      }
+    },
+    {
+      "path": "outputs/v5-cycle-20261113/wave-001/screen-learned_600/batch-000.json",
+      "sha256": "6ff3d9034323c30ea8738bcf224be1e0470494152b02da2b47d27a297b9c8235",
+      "status": "completed",
+      "matches": 4,
+      "all_recorded_interpreters_match": true,
+      "source_unchanged": true,
+      "environment": {
+        "chess": "1.11.2",
+        "platform": "macOS-26.7.1-arm64-arm-64bit-Mach-O",
+        "python": "3.13.2 (v3.13.2:4f8bb3947cf, Feb  4 2025, 11:51:10) [Clang 15.0.0 (clang-1500.3.9.4)]",
+        "python_chess": "1.999"
+      }
+    },
+    {
+      "path": "outputs/v5-cycle-20261113/wave-001/screen-learned_600/batch-001.json",
+      "sha256": "94e5b834c5c1907903fe5740b6fbec533f005ac61456b843ff83667686d8dfe9",
+      "status": "completed",
+      "matches": 4,
+      "all_recorded_interpreters_match": true,
+      "source_unchanged": true,
+      "environment": {
+        "chess": "1.11.2",
+        "platform": "macOS-26.7.1-arm64-arm-64bit-Mach-O",
+        "python": "3.13.2 (v3.13.2:4f8bb3947cf, Feb  4 2025, 11:51:10) [Clang 15.0.0 (clang-1500.3.9.4)]",
+        "python_chess": "1.999"
+      }
+    },
+    {
+      "path": "outputs/v5-cycle-20261113/wave-001/screen-learned_600/batch-002.json",
+      "sha256": "7c8696611fbe3faa58557f0f589a540d17b69f40ce05700507bfcabd3f7e19f9",
+      "status": "completed",
+      "matches": 4,
+      "all_recorded_interpreters_match": true,
+      "source_unchanged": true,
+      "environment": {
+        "chess": "1.11.2",
+        "platform": "macOS-26.7.1-arm64-arm-64bit-Mach-O",
+        "python": "3.13.2 (v3.13.2:4f8bb3947cf, Feb  4 2025, 11:51:10) [Clang 15.0.0 (clang-1500.3.9.4)]",
+        "python_chess": "1.999"
+      }
+    },
+    {
+      "path": "outputs/v5-cycle-20261113/wave-001/screen-learned_600/batch-003.json",
+      "sha256": "1bcdcb114488577798479dcd6f0788fc42422c1ae115ce595daa537bc9085393",
+      "status": "completed",
+      "matches": 4,
+      "all_recorded_interpreters_match": true,
+      "source_unchanged": true,
+      "environment": {
+        "chess": "1.11.2",
+        "platform": "macOS-26.7.1-arm64-arm-64bit-Mach-O",
+        "python": "3.13.2 (v3.13.2:4f8bb3947cf, Feb  4 2025, 11:51:10) [Clang 15.0.0 (clang-1500.3.9.4)]",
+        "python_chess": "1.999"
+      }
+    },
+    {
+      "path": "outputs/v5-cycle-20261113/wave-001/screen-robust_600/batch-000.json",
+      "sha256": "f5bff1682a08ea866f3594971a8bbd34674484609d52126cd4516dc770ec031b",
+      "status": "completed",
+      "matches": 4,
+      "all_recorded_interpreters_match": true,
+      "source_unchanged": true,
+      "environment": {
+        "chess": "1.11.2",
+        "platform": "macOS-26.7.1-arm64-arm-64bit-Mach-O",
+        "python": "3.13.2 (v3.13.2:4f8bb3947cf, Feb  4 2025, 11:51:10) [Clang 15.0.0 (clang-1500.3.9.4)]",
+        "python_chess": "1.999"
+      }
+    },
+    {
+      "path": "outputs/v5-cycle-20261113/wave-001/screen-robust_600/batch-001.json",
+      "sha256": "acd1bfd35b69cb4e68edb042a8d0db3ca40d32a5e69360bfe5a6b7c353ca973d",
+      "status": "completed",
+      "matches": 4,
+      "all_recorded_interpreters_match": true,
+      "source_unchanged": true,
+      "environment": {
+        "chess": "1.11.2",
+        "platform": "macOS-26.7.1-arm64-arm-64bit-Mach-O",
+        "python": "3.13.2 (v3.13.2:4f8bb3947cf, Feb  4 2025, 11:51:10) [Clang 15.0.0 (clang-1500.3.9.4)]",
+        "python_chess": "1.999"
+      }
+    },
+    {
+      "path": "outputs/v5-cycle-20261113/wave-001/screen-robust_600/batch-002.json",
+      "sha256": "fdc5109d8c6b54a886ed2c1bc22b9a92623094680f38326c38a8fde5e7f2315f",
+      "status": "completed",
+      "matches": 4,
+      "all_recorded_interpreters_match": true,
+      "source_unchanged": true,
+      "environment": {
+        "chess": "1.11.2",
+        "platform": "macOS-26.7.1-arm64-arm-64bit-Mach-O",
+        "python": "3.13.2 (v3.13.2:4f8bb3947cf, Feb  4 2025, 11:51:10) [Clang 15.0.0 (clang-1500.3.9.4)]",
+        "python_chess": "1.999"
+      }
+    },
+    {
+      "path": "outputs/v5-cycle-20261113/wave-001/screen-robust_600/batch-003.json",
+      "sha256": "3a1262ad700310de69f7abf7f25c1b20cb6117eb3d6fba7e87ece8481f9d01d7",
+      "status": "completed",
+      "matches": 4,
+      "all_recorded_interpreters_match": true,
+      "source_unchanged": true,
+      "environment": {
+        "chess": "1.11.2",
+        "platform": "macOS-26.7.1-arm64-arm-64bit-Mach-O",
+        "python": "3.13.2 (v3.13.2:4f8bb3947cf, Feb  4 2025, 11:51:10) [Clang 15.0.0 (clang-1500.3.9.4)]",
+        "python_chess": "1.999"
+      }
+    }
+  ],
+  "all_recorded_interpreters_match": true,
+  "scope": "Host executed source/archive/record checks. Prior direct games had recorded interpreter/version evidence, not the prospective environment guard or package byte hashes at start."
+}

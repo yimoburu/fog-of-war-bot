@@ -1,0 +1,1672 @@
+{
+  "boundary_tests": {
+    "command": ".venv/bin/python -B -m unittest -v test_risk_model",
+    "result": "passed",
+    "test_source_sha256": "5976d0a7ffad537a16e3b15be105b11c5b304933db84da0403aa68e67c15a1ae",
+    "tests": 11
+  },
+  "corpus": {
+    "actions": 180490,
+    "all_legal_actions": 184881,
+    "feature_count": 54,
+    "hard_filter_excluded_actions": 4391,
+    "matches": 200,
+    "pairs": 100,
+    "turns": 7080,
+    "verified_frames": 14357
+  },
+  "design": {
+    "baselines": [
+      "training prevalence",
+      "fixed geometric score with training-only scalar logistic calibration"
+    ],
+    "feature_names": [
+      "phase",
+      "unknown_fraction",
+      "own_pieces",
+      "own_pawns",
+      "visible_enemies",
+      "king_move",
+      "pawn_move",
+      "capture",
+      "en_passant",
+      "castle",
+      "promotion",
+      "king_advance",
+      "king_file_center",
+      "king_rank_center",
+      "adjacent_own",
+      "adjacent_pawns",
+      "ray_own_shields",
+      "shield_change",
+      "rook_hidden_ray",
+      "bishop_hidden_ray",
+      "rook_near_hidden",
+      "bishop_near_hidden",
+      "hidden_knight_origins",
+      "hidden_pawn_origins",
+      "hidden_king_origins",
+      "ray_exposure_change",
+      "pawn_potential",
+      "knight_potential",
+      "bishop_potential",
+      "rook_potential",
+      "queen_potential",
+      "promotion_potential",
+      "rook_ray_inventory",
+      "bishop_ray_inventory",
+      "knight_inventory",
+      "pawn_inventory",
+      "kingmove_rook_ray",
+      "kingmove_bishop_ray",
+      "kingmove_knight",
+      "kingmove_pawn",
+      "seen_rook_threat",
+      "seen_bishop_threat",
+      "seen_knight_threat",
+      "seen_pawn_threat",
+      "seen_king_threat",
+      "recent_hidden_sightings",
+      "forced_blocker_threat",
+      "captures_pawn",
+      "captures_knight",
+      "captures_bishop",
+      "captures_rook",
+      "captures_queen",
+      "victim_value",
+      "visible_attack"
+    ],
+    "feature_version": "v4-immediate-risk-1",
+    "limitations": "V3 vs frozenV2 induced distribution; no universal calibration or strength claim",
+    "model": "unweighted regularized logistic regression; no class weighting",
+    "normalization": "training-only mean and population SD; SD below 1e-8 replaced by 1; clip standardized values to [-8,8]",
+    "optimizer": "Newton with backtracking, max50 iterations, gradient tolerance1e-7, intercept unpenalized",
+    "probability_clip": 1e-06,
+    "regularization_grid": [
+      0.001,
+      0.01,
+      0.1,
+      1.0
+    ],
+    "rows": "all legal actions surviving observation-board visible-safety filter, before 64/12 cutoffs",
+    "selection": "lowest validation counterfactual action log-loss, tie favors larger regularization",
+    "split_method": "SHA256-sort unique (candidate_seed, opponent_seed) groups; 70/15/15 percent",
+    "split_salt": "ffwb-risk-v4-split-2026-11-13",
+    "split_unit": "entire color-swapped seed pair",
+    "target": "official referee immediate king-capturability loss after counterfactual own move",
+    "test_policy": "test labels not used for model selection; evaluate final chosen model once, no refit"
+  },
+  "design_sha256": "5de47aa769789087aff342ec96ee54a9b336b77276ee8a47d3bf75bb0872a750",
+  "elapsed_seconds": 20.070425708021503,
+  "final_test_evaluations": 1,
+  "geometric_baseline": {
+    "fit": {
+      "converged": true,
+      "gradient_max_abs": 2.963679882414417e-08,
+      "iterations": 5,
+      "objective": 0.12686625811774493
+    },
+    "intercept": -3.699157090767576,
+    "mean": 2.18430844223069,
+    "regularization": 0.001,
+    "scale": 3.3673744018355065,
+    "slope": 0.7134302361094209
+  },
+  "inputs": [
+    {
+      "matches": 50,
+      "path": "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v3-holdout-171980/batch-000.json",
+      "sha256": "1988073a8a227d3bee73e123a479668219f330de07863397c80bd88300f91ef6"
+    },
+    {
+      "matches": 50,
+      "path": "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v3-holdout-171980/batch-001.json",
+      "sha256": "c3ceca6589e141a12f78ff4fc40bb87c24e2f7a780fba6890646f268be13e93c"
+    },
+    {
+      "matches": 50,
+      "path": "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v3-holdout-171980/batch-002.json",
+      "sha256": "362046cac308b1ba8341db619be39820e053a0ce9db34bf31f9c9f5d7dd6b535"
+    },
+    {
+      "matches": 50,
+      "path": "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v3-holdout-171980/batch-003.json",
+      "sha256": "0e5a6ff77bb4ec6bbece4a9ae0d76f88c5767c299b98a813efc2ac9ce1ef03ee"
+    }
+  ],
+  "limitations": [
+    "Counterfactual actions and adjacent turns share true states and are correlated.",
+    "Scores are action-weighted; turns with more legal actions have more weight during fitting.",
+    "Pair-group splitting prevents color-pair overlap but does not establish independence of common openings.",
+    "Top choice uses only risk and UCI tie-breaking, not the integrated tactical policy.",
+    "Safe retention concerns immediate survival, not eventual win probability.",
+    "No playing-strength test or arena rating is supplied by this training report.",
+    "The final test is now consumed and cannot select another model or feature change."
+  ],
+  "metrics": {
+    "test": {
+      "constant": {
+        "actions": 28403,
+        "brier": 0.026786503991545255,
+        "calibration_bins": [
+          {
+            "actions": 0,
+            "mean_prediction": null,
+            "observed_fraction": null,
+            "range": [
+              0,
+              0.01
+            ]
+          },
+          {
+            "actions": 0,
+            "mean_prediction": null,
+            "observed_fraction": null,
+            "range": [
+              0.01,
+              0.025
+            ]
+          },
+          {
+            "actions": 28403,
+            "mean_prediction": 0.03424238028464131,
+            "observed_fraction": 0.02749709537724888,
+            "range": [
+              0.025,
+              0.05
+            ]
+          },
+          {
+            "actions": 0,
+            "mean_prediction": null,
+            "observed_fraction": null,
+            "range": [
+              0.05,
+              0.1
+            ]
+          },
+          {
+            "actions": 0,
+            "mean_prediction": null,
+            "observed_fraction": null,
+            "range": [
+              0.1,
+              0.2
+            ]
+          },
+          {
+            "actions": 0,
+            "mean_prediction": null,
+            "observed_fraction": null,
+            "range": [
+              0.2,
+              0.4
+            ]
+          },
+          {
+            "actions": 0,
+            "mean_prediction": null,
+            "observed_fraction": null,
+            "range": [
+              0.4,
+              0.6
+            ]
+          },
+          {
+            "actions": 0,
+            "mean_prediction": null,
+            "observed_fraction": null,
+            "range": [
+              0.6,
+              0.8
+            ]
+          },
+          {
+            "actions": 0,
+            "mean_prediction": null,
+            "observed_fraction": null,
+            "range": [
+              0.8,
+              1
+            ]
+          }
+        ],
+        "log_loss": 0.12666753036781825,
+        "positive_actions": 781,
+        "prevalence": 0.02749709537724888,
+        "tie_policy": "stable UCI lexicographic order, not tactical tie breaking",
+        "top12_retained_safe_turns": 1059,
+        "top12_safe_action_retention": 0.4336398522916516,
+        "top12_safe_turn_retention": 0.9925023430178069,
+        "top_choice_fatal_rate": 0.03554724041159962,
+        "top_choice_fatal_turns": 38,
+        "turns": 1069,
+        "turns_with_safe_alternative": 1067,
+        "uniform_random_expected_fatal_rate": 0.03843599996708576,
+        "uniform_random_top12_expected_safe_turn_retention": 0.9958560226543363
+      },
+      "geometric": {
+        "actions": 28403,
+        "brier": 0.02609207975975318,
+        "calibration_bins": [
+          {
+            "actions": 0,
+            "mean_prediction": null,
+            "observed_fraction": null,
+            "range": [
+              0,
+              0.01
+            ]
+          },
+          {
+            "actions": 19719,
+            "mean_prediction": 0.017430701792635468,
+            "observed_fraction": 0.01673512855621482,
+            "range": [
+              0.01,
+              0.025
+            ]
+          },
+          {
+            "actions": 6114,
+            "mean_prediction": 0.033617126879894085,
+            "observed_fraction": 0.030912659470068694,
+            "range": [
+              0.025,
+              0.05
+            ]
+          },
+          {
+            "actions": 1629,
+            "mean_prediction": 0.06559052482009044,
+            "observed_fraction": 0.057704112952731736,
+            "range": [
+              0.05,
+              0.1
+            ]
+          },
+          {
+            "actions": 513,
+            "mean_prediction": 0.13734440473186804,
+            "observed_fraction": 0.10526315789473684,
+            "range": [
+              0.1,
+              0.2
+            ]
+          },
+          {
+            "actions": 241,
+            "mean_prediction": 0.2731438414289024,
+            "observed_fraction": 0.25311203319502074,
+            "range": [
+              0.2,
+              0.4
+            ]
+          },
+          {
+            "actions": 111,
+            "mean_prediction": 0.4975855135383809,
+            "observed_fraction": 0.21621621621621623,
+            "range": [
+              0.4,
+              0.6
+            ]
+          },
+          {
+            "actions": 64,
+            "mean_prediction": 0.6938624347508451,
+            "observed_fraction": 0.34375,
+            "range": [
+              0.6,
+              0.8
+            ]
+          },
+          {
+            "actions": 12,
+            "mean_prediction": 0.8535100233255236,
+            "observed_fraction": 0.5833333333333334,
+            "range": [
+              0.8,
+              1
+            ]
+          }
+        ],
+        "log_loss": 0.11548733973382885,
+        "positive_actions": 781,
+        "prevalence": 0.02749709537724888,
+        "tie_policy": "stable UCI lexicographic order, not tactical tie breaking",
+        "top12_retained_safe_turns": 1064,
+        "top12_safe_action_retention": 0.43566722177974077,
+        "top12_safe_turn_retention": 0.9971883786316776,
+        "top_choice_fatal_rate": 0.02245088868101029,
+        "top_choice_fatal_turns": 24,
+        "turns": 1069,
+        "turns_with_safe_alternative": 1067,
+        "uniform_random_expected_fatal_rate": 0.03843599996708576,
+        "uniform_random_top12_expected_safe_turn_retention": 0.9958560226543363
+      },
+      "learned": {
+        "actions": 28403,
+        "brier": 0.024983201766012608,
+        "calibration_bins": [
+          {
+            "actions": 1,
+            "mean_prediction": 0.009915531677643035,
+            "observed_fraction": 0.0,
+            "range": [
+              0,
+              0.01
+            ]
+          },
+          {
+            "actions": 18343,
+            "mean_prediction": 0.016937227459272126,
+            "observed_fraction": 0.004851987134056588,
+            "range": [
+              0.01,
+              0.025
+            ]
+          },
+          {
+            "actions": 6608,
+            "mean_prediction": 0.033459149558649356,
+            "observed_fraction": 0.04449152542372881,
+            "range": [
+              0.025,
+              0.05
+            ]
+          },
+          {
+            "actions": 2200,
+            "mean_prediction": 0.06977808981682283,
+            "observed_fraction": 0.06863636363636363,
+            "range": [
+              0.05,
+              0.1
+            ]
+          },
+          {
+            "actions": 742,
+            "mean_prediction": 0.13088998842631627,
+            "observed_fraction": 0.1495956873315364,
+            "range": [
+              0.1,
+              0.2
+            ]
+          },
+          {
+            "actions": 339,
+            "mean_prediction": 0.28034181069760733,
+            "observed_fraction": 0.24188790560471976,
+            "range": [
+              0.2,
+              0.4
+            ]
+          },
+          {
+            "actions": 130,
+            "mean_prediction": 0.47295168141551397,
+            "observed_fraction": 0.2692307692307692,
+            "range": [
+              0.4,
+              0.6
+            ]
+          },
+          {
+            "actions": 34,
+            "mean_prediction": 0.6646190625390737,
+            "observed_fraction": 0.5294117647058824,
+            "range": [
+              0.6,
+              0.8
+            ]
+          },
+          {
+            "actions": 6,
+            "mean_prediction": 0.8345846045852054,
+            "observed_fraction": 0.16666666666666666,
+            "range": [
+              0.8,
+              1
+            ]
+          }
+        ],
+        "log_loss": 0.10623993394741592,
+        "positive_actions": 781,
+        "prevalence": 0.02749709537724888,
+        "tie_policy": "stable UCI lexicographic order, not tactical tie breaking",
+        "top12_retained_safe_turns": 1065,
+        "top12_safe_action_retention": 0.43657229744406634,
+        "top12_safe_turn_retention": 0.9981255857544518,
+        "top_choice_fatal_rate": 0.01683816651075772,
+        "top_choice_fatal_turns": 18,
+        "turns": 1069,
+        "turns_with_safe_alternative": 1067,
+        "uniform_random_expected_fatal_rate": 0.03843599996708576,
+        "uniform_random_top12_expected_safe_turn_retention": 0.9958560226543363
+      }
+    },
+    "train": {
+      "constant": {
+        "actions": 124086,
+        "brier": 0.03306983967708331,
+        "calibration_bins": [
+          {
+            "actions": 0,
+            "mean_prediction": null,
+            "observed_fraction": null,
+            "range": [
+              0,
+              0.01
+            ]
+          },
+          {
+            "actions": 0,
+            "mean_prediction": null,
+            "observed_fraction": null,
+            "range": [
+              0.01,
+              0.025
+            ]
+          },
+          {
+            "actions": 124086,
+            "mean_prediction": 0.03424238028464132,
+            "observed_fraction": 0.0342423802846413,
+            "range": [
+              0.025,
+              0.05
+            ]
+          },
+          {
+            "actions": 0,
+            "mean_prediction": null,
+            "observed_fraction": null,
+            "range": [
+              0.05,
+              0.1
+            ]
+          },
+          {
+            "actions": 0,
+            "mean_prediction": null,
+            "observed_fraction": null,
+            "range": [
+              0.1,
+              0.2
+            ]
+          },
+          {
+            "actions": 0,
+            "mean_prediction": null,
+            "observed_fraction": null,
+            "range": [
+              0.2,
+              0.4
+            ]
+          },
+          {
+            "actions": 0,
+            "mean_prediction": null,
+            "observed_fraction": null,
+            "range": [
+              0.4,
+              0.6
+            ]
+          },
+          {
+            "actions": 0,
+            "mean_prediction": null,
+            "observed_fraction": null,
+            "range": [
+              0.6,
+              0.8
+            ]
+          },
+          {
+            "actions": 0,
+            "mean_prediction": null,
+            "observed_fraction": null,
+            "range": [
+              0.8,
+              1
+            ]
+          }
+        ],
+        "log_loss": 0.1491930641257295,
+        "positive_actions": 4249,
+        "prevalence": 0.0342423802846413,
+        "tie_policy": "stable UCI lexicographic order, not tactical tie breaking",
+        "top12_retained_safe_turns": 4846,
+        "top12_safe_action_retention": 0.4464314026552734,
+        "top12_safe_turn_retention": 0.9944592653396265,
+        "top_choice_fatal_rate": 0.03927183473102884,
+        "top_choice_fatal_turns": 192,
+        "turns": 4889,
+        "turns_with_safe_alternative": 4873,
+        "uniform_random_expected_fatal_rate": 0.05261720380959878,
+        "uniform_random_top12_expected_safe_turn_retention": 0.9972847439658551
+      },
+      "geometric": {
+        "actions": 124086,
+        "brier": 0.030596426709713225,
+        "calibration_bins": [
+          {
+            "actions": 0,
+            "mean_prediction": null,
+            "observed_fraction": null,
+            "range": [
+              0,
+              0.01
+            ]
+          },
+          {
+            "actions": 86158,
+            "mean_prediction": 0.01735450675369316,
+            "observed_fraction": 0.010759302676478098,
+            "range": [
+              0.01,
+              0.025
+            ]
+          },
+          {
+            "actions": 24174,
+            "mean_prediction": 0.03362771364566688,
+            "observed_fraction": 0.053363117398858274,
+            "range": [
+              0.025,
+              0.05
+            ]
+          },
+          {
+            "actions": 8516,
+            "mean_prediction": 0.06833499660091569,
+            "observed_fraction": 0.09147487083137623,
+            "range": [
+              0.05,
+              0.1
+            ]
+          },
+          {
+            "actions": 2740,
+            "mean_prediction": 0.13600443994179814,
+            "observed_fraction": 0.15255474452554746,
+            "range": [
+              0.1,
+              0.2
+            ]
+          },
+          {
+            "actions": 1552,
+            "mean_prediction": 0.27937059555034927,
+            "observed_fraction": 0.2957474226804124,
+            "range": [
+              0.2,
+              0.4
+            ]
+          },
+          {
+            "actions": 554,
+            "mean_prediction": 0.4923754802055987,
+            "observed_fraction": 0.37364620938628157,
+            "range": [
+              0.4,
+              0.6
+            ]
+          },
+          {
+            "actions": 327,
+            "mean_prediction": 0.6866245182782064,
+            "observed_fraction": 0.40061162079510704,
+            "range": [
+              0.6,
+              0.8
+            ]
+          },
+          {
+            "actions": 65,
+            "mean_prediction": 0.8519898562745564,
+            "observed_fraction": 0.5846153846153846,
+            "range": [
+              0.8,
+              1
+            ]
+          }
+        ],
+        "log_loss": 0.12661176676684735,
+        "positive_actions": 4249,
+        "prevalence": 0.0342423802846413,
+        "tie_policy": "stable UCI lexicographic order, not tactical tie breaking",
+        "top12_retained_safe_turns": 4855,
+        "top12_safe_action_retention": 0.4511795188464331,
+        "top12_safe_turn_retention": 0.9963061768930843,
+        "top_choice_fatal_rate": 0.030476580077725506,
+        "top_choice_fatal_turns": 149,
+        "turns": 4889,
+        "turns_with_safe_alternative": 4873,
+        "uniform_random_expected_fatal_rate": 0.05261720380959878,
+        "uniform_random_top12_expected_safe_turn_retention": 0.9972847439658551
+      },
+      "learned": {
+        "actions": 124086,
+        "brier": 0.02875214269008871,
+        "calibration_bins": [
+          {
+            "actions": 0,
+            "mean_prediction": null,
+            "observed_fraction": null,
+            "range": [
+              0,
+              0.01
+            ]
+          },
+          {
+            "actions": 81787,
+            "mean_prediction": 0.01693676150427784,
+            "observed_fraction": 0.003386846320319855,
+            "range": [
+              0.01,
+              0.025
+            ]
+          },
+          {
+            "actions": 29102,
+            "mean_prediction": 0.03324681660622884,
+            "observed_fraction": 0.045254621675486224,
+            "range": [
+              0.025,
+              0.05
+            ]
+          },
+          {
+            "actions": 7573,
+            "mean_prediction": 0.06861038965758808,
+            "observed_fraction": 0.13587745939521986,
+            "range": [
+              0.05,
+              0.1
+            ]
+          },
+          {
+            "actions": 3177,
+            "mean_prediction": 0.13610074917623996,
+            "observed_fraction": 0.2071136292099465,
+            "range": [
+              0.1,
+              0.2
+            ]
+          },
+          {
+            "actions": 1551,
+            "mean_prediction": 0.27555290060849424,
+            "observed_fraction": 0.3346228239845261,
+            "range": [
+              0.2,
+              0.4
+            ]
+          },
+          {
+            "actions": 578,
+            "mean_prediction": 0.4905524144974135,
+            "observed_fraction": 0.4411764705882353,
+            "range": [
+              0.4,
+              0.6
+            ]
+          },
+          {
+            "actions": 239,
+            "mean_prediction": 0.6902042519372389,
+            "observed_fraction": 0.5941422594142259,
+            "range": [
+              0.6,
+              0.8
+            ]
+          },
+          {
+            "actions": 79,
+            "mean_prediction": 0.865700000293049,
+            "observed_fraction": 0.6582278481012658,
+            "range": [
+              0.8,
+              1
+            ]
+          }
+        ],
+        "log_loss": 0.11528241773043792,
+        "positive_actions": 4249,
+        "prevalence": 0.0342423802846413,
+        "tie_policy": "stable UCI lexicographic order, not tactical tie breaking",
+        "top12_retained_safe_turns": 4852,
+        "top12_safe_action_retention": 0.4513130335372214,
+        "top12_safe_turn_retention": 0.9956905397085984,
+        "top_choice_fatal_rate": 0.024953978318674574,
+        "top_choice_fatal_turns": 122,
+        "turns": 4889,
+        "turns_with_safe_alternative": 4873,
+        "uniform_random_expected_fatal_rate": 0.05261720380959878,
+        "uniform_random_top12_expected_safe_turn_retention": 0.9972847439658551
+      }
+    },
+    "validation": {
+      "constant": {
+        "actions": 28001,
+        "brier": 0.03540450308654832,
+        "calibration_bins": [
+          {
+            "actions": 0,
+            "mean_prediction": null,
+            "observed_fraction": null,
+            "range": [
+              0,
+              0.01
+            ]
+          },
+          {
+            "actions": 0,
+            "mean_prediction": null,
+            "observed_fraction": null,
+            "range": [
+              0.01,
+              0.025
+            ]
+          },
+          {
+            "actions": 28001,
+            "mean_prediction": 0.03424238028464131,
+            "observed_fraction": 0.036748687546873327,
+            "range": [
+              0.025,
+              0.05
+            ]
+          },
+          {
+            "actions": 0,
+            "mean_prediction": null,
+            "observed_fraction": null,
+            "range": [
+              0.05,
+              0.1
+            ]
+          },
+          {
+            "actions": 0,
+            "mean_prediction": null,
+            "observed_fraction": null,
+            "range": [
+              0.1,
+              0.2
+            ]
+          },
+          {
+            "actions": 0,
+            "mean_prediction": null,
+            "observed_fraction": null,
+            "range": [
+              0.2,
+              0.4
+            ]
+          },
+          {
+            "actions": 0,
+            "mean_prediction": null,
+            "observed_fraction": null,
+            "range": [
+              0.4,
+              0.6
+            ]
+          },
+          {
+            "actions": 0,
+            "mean_prediction": null,
+            "observed_fraction": null,
+            "range": [
+              0.6,
+              0.8
+            ]
+          },
+          {
+            "actions": 0,
+            "mean_prediction": null,
+            "observed_fraction": null,
+            "range": [
+              0.8,
+              1
+            ]
+          }
+        ],
+        "log_loss": 0.1575627489675415,
+        "positive_actions": 1029,
+        "prevalence": 0.036748687546873327,
+        "tie_policy": "stable UCI lexicographic order, not tactical tie breaking",
+        "top12_retained_safe_turns": 1114,
+        "top12_safe_action_retention": 0.4520243215186119,
+        "top12_safe_turn_retention": 0.9946428571428572,
+        "top_choice_fatal_rate": 0.059714795008912656,
+        "top_choice_fatal_turns": 67,
+        "turns": 1122,
+        "turns_with_safe_alternative": 1120,
+        "uniform_random_expected_fatal_rate": 0.06053261628480501,
+        "uniform_random_top12_expected_safe_turn_retention": 0.9971529174881165
+      },
+      "geometric": {
+        "actions": 28001,
+        "brier": 0.03141071577795401,
+        "calibration_bins": [
+          {
+            "actions": 0,
+            "mean_prediction": null,
+            "observed_fraction": null,
+            "range": [
+              0,
+              0.01
+            ]
+          },
+          {
+            "actions": 19885,
+            "mean_prediction": 0.01735368786888588,
+            "observed_fraction": 0.010057832537088257,
+            "range": [
+              0.01,
+              0.025
+            ]
+          },
+          {
+            "actions": 4909,
+            "mean_prediction": 0.033814529744923535,
+            "observed_fraction": 0.04624159706661234,
+            "range": [
+              0.025,
+              0.05
+            ]
+          },
+          {
+            "actions": 1570,
+            "mean_prediction": 0.06885828746191526,
+            "observed_fraction": 0.11082802547770701,
+            "range": [
+              0.05,
+              0.1
+            ]
+          },
+          {
+            "actions": 877,
+            "mean_prediction": 0.13396187794963485,
+            "observed_fraction": 0.17787913340935005,
+            "range": [
+              0.1,
+              0.2
+            ]
+          },
+          {
+            "actions": 448,
+            "mean_prediction": 0.28545003239072353,
+            "observed_fraction": 0.3080357142857143,
+            "range": [
+              0.2,
+              0.4
+            ]
+          },
+          {
+            "actions": 193,
+            "mean_prediction": 0.4856994514293087,
+            "observed_fraction": 0.40932642487046633,
+            "range": [
+              0.4,
+              0.6
+            ]
+          },
+          {
+            "actions": 102,
+            "mean_prediction": 0.6926692874908323,
+            "observed_fraction": 0.46078431372549017,
+            "range": [
+              0.6,
+              0.8
+            ]
+          },
+          {
+            "actions": 17,
+            "mean_prediction": 0.8454230263506645,
+            "observed_fraction": 0.47058823529411764,
+            "range": [
+              0.8,
+              1
+            ]
+          }
+        ],
+        "log_loss": 0.12580499729061387,
+        "positive_actions": 1029,
+        "prevalence": 0.036748687546873327,
+        "tie_policy": "stable UCI lexicographic order, not tactical tie breaking",
+        "top12_retained_safe_turns": 1118,
+        "top12_safe_action_retention": 0.4567329082010974,
+        "top12_safe_turn_retention": 0.9982142857142857,
+        "top_choice_fatal_rate": 0.03832442067736185,
+        "top_choice_fatal_turns": 43,
+        "turns": 1122,
+        "turns_with_safe_alternative": 1120,
+        "uniform_random_expected_fatal_rate": 0.06053261628480501,
+        "uniform_random_top12_expected_safe_turn_retention": 0.9971529174881165
+      },
+      "learned": {
+        "actions": 28001,
+        "brier": 0.02992765316214025,
+        "calibration_bins": [
+          {
+            "actions": 1,
+            "mean_prediction": 0.009843745089853115,
+            "observed_fraction": 0.0,
+            "range": [
+              0,
+              0.01
+            ]
+          },
+          {
+            "actions": 18182,
+            "mean_prediction": 0.01700370062159625,
+            "observed_fraction": 0.0037949620503794964,
+            "range": [
+              0.01,
+              0.025
+            ]
+          },
+          {
+            "actions": 5732,
+            "mean_prediction": 0.03445553370074084,
+            "observed_fraction": 0.04832519190509421,
+            "range": [
+              0.025,
+              0.05
+            ]
+          },
+          {
+            "actions": 2152,
+            "mean_prediction": 0.06790197060322364,
+            "observed_fraction": 0.08968401486988847,
+            "range": [
+              0.05,
+              0.1
+            ]
+          },
+          {
+            "actions": 997,
+            "mean_prediction": 0.14252859199484047,
+            "observed_fraction": 0.14944834503510532,
+            "range": [
+              0.1,
+              0.2
+            ]
+          },
+          {
+            "actions": 609,
+            "mean_prediction": 0.2800497392798619,
+            "observed_fraction": 0.2742200328407225,
+            "range": [
+              0.2,
+              0.4
+            ]
+          },
+          {
+            "actions": 209,
+            "mean_prediction": 0.4816100547848173,
+            "observed_fraction": 0.5119617224880383,
+            "range": [
+              0.4,
+              0.6
+            ]
+          },
+          {
+            "actions": 86,
+            "mean_prediction": 0.684498067582411,
+            "observed_fraction": 0.47674418604651164,
+            "range": [
+              0.6,
+              0.8
+            ]
+          },
+          {
+            "actions": 33,
+            "mean_prediction": 0.8720666558245626,
+            "observed_fraction": 0.7878787878787878,
+            "range": [
+              0.8,
+              1
+            ]
+          }
+        ],
+        "log_loss": 0.11940203441426216,
+        "positive_actions": 1029,
+        "prevalence": 0.036748687546873327,
+        "tie_policy": "stable UCI lexicographic order, not tactical tie breaking",
+        "top12_retained_safe_turns": 1118,
+        "top12_safe_action_retention": 0.4562509268871422,
+        "top12_safe_turn_retention": 0.9982142857142857,
+        "top_choice_fatal_rate": 0.03297682709447415,
+        "top_choice_fatal_turns": 37,
+        "turns": 1122,
+        "turns_with_safe_alternative": 1120,
+        "uniform_random_expected_fatal_rate": 0.06053261628480501,
+        "uniform_random_top12_expected_safe_turn_retention": 0.9971529174881165
+      }
+    }
+  },
+  "model": {
+    "path": "/Users/xwli/Documents/soloco/allearn/ffwb/risk_model.json",
+    "sha256": "fb517196cf82698e6224cbe20ca6e1e02fe63d18d8d490dc0a5f29f813e5028b"
+  },
+  "numeric_warning_review": {
+    "all_grid_fits_converged": true,
+    "bounded_synthetic_reproduction": {
+      "all_outputs_finite": true,
+      "beta_range": [
+        -2,
+        2
+      ],
+      "dot_max_absolute_error_vs_math_fsum": 4.6074255521944e-15,
+      "hessian_00_absolute_error_vs_math_fsum": 8.381903171539307e-09,
+      "same_warning_classes": true,
+      "shape": [
+        100000,
+        54
+      ],
+      "x_range": [
+        -8,
+        8
+      ]
+    },
+    "environment": "NumPy2.2.6, macOS ARM64, AppleAccelerate BLAS/LAPACK",
+    "interpretation": "Warnings also occur on bounded synthetic arithmetic whose checked outputs agree with independent scalar sums. Their exact platform cause was not established. The selected model and grid fits are finite/converged; no refit or test-driven parameter change followed.",
+    "runtime_prediction_max_absolute_error": 3.3306690738754696e-16,
+    "training_emitted_matmul_warnings": [
+      "divide by zero",
+      "overflow",
+      "invalid value"
+    ]
+  },
+  "numpy_version_training_only": "2.2.6",
+  "runtime_microbenchmark": {
+    "feature_and_prediction_microseconds_per_action": 25.857762497616932,
+    "fixture": "prefix e2e4 a7a6 e4e5 d7d5; action e5d6 en passant",
+    "limitation": "Single local host fixture; not whole-turn or arena timing.",
+    "repetitions": 10000
+  },
+  "runtime_numpy_max_absolute_difference": 3.3306690738754696e-16,
+  "schema_version": 1,
+  "selected_regularization": 0.1,
+  "source_sha256": {
+    "referee.py": "2f82ac292bfad29bcb2d701b73c060d1ca8281378b4598f08a620fe5c97255be",
+    "risk_model.py": "042df37ae31e3a587b654184189e4c2e39c76c34ffa0d6530f8e83509ae37a81",
+    "train_risk_model.py": "d84a4218be88b998053fec6a1268f159e1d100c9f6c6aa642ca0681e5738648f",
+    "uniform_random.py": "a9d2d69c1893652dae938c596be59fc16fdf1edba3ccf491d9cf2c92d75b514a"
+  },
+  "split": [
+    {
+      "candidate_seed": 171980,
+      "opponent_seed": 171981,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 171982,
+      "opponent_seed": 171983,
+      "partition": "test"
+    },
+    {
+      "candidate_seed": 171984,
+      "opponent_seed": 171985,
+      "partition": "validation"
+    },
+    {
+      "candidate_seed": 171986,
+      "opponent_seed": 171987,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 171988,
+      "opponent_seed": 171989,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 171990,
+      "opponent_seed": 171991,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 171992,
+      "opponent_seed": 171993,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 171994,
+      "opponent_seed": 171995,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 171996,
+      "opponent_seed": 171997,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 171998,
+      "opponent_seed": 171999,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 172000,
+      "opponent_seed": 172001,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 172002,
+      "opponent_seed": 172003,
+      "partition": "validation"
+    },
+    {
+      "candidate_seed": 172004,
+      "opponent_seed": 172005,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 172006,
+      "opponent_seed": 172007,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 172008,
+      "opponent_seed": 172009,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 172010,
+      "opponent_seed": 172011,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 172012,
+      "opponent_seed": 172013,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 172014,
+      "opponent_seed": 172015,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 172016,
+      "opponent_seed": 172017,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 172018,
+      "opponent_seed": 172019,
+      "partition": "test"
+    },
+    {
+      "candidate_seed": 172020,
+      "opponent_seed": 172021,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 172022,
+      "opponent_seed": 172023,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 172024,
+      "opponent_seed": 172025,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 172026,
+      "opponent_seed": 172027,
+      "partition": "test"
+    },
+    {
+      "candidate_seed": 172028,
+      "opponent_seed": 172029,
+      "partition": "test"
+    },
+    {
+      "candidate_seed": 181980,
+      "opponent_seed": 181981,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 181982,
+      "opponent_seed": 181983,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 181984,
+      "opponent_seed": 181985,
+      "partition": "validation"
+    },
+    {
+      "candidate_seed": 181986,
+      "opponent_seed": 181987,
+      "partition": "validation"
+    },
+    {
+      "candidate_seed": 181988,
+      "opponent_seed": 181989,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 181990,
+      "opponent_seed": 181991,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 181992,
+      "opponent_seed": 181993,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 181994,
+      "opponent_seed": 181995,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 181996,
+      "opponent_seed": 181997,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 181998,
+      "opponent_seed": 181999,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 182000,
+      "opponent_seed": 182001,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 182002,
+      "opponent_seed": 182003,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 182004,
+      "opponent_seed": 182005,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 182006,
+      "opponent_seed": 182007,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 182008,
+      "opponent_seed": 182009,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 182010,
+      "opponent_seed": 182011,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 182012,
+      "opponent_seed": 182013,
+      "partition": "test"
+    },
+    {
+      "candidate_seed": 182014,
+      "opponent_seed": 182015,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 182016,
+      "opponent_seed": 182017,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 182018,
+      "opponent_seed": 182019,
+      "partition": "test"
+    },
+    {
+      "candidate_seed": 182020,
+      "opponent_seed": 182021,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 182022,
+      "opponent_seed": 182023,
+      "partition": "test"
+    },
+    {
+      "candidate_seed": 182024,
+      "opponent_seed": 182025,
+      "partition": "validation"
+    },
+    {
+      "candidate_seed": 182026,
+      "opponent_seed": 182027,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 182028,
+      "opponent_seed": 182029,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 191980,
+      "opponent_seed": 191981,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 191982,
+      "opponent_seed": 191983,
+      "partition": "validation"
+    },
+    {
+      "candidate_seed": 191984,
+      "opponent_seed": 191985,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 191986,
+      "opponent_seed": 191987,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 191988,
+      "opponent_seed": 191989,
+      "partition": "validation"
+    },
+    {
+      "candidate_seed": 191990,
+      "opponent_seed": 191991,
+      "partition": "test"
+    },
+    {
+      "candidate_seed": 191992,
+      "opponent_seed": 191993,
+      "partition": "validation"
+    },
+    {
+      "candidate_seed": 191994,
+      "opponent_seed": 191995,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 191996,
+      "opponent_seed": 191997,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 191998,
+      "opponent_seed": 191999,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 192000,
+      "opponent_seed": 192001,
+      "partition": "validation"
+    },
+    {
+      "candidate_seed": 192002,
+      "opponent_seed": 192003,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 192004,
+      "opponent_seed": 192005,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 192006,
+      "opponent_seed": 192007,
+      "partition": "validation"
+    },
+    {
+      "candidate_seed": 192008,
+      "opponent_seed": 192009,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 192010,
+      "opponent_seed": 192011,
+      "partition": "test"
+    },
+    {
+      "candidate_seed": 192012,
+      "opponent_seed": 192013,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 192014,
+      "opponent_seed": 192015,
+      "partition": "test"
+    },
+    {
+      "candidate_seed": 192016,
+      "opponent_seed": 192017,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 192018,
+      "opponent_seed": 192019,
+      "partition": "test"
+    },
+    {
+      "candidate_seed": 192020,
+      "opponent_seed": 192021,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 192022,
+      "opponent_seed": 192023,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 192024,
+      "opponent_seed": 192025,
+      "partition": "validation"
+    },
+    {
+      "candidate_seed": 192026,
+      "opponent_seed": 192027,
+      "partition": "validation"
+    },
+    {
+      "candidate_seed": 192028,
+      "opponent_seed": 192029,
+      "partition": "validation"
+    },
+    {
+      "candidate_seed": 201980,
+      "opponent_seed": 201981,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 201982,
+      "opponent_seed": 201983,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 201984,
+      "opponent_seed": 201985,
+      "partition": "test"
+    },
+    {
+      "candidate_seed": 201986,
+      "opponent_seed": 201987,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 201988,
+      "opponent_seed": 201989,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 201990,
+      "opponent_seed": 201991,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 201992,
+      "opponent_seed": 201993,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 201994,
+      "opponent_seed": 201995,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 201996,
+      "opponent_seed": 201997,
+      "partition": "validation"
+    },
+    {
+      "candidate_seed": 201998,
+      "opponent_seed": 201999,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 202000,
+      "opponent_seed": 202001,
+      "partition": "validation"
+    },
+    {
+      "candidate_seed": 202002,
+      "opponent_seed": 202003,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 202004,
+      "opponent_seed": 202005,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 202006,
+      "opponent_seed": 202007,
+      "partition": "test"
+    },
+    {
+      "candidate_seed": 202008,
+      "opponent_seed": 202009,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 202010,
+      "opponent_seed": 202011,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 202012,
+      "opponent_seed": 202013,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 202014,
+      "opponent_seed": 202015,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 202016,
+      "opponent_seed": 202017,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 202018,
+      "opponent_seed": 202019,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 202020,
+      "opponent_seed": 202021,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 202022,
+      "opponent_seed": 202023,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 202024,
+      "opponent_seed": 202025,
+      "partition": "test"
+    },
+    {
+      "candidate_seed": 202026,
+      "opponent_seed": 202027,
+      "partition": "train"
+    },
+    {
+      "candidate_seed": 202028,
+      "opponent_seed": 202029,
+      "partition": "test"
+    }
+  ],
+  "status": "completed",
+  "validation_grid": [
+    {
+      "fit": {
+        "converged": true,
+        "gradient_max_abs": 5.746162182041798e-08,
+        "iterations": 6,
+        "objective": 0.10453268190690594
+      },
+      "regularization": 0.001,
+      "validation": {
+        "actions": 28001,
+        "brier": 0.035872933678511215,
+        "log_loss": 0.13268986605767735,
+        "positive_actions": 1029,
+        "prevalence": 0.036748687546873327
+      }
+    },
+    {
+      "fit": {
+        "converged": true,
+        "gradient_max_abs": 3.6875693154252336e-10,
+        "iterations": 6,
+        "objective": 0.11008925198316227
+      },
+      "regularization": 0.01,
+      "validation": {
+        "actions": 28001,
+        "brier": 0.03337252362442485,
+        "log_loss": 0.12560674776632844,
+        "positive_actions": 1029,
+        "prevalence": 0.036748687546873327
+      }
+    },
+    {
+      "fit": {
+        "converged": true,
+        "gradient_max_abs": 4.2645375815534644e-08,
+        "iterations": 5,
+        "objective": 0.12143268536249825
+      },
+      "regularization": 0.1,
+      "validation": {
+        "actions": 28001,
+        "brier": 0.02992765316214025,
+        "log_loss": 0.11940203441426216,
+        "positive_actions": 1029,
+        "prevalence": 0.036748687546873327
+      }
+    },
+    {
+      "fit": {
+        "converged": true,
+        "gradient_max_abs": 1.4348873166036835e-09,
+        "iterations": 5,
+        "objective": 0.13662832778903183
+      },
+      "regularization": 1.0,
+      "validation": {
+        "actions": 28001,
+        "brier": 0.0320764304713606,
+        "log_loss": 0.13163855458282775,
+        "positive_actions": 1029,
+        "prevalence": 0.036748687546873327
+      }
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "id": "artifact-55004532-fba2-4b5e-a5b8-074a54f4dedb",
+  "kind": "artifact",
+  "content": "Research handoff to runner — proposed V4 plan needs revision before freeze. This is a supplied-evidence critique, not source QA, execution approval, or a strength Pass. I performed no browsing, commands, tests, or hash verification. Governing basis: supplied SoloCo v0.21, team_sha256 7dc8081a08646135a7e021f1651eb3ac2952af9f63cf48ed0418efdcab8695b3. Evidence reviewed: artifact-7d3c7b2b-984d-4a14-9b4b-6103dde3f25a revision 1 and the supplied historical reviews. Plan readiness: Blocked on the concrete definitions and evidence below; the research handoff itself is complete and awaits receiver acceptance.\n\n1. Prioritize support and ranking, but keep the diagnosis narrow.\nThe supplied V3 report records 97W/1D/102L, 48.75%; V3 remains failed and unpromoted. Its complete audit found immediately safe alternatives survived the early filters in 82 of 102 terminal losses. The actual 90-decision smoke diagnostic strengthens the case for investigating support and ranking: both terminal attacking rooks were absent from all particles, and safe alternatives remained in the actual shortlist. Two losses do not establish the dominant mechanism across games. The g3g2 versus g3g4 example additionally shows that bank risk alone did not determine selection; inspect continuation-value and risk contributions before assuming the risk estimator caused that choice.\n\nExact physical-board presence on 44/90 turns and full-history presence on 3/90 are distinct diagnostics. Physical agreement does not establish repetition-history correctness. Confirm precisely what each metric counts and how approximate recovery affects it. The 9.15% duplicate-slot figure alone establishes neither wasted sampling nor useful posterior mass.\n\n2. Treat the learned model as a promising ranking experiment.\nSupplied frozen-test log-loss is .10624 learned, .11549 geometric, .12667 constant; risk-only top choices were fatal on 18, 24 and 38 of 1,069 turns. These support further testing on this V3-induced distribution, not stronger full-game play. The comparator called geometric must be defined and must not silently be equated with actual bank risk. Report game/pair-clustered uncertainty and the number of contributing test pairs; 1,069 turns are not independent trials.\n\nBefore freeze, require a feature/label audit covering prefix timing, hidden promotions, own-capture accounting, training-only normalization and fitting, and complete pair isolation. Report Brier score, calibration by risk band, and performance on turns with a safe alternative. Establish whether all legal actions or a selected subset received labels, and how actions were weighted: otherwise the deployment shortlist may face a different distribution.\n\nThe existing test partition has now been inspected. Preserve its result, but do not reuse it to tune the blend or utility and call the revised result fresh. Neither the model nor bank is a safety certificate. Their errors are correlated; a 50/50 convex blend is a fixed engineering choice, not independent corroboration or guaranteed calibration. Human-game prediction improvements reported in opowell/obscuro-chess likewise did not consistently translate into stronger play: its visibility-feature variant reportedly scored 46.7% against its predecessor despite improved prediction. Source: https://github.com/opowell/obscuro-chess/tree/008841f327a6a96c683652eca22586cca525946f.\n\n3. Broader banks and risk utility need measurable contracts.\nThe reported approximately 7× speedup applies only to visibility matching. Four differential tests do not establish exhaustive equivalence or whole-bot speedup. Require candidate-specific coverage of pawn blockers, en passant, castling, promotions, both colors and every-ply observations through the authorized runtime and independent QA.\n\nIncreasing 64 to 256 particles cannot guarantee retention of a missing promotion or slider branch. Compare threat support, physical/history coverage, branch diversity, completed updates and selected-action risk on the same development prefixes. Distinguish unique-position counts from weighted effective sample size. Six search worlds can still miss threats present in a 256-particle bank; log bank support and sampled-world support separately.\n\nSpecify the exact utility equation before freeze. 'Scale 800' and 'loss cost 3200' do not establish bounded behavior without the continuation range, clipping, terminal values and blend application. For illustration only, U=V−3200p with V in [−800,800] permits a continuation advantage to offset up to 0.5 additional estimated immediate-loss probability. That may be intentional, but it is not survival-first behavior. Check for double-counting immediate loss already included in continuation values. Use contribution breakdowns and development fixtures to justify the tradeoff.\n\n4. Keep the two-variant experiment interpretable.\nRecommend A: common proposed V4 implementation with bank-only risk. B: identical implementation with the fixed 50/50 learned/bank blend. Freeze all other parameters identically. If both qualify, choose A, the simpler bank-only variant, regardless of the higher noisy development score. B advances only if A fails and B independently meets every predeclared requirement. This tests the incremental blend; it does not isolate the effects of particles, worlds, node limit and utility from one another.\n\nReplace 'mechanism improvement' with named metrics, reference configurations, numerical thresholds and failure rules before results. Use existing development material for these choices. More particles, a lower prediction loss or a matching microbenchmark alone must not satisfy the mechanism gate. Do not add a third variant or tune after either 16-pair block within this cycle.\n\n5. Freeze one complete-turn compute policy.\nA 600 ms budget is a reasonable bounded experiment, not a literature-derived optimum. The supplied six-game elite sample reports charged response times averaging 3.30–6.78 seconds; it reveals neither algorithms nor benefit from additional compute. Misty's reported enumeration and post-search overruns reinforce the need for one absolute deadline covering queued observations, inference, recovery, scoring and search: https://brianhliou.com/posts/misty-fog-of-war-engine/.\n\nDefine 600 ms as a target for the complete response, with an output reserve and a remaining-clock fallback. Log the binding limit, completed depth, full-response tails and memory. Freeze an exact worker count, not 'four maximum'; prefer one if feasible. Four local workers are not evidence of arena-equivalent resources. Keep the primary run exclusive.\n\nUse byte-exact V2 with an explicitly supported 600 ms configuration for the compute-matched comparison, and verify that the budget actually takes effect. Label it 'V2 at 600 ms'; its behavior differs from released V2 at 180 ms. The combined V4-versus-V2 comparison supports a bundled improvement claim only. A separate 180 ms comparison is needed only if claiming gains under the former budget.\n\n6. Preserve the proposed final gate and historical blocks.\nRetain at most two 32-pair development variants, each above 50% in both 16-pair blocks; one frozen finalist; 200 fresh pairs against V2; and the separate 60-game controls. The supplied Hoeffding rule requires at least 238.5/400 points for a lower bound strictly above 50%. Its interpretation depends on independent bounded pair outcomes, not merely distinct seeds. Predeclare scheduling, seeds, worker count, complete commands, source/dependency bindings and all failure handling. No favorable early stopping, pooling weak controls, or repeated finalist attempts under an unchanged nominal confidence claim.\n\nHistorical QA identified repetition-unsafe cache reuse and missing no-move termination, then separately blocked evaluation integrity on missing arena_eval.py, the frozen plan and V2 provenance. Their closure is not supplied here. Runner must provide attributable candidate-specific resolution and independent QA; this research cannot waive them. Strategy fusion also remains: a common root action across determinizations does not enforce shared future decisions across indistinguishable histories. See the supplied ISMCTS source: https://eprints.whiterose.ac.uk/id/eprint/75048/1/CowlingPowleyWhitehouse2012.pdf.\n\nClearing conditions and next permitted action: runner incorporates the utility definition, quantitative mechanism gates, comparator definition, exact compute policy and model provenance into a prospective plan; supplies historical QA dispositions and exact candidate evidence for independent review; then proceeds only under existing host authority. No deadline was supplied. V2 remains the reported released version. V4 strength, Linux runtime compliance and MIT 2200–2500 Elo remain unverified; no arena access or submission is authorized by this handoff.",
+  "author_role": "research",
+  "author_instance": "research-35d14759-44d6-4209-8755-d67d42ffd707",
+  "revision": 1,
+  "status": "Submitted",
+  "job_id": "job-83a63538-534e-4efc-8897-057500cc842f",
+  "inputs": [
+    {
+      "id": "artifact-7d3c7b2b-984d-4a14-9b4b-6103dde3f25a",
+      "revision": 1
+    },
+    {
+      "id": "artifact-9194a3ff-904f-468b-b987-b62a3ddf18d2",
+      "revision": 1
+    },
+    {
+      "id": "artifact-ff82939b-0fb9-4d25-bf2b-29577e2f7b66",
+      "revision": 1
+    },
+    {
+      "id": "decision-23352f20-cb56-4e86-84a0-471ee16e22f8",
+      "revision": 1
+    },
+    {
+      "id": "decision-5bb19ad8-645e-4255-ae18-2e0e2893f792",
+      "revision": 1
+    },
+    {
+      "id": "decision-cd9026aa-f192-4894-996a-2234398f1902",
+      "revision": 1
+    },
+    {
+      "id": "development-authorization-6dadf1f3-ee7d-4dd4-a45f-02c8b692137f",
+      "revision": 1
+    },
+    {
+      "id": "intent-29a81338-5a22-4976-bd0f-2058ceb3a529",
+      "revision": 1
+    },
+    {
+      "id": "intent-2f26bb5a-aba1-4800-ba28-a66c73b6355b",
+      "revision": 2
+    },
+    {
+      "id": "intent-ba2d0d71-23b3-4922-9d2b-e06d62cff97e",
+      "revision": 1
+    },
+    {
+      "id": "intent-ca1fe87f-6849-4941-87aa-0358ee68923d",
+      "revision": 1
+    }
+  ],
+  "review_of": null,
+  "review": null,
+  "created_at": "2026-11-13T15:57:12.800Z"
+}

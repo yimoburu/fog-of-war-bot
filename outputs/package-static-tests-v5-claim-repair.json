@@ -1,0 +1,39 @@
+{
+  "created_utc": "2026-11-13T18:57:31.451731+00:00",
+  "command": [
+    "node",
+    "--test",
+    "package.test.mjs"
+  ],
+  "returncode": 0,
+  "stdout": "TAP version 13\n# Subtest: exact upstream hashes, bounded development files and runtime payload\nok 1 - exact upstream hashes, bounded development files and runtime payload\n  ---\n  duration_ms: 1017.106625\n  type: 'test'\n  ...\n# Subtest: launcher and explicit runtime manifest\nok 2 - launcher and explicit runtime manifest\n  ---\n  duration_ms: 0.722625\n  type: 'test'\n  ...\n1..2\n# tests 2\n# suites 0\n# pass 2\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 1157.309416\n",
+  "stderr": "",
+  "readme_sha256": "fee30e181608fb11bfa90d1da7b6fa2b74ac0c6ad055008702f92ec226ece619",
+  "runtime_sha256": {
+    "SOURCES.md": "2c5c5314b17cfe01a29a3bb690d8ea52dd35aea9d701869545cb050630670102",
+    "belief.py": "fdfe6c78ad8911e259a52c1a645e294a62e94e4f20ebf053218471db1119841e",
+    "bot.py": "0d00f07a120166821b76a04e5ef2eb991c8197701bb4392d082ebbec5d4a85e8",
+    "fast_observation.py": "dd537258e8b4afda6acdd0ff46409a98e58a6a7d290795f8bdedb5faf3af092f",
+    "referee.py": "2f82ac292bfad29bcb2d701b73c060d1ca8281378b4598f08a620fe5c97255be",
+    "requirements.txt": "391e529739e99dc63461425af4ad7afb10d89aa275922928ceb8e2f5dffa7149",
+    "risk_model.json": "fb517196cf82698e6224cbe20ca6e1e02fe63d18d8d490dc0a5f29f813e5028b",
+    "risk_model.py": "042df37ae31e3a587b654184189e4c2e39c76c34ffa0d6530f8e83509ae37a81",
+    "run.sh": "bf1f24f9805b0d3e1c39876be7dc21f7af5beef75f3c05a4e19d1255e9166f36",
+    "search.py": "f8bf2df2008936c77950e0d35da00bc986ac89e14d400b0813c2768e0be0f1b1",
+    "uniform_random.py": "a9d2d69c1893652dae938c596be59fc16fdf1edba3ccf491d9cf2c92d75b514a"
+  },
+  "reviewed_evidence_unchanged": {
+    "outputs/outcome-audit-v5.json": true,
+    "outputs/package-check-v5/verification.json": true,
+    "outputs/v5-cycle-20261113/release-controls/report.json": true,
+    "outputs/tests-v5.json": true,
+    "outputs/package-static-tests-v5.json": true,
+    "outputs/package-static-tests-v5-final.json": true,
+    "outputs/submission-v5-final.zip": true,
+    "v5_release_check.py": true,
+    "verify_v5_package.py": true,
+    "outputs/v5-cycle-20261113/design.json": true,
+    "outputs/release-audit-v5.json": true
+  },
+  "zip_sha256": "5b190981af47c62f9cd22834eb0bffc4be06611ac43cf6d106b6db910083d99c"
+}

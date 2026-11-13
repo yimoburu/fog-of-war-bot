@@ -1,0 +1,22 @@
+TAP version 13
+# Subtest: exact upstream hashes and bounded selected bot sources
+ok 1 - exact upstream hashes and bounded selected bot sources
+  ---
+  duration_ms: 327.67925
+  type: 'test'
+  ...
+# Subtest: launcher and explicit runtime manifest
+ok 2 - launcher and explicit runtime manifest
+  ---
+  duration_ms: 0.61825
+  type: 'test'
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 426.164625

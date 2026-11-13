@@ -1,0 +1,39 @@
+{
+  "attempt_policy": "Unchanged driver retains all existing attempts, final-start markers, seeds and alpha allocation.",
+  "created_utc": "2026-11-13T17:27:51.104490+00:00",
+  "design_file": "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v5-cycle-20261113/design.json",
+  "design_sha256": "0ada87aaaba292f0f6fd2aaa8f258d861c769deb94ce2c1aa289027a352203f5",
+  "driver_file": "/Users/xwli/Documents/soloco/allearn/ffwb/v5_experiments.py",
+  "driver_sha256": "7be06f1cf1e4800dd466a7728cf2d7111c22fe0d152e34ec961cfc7d41687379",
+  "environment": {
+    "chess_distribution_version": "1.11.2",
+    "chess_import_path": "/Users/xwli/Documents/soloco/allearn/ffwb/.venv/lib/python3.13/site-packages/chess/__init__.py",
+    "chess_module_version": "1.11.2",
+    "chess_python_source_sha256": {
+      "/Users/xwli/Documents/soloco/allearn/ffwb/.venv/lib/python3.13/site-packages/chess/__init__.py": "1fde6a8e932508d14b31f6a584497b49c2969fc3c7cdc675347f819f0d667a5b",
+      "/Users/xwli/Documents/soloco/allearn/ffwb/.venv/lib/python3.13/site-packages/chess/engine.py": "40a1407749ea43b4ed3174f0603e0316a9c971b8943113fbea5be47c82bde22b",
+      "/Users/xwli/Documents/soloco/allearn/ffwb/.venv/lib/python3.13/site-packages/chess/gaviota.py": "2ba4d8ebceb5538e52ace325dfbd71358596c52b4799911c77fe666b79df164d",
+      "/Users/xwli/Documents/soloco/allearn/ffwb/.venv/lib/python3.13/site-packages/chess/pgn.py": "0e280ee44cb3c27cde903c40fe166419df71a030b05793c63f3e0ffffd6ff0c4",
+      "/Users/xwli/Documents/soloco/allearn/ffwb/.venv/lib/python3.13/site-packages/chess/polyglot.py": "8dc20733bdc1297a9e8993a76737ba4f328a99185ae94b311ddbb5342fce32fc",
+      "/Users/xwli/Documents/soloco/allearn/ffwb/.venv/lib/python3.13/site-packages/chess/svg.py": "32840c66e33bf55ea2de49eadc856d45dc3cd661b87a0a1ea99d8b6c3b143b99",
+      "/Users/xwli/Documents/soloco/allearn/ffwb/.venv/lib/python3.13/site-packages/chess/syzygy.py": "e10e74b0b8174e85428945a975dfc2d67f521c6c5d941e998bdfca26f9ebf754",
+      "/Users/xwli/Documents/soloco/allearn/ffwb/.venv/lib/python3.13/site-packages/chess/variant.py": "fc0b384707fc9ffb9348c4683fc430ee4ed5b601d9cc40cf7fc5ecda2d9cc431"
+    },
+    "machine": "arm64",
+    "platform": "macOS-26.7.1-arm64-arm-64bit-Mach-O",
+    "python_cache_tag": "cpython-313",
+    "python_chess_distribution_version": "1.999",
+    "python_executable": "/Users/xwli/Documents/soloco/allearn/ffwb/.venv/bin/python",
+    "python_executable_resolved": "/Library/Frameworks/Python.framework/Versions/3.13/bin/python3.13",
+    "python_executable_sha256": "3a1f077a333905eaac57197c9f2060ed95e05208daf83da4827d92e0474574d8",
+    "python_implementation": "CPython",
+    "python_version": "3.13.2 (v3.13.2:4f8bb3947cf, Feb  4 2025, 11:51:10) [Clang 15.0.0 (clang-1500.3.9.4)]"
+  },
+  "experiment": "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v5-cycle-20261113",
+  "guard_file": "/Users/xwli/Documents/soloco/allearn/ffwb/v5_guard.py",
+  "guard_sha256": "b2841c6da88428dbf79d25668dd08d36959482b3d8b79a8333b0b3f55523b47f",
+  "limitations": "Trusted local integrity checks; no hostile runtime attestation, arena isolation or retroactive enforcement.",
+  "lock": "Nonblocking flock per experiment, held for the entire delegated command.",
+  "schema_version": 1,
+  "scope": "Prospective guarded register/run/final commands; prior direct execution was not guarded."
+}

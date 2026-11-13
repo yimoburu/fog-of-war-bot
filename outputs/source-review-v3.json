@@ -1,0 +1,69 @@
+{
+  "id": "artifact-dc7dc956-c3e0-40d3-ba56-e67ca7700d48",
+  "kind": "review",
+  "content": "Source-only verdict: Pass, qualified to the supplied experimental core in artifact-697a3ffa-9287-41e2-b680-ebc8692150b5, revision 1. No correctness blocker was identified in the inspected changes. This is not promotion, runtime acceptance, or a strength verdict.\n\nEvidence boundary: static inspection of the supplied source and tests only. No tools, commands, tests, matches, external-source access, or hash recomputation were performed. The reported 74 prior tests plus 9 new tests are host claims, not independently verified execution evidence. referee.py, uniform_random.py, pinned dependencies, and official MIT source extracts were not supplied; their implementation and official-rule fidelity are outside this Pass.\n\nExact supplied core hashes:\nbot.py: 8cfda6c6e3c2f913b338ade17101996c423217aec0ea5bfbc81c0ca384130182\nbelief.py: 7c9f57397d5552c90eb70c425aac5cec80363d707ac71c632480bae93e504d63\nsearch.py: 84bff0b72c8c5114bfcd35ced7d7a9f4a15e6875915eb3b4bb20e11385810529\nopponents/v2/search.py: a2cb6000bf92c026edba87d790d0b49f47ef759e77d7ed27a1ae4a5a6791992e\n\nSupporting test hashes from artifact-f68ea50a-12e0-4336-8b7c-3b556d0b5345, revision 1:\ntest_search.py: 0ea9aba7fee8538926b76c2586890b8fb3b6ed49736acc085d1fd6f15f849455\ntest_search_performance.py: 1963e11fb9c22ba9a40ad1efab41645f03625c99cf50a51a409b4f73af173020\ntest_risk_policy.py: 85b417de0a8df792612f96ad6047e769a95065fa2efcc21eb81152511e57448f\ntest_belief.py: 797c31076bf025d331f47409ec751b934d4a05da5c0a53b9b84676dd44108715\n\nFindings:\n1. Optimized evaluation retains the frozen v2 formulas, including pawn direction, neighboring files, passed-pawn masks, and endgame tables. Moving leaf dispatch ahead of negamax's checks removes duplicate work; quiescence still performs its own terminal and expiry checks. Node counts and deadline-limited choices can change, so score equivalence does not establish identical budgeted behavior.\n2. The lazy quiescence safety probe restores the board in finally and does not inspect repetition counts while temporarily pushed. Consequently, bypassing repetition updates for that probe is appropriate. Complete-board searches still detect no surviving move before stand-pat, including at zero quiescence depth. Capture generation plus empty promotion-rank pawn moves covers captures and quiet promotions without intentionally duplicating capture promotions. These conclusions depend on the supplied code's assumed FowBoard move-generation contract.\n3. The prior repetition-cache defect is addressed: the transposition identity includes the full repetition counter, and each root world binds its own history. Recursive push/pop updates and restores those counters. The prior belief-continuation defect is also addressed by checking for any pseudo-legal move. The supplied tests specifically target both historical findings; their execution remains unverified here. Historical Fail records remain unchanged.\n4. Robust aggregation bounds each continuation value before aggregation. Sampled immediate-death worlds are excluded from continuation evaluation, and the larger bank's immediate-loss fraction is applied once. An all-dead small sample receives the conservative value -utility_scale rather than an invented surviving continuation. This is a deliberate pessimistic approximation, not an unbiased estimate.\n5. Generic blocker correction is algebraically consistent: the original prior contains one full generic blocker penalty through its quick-score and explicit-penalty terms; adding that penalty back removes it once. Robust mode omits the separate 30000-times-loss prior. Other heuristic safety and positional terms remain, so the total score is not itself bounded utility or a calibrated expected outcome.\n6. Survival-first dominance is enforced among evaluated candidates: robust selection excludes bank-certain deaths when any evaluated survivor exists, and search_root's ranking preserves that preference even under adversarial priors or expiry. It does not establish dominance over actions removed before that stage.\n7. Incomplete survival processing retains the pre-correction conservative fallback. Partial depth batches do not replace completed root results. Board restoration is protected around survival and recursive search. These are cooperative deadline safeguards, not hard response-time guarantees.\n8. The inspected production path uses observations, own moves, clocks, seeds, and locally constructed hypotheses. No evaluator-truth input was found. Tests injecting full boards do not themselves introduce a production truth channel.\n\nBlockers: none for this scoped source-only review.\n\nResidual limitations and follow-up evidence:\n- The visible-only safety filter can reject genuinely safe slider-blocked actions before hypothesis assessment; the 64-action detail cap and 12-action search shortlist further restrict coverage. These are strength limitations, not new proven rule violations.\n- Recovered hypotheses remain approximate, including repetition history and potentially enemy rights. A nonempty bank does not establish posterior completeness; zero modeled loss is not guaranteed safety.\n- Wall-clock inference remains active even in several tests using an injected search clock. Seeded tests alone do not establish machine-independent deterministic trajectories. Host evidence should distinguish deterministic operation-budget checks from real-clock behavior.\n- Equivalence tests cover selected positions and reached boards, not exhaustive FOW semantics. Add focused both-color quiet-underpromotion and complete no-pseudo-legal-move search cases when extending coverage; the existing no-surviving-move case addresses a different condition.\n- Promotion still requires candidate-bound host results, full protocol-response timing, preserved v2 identity, fresh paired evaluation, and reproducible package evidence. The original intent's JSON-protocol wording conflicts with the line protocol shown here; the runner should reconcile that record against pinned official protocol evidence before making an end-to-end conformance claim.\n\nReceiver: runner. Combine this exact-source review with separately authorized runtime evidence and fresh validation. Any affected source change requires renewed review. V2 remains the previously delivered version; no v3 gain or MIT arena rating is established.",
+  "author_role": "qa",
+  "author_instance": "qa-b5fc9110-8529-4cc2-9d56-1e2508c1f1ef",
+  "revision": 1,
+  "status": "Submitted",
+  "job_id": "job-8c8897a2-fbb7-4a3f-bc7d-a1efffc102e6",
+  "inputs": [
+    {
+      "id": "artifact-697a3ffa-9287-41e2-b680-ebc8692150b5",
+      "revision": 1
+    },
+    {
+      "id": "artifact-90481dc3-7a36-4b0e-83f4-ba645665e97e",
+      "revision": 1
+    },
+    {
+      "id": "artifact-9194a3ff-904f-468b-b987-b62a3ddf18d2",
+      "revision": 1
+    },
+    {
+      "id": "artifact-b5efc4a1-8284-4edd-878a-e45686eb4e6a",
+      "revision": 1
+    },
+    {
+      "id": "artifact-f68ea50a-12e0-4336-8b7c-3b556d0b5345",
+      "revision": 1
+    },
+    {
+      "id": "decision-23352f20-cb56-4e86-84a0-471ee16e22f8",
+      "revision": 1
+    },
+    {
+      "id": "decision-5bb19ad8-645e-4255-ae18-2e0e2893f792",
+      "revision": 1
+    },
+    {
+      "id": "decision-cd9026aa-f192-4894-996a-2234398f1902",
+      "revision": 1
+    },
+    {
+      "id": "development-authorization-6dadf1f3-ee7d-4dd4-a45f-02c8b692137f",
+      "revision": 1
+    },
+    {
+      "id": "intent-29a81338-5a22-4976-bd0f-2058ceb3a529",
+      "revision": 1
+    },
+    {
+      "id": "intent-2f26bb5a-aba1-4800-ba28-a66c73b6355b",
+      "revision": 1
+    },
+    {
+      "id": "intent-ca1fe87f-6849-4941-87aa-0358ee68923d",
+      "revision": 1
+    }
+  ],
+  "review_of": {
+    "id": "artifact-697a3ffa-9287-41e2-b680-ebc8692150b5",
+    "revision": 1
+  },
+  "review": {
+    "verdict": "Pass",
+    "reason": "Qualified source-only Pass for the exact supplied revision and hashes: static inspection found no blocking defect in the search optimizations, repetition-history cache identity, bounded root aggregation, immediate-loss accounting, survival-first ranking, or conservative expiry handling. Missing dependency implementations and official protocol extracts limit conformance conclusions; host test claims, timing, packaging, strength, and promotion are not accepted by this review."
+  },
+  "created_at": "2026-11-13T07:19:13.416Z"
+}

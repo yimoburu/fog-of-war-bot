@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-11-13T16:00:52.710875+00:00",
+  "plan": "analysis/experiment-v4.md",
+  "plan_sha256": "886e257c588d2ccec82ae357b098d10975369bab5d2818768ef6fb5a4896efcd",
+  "seed_method": "secrets.randbelow once before diagnostics and matches; sequential disjoint namespace blocks",
+  "development_seed_bases": [
+    83620069,
+    83630069,
+    83640069,
+    83650069
+  ],
+  "primary_seed_bases": [
+    83720069,
+    83730069,
+    83740069,
+    83750069,
+    83760069,
+    83770069,
+    83780069,
+    83790069
+  ],
+  "control_seed_bases": {
+    "legacy": 83920069,
+    "baseline": 83930069,
+    "random": 83940069
+  },
+  "shared_development_panel": true,
+  "workers": 4,
+  "candidate_args_common": [
+    "--search-ms",
+    "600",
+    "--particles",
+    "256",
+    "--worlds",
+    "6",
+    "--depth",
+    "3",
+    "--nodes",
+    "50000"
+  ],
+  "candidate_policies": [
+    "bank",
+    "learned"
+  ],
+  "opponent_args": [
+    "--search-ms",
+    "600"
+  ],
+  "base_time": 180,
+  "increment": 2,
+  "max_plies": 1000,
+  "model_sha256": "fb517196cf82698e6224cbe20ca6e1e02fe63d18d8d490dc0a5f29f813e5028b",
+  "diagnostic_input_sha256": "92a7d9beb3551862095b221ae63215b741e3a7d4b5e60210d01dd84f4a4fb574",
+  "observed_status": "preregistered_before_v4_diagnostics_and_matches"
+}

@@ -1,0 +1,11 @@
+--- a/bot.py
++++ b/bot.py
+@@ -22 +22 @@
+-    def __init__(self, side, rights=None, seed=0, search_ms=180, risk_policy='hypothesis'):
++    def __init__(self, side, rights=None, seed=0, search_ms=180, risk_policy='robust'):
+@@ -324 +324 @@
+-def serve(stream_in, stream_out, seed, search_ms=180, risk_policy='hypothesis'):
++def serve(stream_in, stream_out, seed, search_ms=180, risk_policy='robust'):
+@@ -365 +365 @@
+-                        default='hypothesis', help='Risk aggregation policy for reproducible comparisons.')
++                        default='robust', help='Risk aggregation policy for reproducible comparisons.')

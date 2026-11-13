@@ -1,0 +1,768 @@
+{
+  "coefficients": [
+    -0.0028653625365231586,
+    0.043825939491772985,
+    -0.047871263775774574,
+    -0.037929404209347435,
+    -0.029148500324464165,
+    0.08603881582890026,
+    -0.009640335702829789,
+    -0.000110313946425238,
+    -0.0005788868792330356,
+    -0.0142382271648636,
+    0.006127655975101292,
+    0.01853351039347227,
+    0.01364751147101048,
+    0.019589671090437726,
+    -0.04670237131657847,
+    -0.03652197804468102,
+    -0.045937812343999254,
+    -0.03199661661164063,
+    0.04906402275009247,
+    0.060789680132051424,
+    0.003947877203744471,
+    0.028958889629024893,
+    0.02499983012733147,
+    0.003381107943263092,
+    -0.027136197629334814,
+    0.05455010329091759,
+    0.002948298238748997,
+    0.006368833131185511,
+    -0.012912971123680615,
+    0.05362106757915931,
+    0.0192143982629735,
+    0.016373440190757704,
+    0.10925516075314015,
+    0.1382896200053669,
+    0.1387503921099707,
+    0.011065408375862102,
+    0.023434883669582095,
+    0.021072294620770125,
+    0.010280900528947838,
+    0.0033811079432630926,
+    0.06728892465395009,
+    0.07644200249238153,
+    0.006144464689845891,
+    0.01634236656838674,
+    0.0,
+    0.010283312563409882,
+    0.14554915078666777,
+    0.007245783767617223,
+    0.01213038072809312,
+    0.008096542371009516,
+    -0.0479431954468682,
+    -0.009347496009392423,
+    0.001107146061949772,
+    0.0
+  ],
+  "feature_names": [
+    "phase",
+    "unknown_fraction",
+    "own_pieces",
+    "own_pawns",
+    "visible_enemies",
+    "king_move",
+    "pawn_move",
+    "capture",
+    "en_passant",
+    "castle",
+    "promotion",
+    "king_advance",
+    "king_file_center",
+    "king_rank_center",
+    "adjacent_own",
+    "adjacent_pawns",
+    "ray_own_shields",
+    "shield_change",
+    "rook_hidden_ray",
+    "bishop_hidden_ray",
+    "rook_near_hidden",
+    "bishop_near_hidden",
+    "hidden_knight_origins",
+    "hidden_pawn_origins",
+    "hidden_king_origins",
+    "ray_exposure_change",
+    "pawn_potential",
+    "knight_potential",
+    "bishop_potential",
+    "rook_potential",
+    "queen_potential",
+    "promotion_potential",
+    "rook_ray_inventory",
+    "bishop_ray_inventory",
+    "knight_inventory",
+    "pawn_inventory",
+    "kingmove_rook_ray",
+    "kingmove_bishop_ray",
+    "kingmove_knight",
+    "kingmove_pawn",
+    "seen_rook_threat",
+    "seen_bishop_threat",
+    "seen_knight_threat",
+    "seen_pawn_threat",
+    "seen_king_threat",
+    "recent_hidden_sightings",
+    "forced_blocker_threat",
+    "captures_pawn",
+    "captures_knight",
+    "captures_bishop",
+    "captures_rook",
+    "captures_queen",
+    "victim_value",
+    "visible_attack"
+  ],
+  "feature_version": "v4-immediate-risk-1",
+  "intercept": -3.695211531949573,
+  "mean": [
+    0.42789114001578926,
+    0.47918064386796255,
+    0.7017743742243283,
+    0.749733048047322,
+    0.08369900714020921,
+    0.10288026046451655,
+    0.2944973647309124,
+    0.049683284173879405,
+    0.000233708879325629,
+    0.007228857405347904,
+    0.0014506068371935594,
+    0.02067114743000958,
+    0.6342628729849547,
+    0.04123637753539868,
+    0.3304784584884677,
+    0.20075794207243364,
+    0.46279092726012605,
+    -0.018208137904356655,
+    0.05865629482778347,
+    0.036977464937907795,
+    0.056259368502490206,
+    0.03551972019405896,
+    0.09395600631819867,
+    0.02623180697258353,
+    0.015158841448672696,
+    0.011225763736824448,
+    0.6188177957223217,
+    0.2840075230082335,
+    0.6879289968247159,
+    0.8418021170800436,
+    0.712549018422635,
+    0.27604588752965115,
+    0.028068109755136916,
+    0.01589816042192209,
+    0.012126767171558786,
+    0.011369131086504522,
+    0.018731354137645175,
+    0.01651010042574213,
+    0.019015037957545573,
+    0.02623180697258353,
+    0.0013149998946140333,
+    0.0008316192615791307,
+    0.0003397147635820815,
+    0.0002058125939949836,
+    0.0,
+    0.068217576147569,
+    0.004918090452387914,
+    0.2471622503747401,
+    0.7299816256467289,
+    0.3385434295569202,
+    0.2019526779814,
+    0.3410134906435859,
+    0.009279630435521566,
+    0.0
+  ],
+  "normalized_clip": 8.0,
+  "probability_clip": 1e-06,
+  "regularization": 0.1,
+  "scale": [
+    0.27386807434323374,
+    0.0995126502836723,
+    0.21498838409545834,
+    0.2300752314826472,
+    0.07089393727700818,
+    0.3038024234128021,
+    0.45581648379277745,
+    0.21728979600441142,
+    0.015285753481109686,
+    0.08471482176073147,
+    0.03805919832313396,
+    0.058442245330961644,
+    0.28558024768252405,
+    0.11601248217361694,
+    0.1835597938727498,
+    0.1226732900130111,
+    0.15116570546184058,
+    0.06752110069865526,
+    0.10205210838468899,
+    0.08008052577118577,
+    0.096105737114852,
+    0.08613550237079261,
+    0.13548677496312073,
+    0.12886562525759235,
+    0.06894488080889506,
+    0.041891094991613524,
+    0.2651684806744159,
+    0.3275992431981443,
+    0.3756688901697832,
+    0.3299403496812014,
+    0.4620444336125445,
+    0.19218727343403116,
+    0.05695890031819759,
+    0.03912783751205857,
+    0.023862470491333915,
+    0.06217731753740859,
+    0.07677747838169094,
+    0.07160630602366617,
+    0.08097074488863971,
+    0.12886562525759235,
+    0.015021926801127145,
+    0.012149802426393424,
+    0.011278568228529313,
+    0.008585101919059222,
+    1.0,
+    0.06365105073165984,
+    0.03142185650607707,
+    0.24032046891439285,
+    0.3834426496133161,
+    0.38764305752033945,
+    0.32988949441793636,
+    0.48510703726903714,
+    0.055730390480563705,
+    1.0
+  ],
+  "schema_version": 1,
+  "training": {
+    "class_weighting": false,
+    "design_sha256": "5de47aa769789087aff342ec96ee54a9b336b77276ee8a47d3bf75bb0872a750",
+    "distribution": "V3 vs frozenV2 induced distribution; no universal calibration or strength claim",
+    "inputs": [
+      {
+        "matches": 50,
+        "path": "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v3-holdout-171980/batch-000.json",
+        "sha256": "1988073a8a227d3bee73e123a479668219f330de07863397c80bd88300f91ef6"
+      },
+      {
+        "matches": 50,
+        "path": "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v3-holdout-171980/batch-001.json",
+        "sha256": "c3ceca6589e141a12f78ff4fc40bb87c24e2f7a780fba6890646f268be13e93c"
+      },
+      {
+        "matches": 50,
+        "path": "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v3-holdout-171980/batch-002.json",
+        "sha256": "362046cac308b1ba8341db619be39820e053a0ce9db34bf31f9c9f5d7dd6b535"
+      },
+      {
+        "matches": 50,
+        "path": "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v3-holdout-171980/batch-003.json",
+        "sha256": "0e5a6ff77bb4ec6bbece4a9ae0d76f88c5767c299b98a813efc2ac9ce1ef03ee"
+      }
+    ],
+    "label": "official referee immediate king-capturability loss after counterfactual own move",
+    "source_sha256": {
+      "referee.py": "2f82ac292bfad29bcb2d701b73c060d1ca8281378b4598f08a620fe5c97255be",
+      "risk_model.py": "042df37ae31e3a587b654184189e4c2e39c76c34ffa0d6530f8e83509ae37a81",
+      "train_risk_model.py": "d84a4218be88b998053fec6a1268f159e1d100c9f6c6aa642ca0681e5738648f",
+      "uniform_random.py": "a9d2d69c1893652dae938c596be59fc16fdf1edba3ccf491d9cf2c92d75b514a"
+    },
+    "split": [
+      {
+        "candidate_seed": 171980,
+        "opponent_seed": 171981,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 171982,
+        "opponent_seed": 171983,
+        "partition": "test"
+      },
+      {
+        "candidate_seed": 171984,
+        "opponent_seed": 171985,
+        "partition": "validation"
+      },
+      {
+        "candidate_seed": 171986,
+        "opponent_seed": 171987,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 171988,
+        "opponent_seed": 171989,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 171990,
+        "opponent_seed": 171991,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 171992,
+        "opponent_seed": 171993,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 171994,
+        "opponent_seed": 171995,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 171996,
+        "opponent_seed": 171997,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 171998,
+        "opponent_seed": 171999,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 172000,
+        "opponent_seed": 172001,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 172002,
+        "opponent_seed": 172003,
+        "partition": "validation"
+      },
+      {
+        "candidate_seed": 172004,
+        "opponent_seed": 172005,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 172006,
+        "opponent_seed": 172007,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 172008,
+        "opponent_seed": 172009,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 172010,
+        "opponent_seed": 172011,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 172012,
+        "opponent_seed": 172013,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 172014,
+        "opponent_seed": 172015,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 172016,
+        "opponent_seed": 172017,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 172018,
+        "opponent_seed": 172019,
+        "partition": "test"
+      },
+      {
+        "candidate_seed": 172020,
+        "opponent_seed": 172021,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 172022,
+        "opponent_seed": 172023,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 172024,
+        "opponent_seed": 172025,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 172026,
+        "opponent_seed": 172027,
+        "partition": "test"
+      },
+      {
+        "candidate_seed": 172028,
+        "opponent_seed": 172029,
+        "partition": "test"
+      },
+      {
+        "candidate_seed": 181980,
+        "opponent_seed": 181981,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 181982,
+        "opponent_seed": 181983,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 181984,
+        "opponent_seed": 181985,
+        "partition": "validation"
+      },
+      {
+        "candidate_seed": 181986,
+        "opponent_seed": 181987,
+        "partition": "validation"
+      },
+      {
+        "candidate_seed": 181988,
+        "opponent_seed": 181989,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 181990,
+        "opponent_seed": 181991,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 181992,
+        "opponent_seed": 181993,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 181994,
+        "opponent_seed": 181995,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 181996,
+        "opponent_seed": 181997,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 181998,
+        "opponent_seed": 181999,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 182000,
+        "opponent_seed": 182001,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 182002,
+        "opponent_seed": 182003,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 182004,
+        "opponent_seed": 182005,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 182006,
+        "opponent_seed": 182007,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 182008,
+        "opponent_seed": 182009,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 182010,
+        "opponent_seed": 182011,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 182012,
+        "opponent_seed": 182013,
+        "partition": "test"
+      },
+      {
+        "candidate_seed": 182014,
+        "opponent_seed": 182015,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 182016,
+        "opponent_seed": 182017,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 182018,
+        "opponent_seed": 182019,
+        "partition": "test"
+      },
+      {
+        "candidate_seed": 182020,
+        "opponent_seed": 182021,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 182022,
+        "opponent_seed": 182023,
+        "partition": "test"
+      },
+      {
+        "candidate_seed": 182024,
+        "opponent_seed": 182025,
+        "partition": "validation"
+      },
+      {
+        "candidate_seed": 182026,
+        "opponent_seed": 182027,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 182028,
+        "opponent_seed": 182029,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 191980,
+        "opponent_seed": 191981,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 191982,
+        "opponent_seed": 191983,
+        "partition": "validation"
+      },
+      {
+        "candidate_seed": 191984,
+        "opponent_seed": 191985,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 191986,
+        "opponent_seed": 191987,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 191988,
+        "opponent_seed": 191989,
+        "partition": "validation"
+      },
+      {
+        "candidate_seed": 191990,
+        "opponent_seed": 191991,
+        "partition": "test"
+      },
+      {
+        "candidate_seed": 191992,
+        "opponent_seed": 191993,
+        "partition": "validation"
+      },
+      {
+        "candidate_seed": 191994,
+        "opponent_seed": 191995,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 191996,
+        "opponent_seed": 191997,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 191998,
+        "opponent_seed": 191999,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 192000,
+        "opponent_seed": 192001,
+        "partition": "validation"
+      },
+      {
+        "candidate_seed": 192002,
+        "opponent_seed": 192003,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 192004,
+        "opponent_seed": 192005,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 192006,
+        "opponent_seed": 192007,
+        "partition": "validation"
+      },
+      {
+        "candidate_seed": 192008,
+        "opponent_seed": 192009,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 192010,
+        "opponent_seed": 192011,
+        "partition": "test"
+      },
+      {
+        "candidate_seed": 192012,
+        "opponent_seed": 192013,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 192014,
+        "opponent_seed": 192015,
+        "partition": "test"
+      },
+      {
+        "candidate_seed": 192016,
+        "opponent_seed": 192017,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 192018,
+        "opponent_seed": 192019,
+        "partition": "test"
+      },
+      {
+        "candidate_seed": 192020,
+        "opponent_seed": 192021,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 192022,
+        "opponent_seed": 192023,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 192024,
+        "opponent_seed": 192025,
+        "partition": "validation"
+      },
+      {
+        "candidate_seed": 192026,
+        "opponent_seed": 192027,
+        "partition": "validation"
+      },
+      {
+        "candidate_seed": 192028,
+        "opponent_seed": 192029,
+        "partition": "validation"
+      },
+      {
+        "candidate_seed": 201980,
+        "opponent_seed": 201981,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 201982,
+        "opponent_seed": 201983,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 201984,
+        "opponent_seed": 201985,
+        "partition": "test"
+      },
+      {
+        "candidate_seed": 201986,
+        "opponent_seed": 201987,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 201988,
+        "opponent_seed": 201989,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 201990,
+        "opponent_seed": 201991,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 201992,
+        "opponent_seed": 201993,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 201994,
+        "opponent_seed": 201995,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 201996,
+        "opponent_seed": 201997,
+        "partition": "validation"
+      },
+      {
+        "candidate_seed": 201998,
+        "opponent_seed": 201999,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 202000,
+        "opponent_seed": 202001,
+        "partition": "validation"
+      },
+      {
+        "candidate_seed": 202002,
+        "opponent_seed": 202003,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 202004,
+        "opponent_seed": 202005,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 202006,
+        "opponent_seed": 202007,
+        "partition": "test"
+      },
+      {
+        "candidate_seed": 202008,
+        "opponent_seed": 202009,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 202010,
+        "opponent_seed": 202011,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 202012,
+        "opponent_seed": 202013,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 202014,
+        "opponent_seed": 202015,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 202016,
+        "opponent_seed": 202017,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 202018,
+        "opponent_seed": 202019,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 202020,
+        "opponent_seed": 202021,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 202022,
+        "opponent_seed": 202023,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 202024,
+        "opponent_seed": 202025,
+        "partition": "test"
+      },
+      {
+        "candidate_seed": 202026,
+        "opponent_seed": 202027,
+        "partition": "train"
+      },
+      {
+        "candidate_seed": 202028,
+        "opponent_seed": 202029,
+        "partition": "test"
+      }
+    ]
+  }
+}

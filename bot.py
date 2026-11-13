@@ -9,6 +9,7 @@ import time
 import chess
 from belief import Belief, forced_blockers
 from search import search_root
+from risk_model import RiskHistory, RiskModel, predict as predict_risk
 from uniform_random import OBSERVATION_CHARACTERS, ObservationTracker, candidates
 
 VALUES = {chess.PAWN: 100, chess.KNIGHT: 310, chess.BISHOP: 325,
@@ -19,14 +20,25 @@ MAX_DETAIL_SECONDS = 0.12
 
 
 class State:
-    def __init__(self, side, rights=None, seed=0, search_ms=180):
+    def __init__(self, side, rights=None, seed=0, search_ms=180, risk_policy='hypothesis',
+                 particles=64, worlds=4, depth=3, nodes=18000):
         self.side = side
         self.tracker = ObservationTracker(side, rights)
         self.ply = -1
         self.sightings = {}
-        self.belief = Belief(side, seed=seed)
+        self.belief = Belief(side, seed=seed, max_particles=particles)
+        self.risk_history = RiskHistory(side)
         self.belief_events = []
         self.search_ms = search_ms
+        if risk_policy not in ('legacy', 'hypothesis', 'robust', 'bank', 'learned'):
+            raise ValueError('Unknown risk policy')
+        for name, value, upper in (('worlds', worlds, 32), ('depth', depth, 6),
+                                   ('nodes', nodes, 1000000)):
+            if type(value) is not int or not 1 <= value <= upper:
+                raise ValueError(name + ' outside supported range')
+        self.risk_policy = risk_policy
+        self.risk_model = RiskModel.load() if risk_policy == 'learned' else None
+        self.worlds, self.depth, self.nodes = worlds, depth, nodes
         self.last_search = {}
         self.move_history = []
 
@@ -34,6 +46,7 @@ class State:
         if len(view) != 64 or not set(view) <= OBSERVATION_CHARACTERS:
             raise ValueError('Expected a 64-square FOW observation')
         self.tracker.observe(view)
+        self.risk_history.observe(view)
         # Arena observations may be queued while the process is frozen. Defer
         # optional inference until the following clock establishes its budget.
         self.belief_events.append(('observe', view))
@@ -53,6 +66,7 @@ class State:
                           tracker.previous)
 
     def record_move(self, board, move):
+        self.risk_history.record_move(board, move)
         self.sightings.pop(capture_square(board, move), None)
         self.sightings.pop(move.to_square, None)
         self.tracker.record_move(move)
@@ -256,14 +270,33 @@ def choose_move(state, remaining, rng, now=time.monotonic):
             real_deadline = time.monotonic() + max(0, inference_deadline - now())
             state.belief.observe(value, deadline=real_deadline)
     current_particles = state.belief.particles if not state.belief_events else []
-    worlds = state.belief.sample(4) if current_particles else []
+    if current_particles and state.risk_policy != 'legacy':
+        # A forced blocker is already represented in every current hypothesis.
+        # Do not ALSO pretend it can be every starting piece type. The fallback
+        # retains the generic penalty when the bank is absent or stale.
+        revised = []
+        for score, tie, move in detailed:
+            if now() >= deadline:
+                return fallback
+            generic = blocker_risk(state, after_move(board, move),
+                                   capture_square(board, move))
+            revised.append((score + generic, tie, move))
+            priors[move] += generic
+        detailed = sorted(revised, key=lambda row: (row[0], row[1]), reverse=True)
+        # Retain the conservative fallback until the whole survival batch is
+        # complete; removing a generic penalty alone does not establish safety.
+    worlds = state.belief.sample(state.worlds) if current_particles else []
     complete = bool(worlds)
     if not worlds:
         worlds = [board.copy(stack=False)]
     # Use every retained hypothesis for immediate survival classification, then
     # a common small subset for deeper search. The weights are heuristic.
     survival = {}
+    bounded = ((state.risk_policy in ('robust', 'bank') and bool(current_particles))
+               or state.risk_policy == 'learned')
     for _, _, move in detailed:
+        if now() >= deadline:
+            return fallback
         losses = 0
         for world in current_particles:
             if now() >= deadline:
@@ -274,17 +307,41 @@ def choose_move(state, remaining, rng, now=time.monotonic):
             finally:
                 world.pop()
         survival[move] = losses / max(1, len(current_particles))
-        priors[move] -= 30000 * survival[move]
+        if state.risk_policy == 'learned':
+            modeled = predict_risk(state, board, after_move(board, move), move,
+                                   model=state.risk_model)
+            if now() >= deadline:
+                return fallback
+            # The two estimates share information. A convex blend is a soft
+            # ranking heuristic, not independent-event multiplication or proof.
+            survival[move] = (.5 * survival[move] + .5 * modeled
+                              if current_particles else modeled)
+        if not bounded:
+            priors[move] -= 30000 * survival[move]
     # Keep twelve candidates for depth search, including low-risk quiet moves.
-    detailed.sort(key=lambda row: (row[0] - 30000 * survival[row[2]], row[1]), reverse=True)
+    risk_weight = (4000 if state.risk_policy in ('bank', 'learned') else 1600) if bounded else 30000
+    detailed.sort(key=lambda row: (row[0] - risk_weight * survival[row[2]], row[1]), reverse=True)
+    if bounded:
+        survivors = [row for row in detailed if survival[row[2]] < 1]
+        if survivors:
+            detailed = survivors
     selected = [row[2] for row in detailed[:12]]
     fallback = selected[0]
     if now() >= deadline:
         return fallback
+    options = ({'utility_scale': 800, 'immediate_risks': survival}
+               if bounded else {})
+    if bounded and state.risk_policy in ('bank', 'learned'):
+        options['loss_cost'] = 3200
     chosen, stats = search_root(worlds, selected, priors, deadline, now=now,
-                                complete=complete, max_depth=3)
+                                complete=complete, max_depth=state.depth,
+                                node_limit=state.nodes, **options)
     state.last_search = stats
     state.last_search['status'] = 'searched' if stats['depth'] else 'fallback'
+    state.last_search['particles'] = len(current_particles)
+    state.last_search['risk_policy'] = state.risk_policy
+    state.last_search['chosen_risk'] = survival[chosen if stats['depth'] else fallback]
+    state.last_search['shortlist_min_risk'] = min(survival[m] for m in selected)
     return chosen if stats['depth'] else fallback
 
 
@@ -295,7 +352,8 @@ def positive_float(text):
     return value
 
 
-def serve(stream_in, stream_out, seed, search_ms=180):
+def serve(stream_in, stream_out, seed, search_ms=180, risk_policy='hypothesis',
+          particles=64, worlds=4, depth=3, nodes=18000):
     if stream_in.readline().strip().lower() != 'fow':
         raise ValueError('Expected fow handshake')
     header = stream_in.readline().split()
@@ -305,7 +363,9 @@ def serve(stream_in, stream_out, seed, search_ms=180):
     increment = float(header[2])
     if not math.isfinite(increment) or increment < 0:
         raise ValueError('Invalid increment')
-    state = State(header[0].lower() == 'w', seed=seed, search_ms=search_ms)
+    state = State(header[0].lower() == 'w', seed=seed, search_ms=search_ms,
+                  risk_policy=risk_policy, particles=particles, worlds=worlds,
+                  depth=depth, nodes=nodes)
     rng = random.Random(seed)
     stream_out.write('ready\n')
     stream_out.flush()
@@ -334,11 +394,18 @@ def main():
     parser.add_argument('--seed', type=int, default=1)
     parser.add_argument('--search-ms', type=float, default=180,
                         help='Maximum optional search milliseconds per move (default180).')
+    parser.add_argument('--risk-policy', choices=('legacy', 'hypothesis', 'robust', 'bank', 'learned'),
+                        default='hypothesis', help='Risk aggregation policy for reproducible comparisons.')
+    parser.add_argument('--particles', type=int, default=64)
+    parser.add_argument('--worlds', type=int, default=4)
+    parser.add_argument('--depth', type=int, default=3)
+    parser.add_argument('--nodes', type=int, default=18000)
     args = parser.parse_args()
     try:
         if not math.isfinite(args.search_ms) or not 0 <= args.search_ms <= 2000:
             raise ValueError('search-ms must be between0 and2000')
-        serve(sys.stdin, sys.stdout, args.seed, args.search_ms)
+        serve(sys.stdin, sys.stdout, args.seed, args.search_ms, args.risk_policy,
+              args.particles, args.worlds, args.depth, args.nodes)
     except (ValueError, EOFError) as error:
         print('bot: ' + str(error), file=sys.stderr, flush=True)
         return 2

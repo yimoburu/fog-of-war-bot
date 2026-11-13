@@ -47,3 +47,37 @@ Elo rating for this bot. The requested 2200–2500 MIT arena Elo remains a targe
 until supported by actual rated arena games.
 
 No chess artwork is included. The archive's GPL notice concerns artwork; the inspected Python files have no license header. This document does not assign a new license to upstream code.
+
+V4 research refreshed the official guide, starter and public completed-game
+API on November 13, 2026. Six completed elite games were reconstructed against
+the unchanged MIT referee for qualitative timing and hidden-threat analysis.
+Detailed dated findings and source hashes are in
+`analysis/research-v4-literature.md` and `analysis/research-v4-arena-evaluation.md`.
+Additional primary references include:
+
+- [Obscuro-chess implementation, pinned source](https://github.com/opowell/obscuro-chess/tree/008841f327a6a96c683652eca22586cca525946f)
+- [POMCP paper](https://proceedings.neurips.cc/paper_files/paper/2010/file/edfbe1afcf9246bb0d40eb4d8027d90f-Paper.pdf)
+- [Information Set Monte Carlo Tree Search](https://eprints.whiterose.ac.uk/id/eprint/75048/1/CowlingPowleyWhitehouse2012.pdf)
+- [Fog of War endgames](https://arxiv.org/html/2601.18813v1)
+
+The bundled `risk_model.json` was trained from our own 200 recorded V3
+local games, grouped by complete seed pair into 70/15/15 training, validation
+and test pairs. Features use only observation prefixes and known own captures;
+full boards supply offline labels only. NumPy 2.2.6 was used for training, and
+is not a runtime dependency. No external implementation or trained weights
+were copied. Prediction quality on this development distribution is separate
+from full-game strength; the model is a soft risk signal, not a safety proof.
+V4 failed its own mechanism gate and was not promoted. V5 separately tested
+the frozen learned-risk configuration with a 600 ms optional budget, 256 particles,
+six search worlds, depth four and a 120,000-node ceiling. It scored 261 wins,
+eight draws and 131 losses in 400 fresh games against byte-exact released v2
+using 180 ms, under equal 180+2 clocks. This shared-host local result passed the
+preregistered numerical gate; confidence coverage remains conditional on pair
+independence. It is not an algorithm-only or MIT arena Elo claim.
+
+Additional V5 belief-recovery, threat-envelope and fog-pressure prototypes are
+retained separately from the selected launcher. Their unit tests and source
+reviews do not establish full-game strength. SoloCo independently reviewed
+evaluation-source repairs and the prospective shared-host methodology; host
+tools executed the games and reconstructed their replays. See V5 validation
+for the complete release evidence and retained historical failures.

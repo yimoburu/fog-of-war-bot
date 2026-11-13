@@ -1,0 +1,15 @@
+{
+  "description": "Frozen v2 runtime opponent. Files are exact unmodified blobs from source_commit.",
+  "files": {
+    "SOURCES.md": "c64d82f80b5c364dd28f37d56297d264688db01a8ec0f52b2b1e07279ce379a2",
+    "belief.py": "7c9f57397d5552c90eb70c425aac5cec80363d707ac71c632480bae93e504d63",
+    "bot.py": "99be8f7028bed556459bedab5b0163799bac4970686e33f33adea6b86c891232",
+    "referee.py": "2f82ac292bfad29bcb2d701b73c060d1ca8281378b4598f08a620fe5c97255be",
+    "requirements.txt": "391e529739e99dc63461425af4ad7afb10d89aa275922928ceb8e2f5dffa7149",
+    "search.py": "a2cb6000bf92c026edba87d790d0b49f47ef759e77d7ed27a1ae4a5a6791992e",
+    "uniform_random.py": "a9d2d69c1893652dae938c596be59fc16fdf1edba3ccf491d9cf2c92d75b514a"
+  },
+  "schema_version": 1,
+  "source_commit": "65fde033a2e65394a676e44969a992832ee17470",
+  "source_repository": "https://github.com/yimoburu/fog-of-war-bot"
+}

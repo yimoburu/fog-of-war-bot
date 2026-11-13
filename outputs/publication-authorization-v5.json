@@ -1,0 +1,13 @@
+{
+  "id": "decision-bde36f02-3bd5-4285-8d42-f00c2496f891",
+  "kind": "decision",
+  "content": "Founder disposition of public delivery: Asked exactly 'V5 is committed locally and validated. May I publish it, its submission ZIP and evaluation evidence to the existing public GitHub repository yimoburu/fog-of-war-bot?' Founder answered exactly 'Publish to the public repository (Recommended)'. This explicitly authorizes publication of the prepared V5 bot, tested ZIP and evaluation evidence to that existing public repository, including ordinary branch push, draft PR, readiness and merge of the accepted head. It supersedes only the earlier coordinator-authored private-publication scope for this delivery (decision-5bb19ad8-645e-4255-ae18-2e0e2893f792, decision-cd9026aa-f192-4894-996a-2234398f1902, intent-29a81338-5a22-4976-bd0f-2058ceb3a529), satisfying the authority clearing condition in scope review artifact-14723338-0bf4-4d47-9769-2658c97d32d3. Preserve original Blocked finding as historical. Local technical acceptance decision-efb31c3b-1d39-4be8-92b6-159df37e507d and exact runtime/ZIP/README Pass remain unchanged. Current local accepted commit d31bb215900497910c599e6c585f18ce7b74c2bd; ZIP SHA5b190981af47c62f9cd22834eb0bffc4be06611ac43cf6d106b6db910083d99c; README SHAfee30e181608fb11bfa90d1da7b6fa2b74ac0c6ad055008702f92ec226ece619. Update only publication-status/acceptance records before commit and push; no engine, weights or raw-game edits. No arena submission, visibility change, MIT Elo claim or notice acknowledgement is authorized or implied. Retain all prior limits and evidence.",
+  "author_role": "runner",
+  "author_instance": "01a1d317-fc6d-7fe2-987e-2db91158335d",
+  "revision": 1,
+  "status": "Draft",
+  "source_reference": "Founder reply to questionItemId [request_user_input_async,call_23bfa7fd7225457bbb03fe805bdfa687,0]: Publish to the public repository (Recommended)",
+  "basis": "explicit",
+  "updated_at": "2026-11-13T19:10:30.657Z",
+  "previous": []
+}

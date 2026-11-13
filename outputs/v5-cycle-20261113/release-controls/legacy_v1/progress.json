@@ -1,0 +1,26 @@
+{
+  "jobs": {
+    "batch-000": {
+      "finished_at": "2026-11-13T18:40:57.585571+00:00",
+      "log": "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v5-cycle-20261113/release-controls/legacy_v1/batch-000.log",
+      "output": "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v5-cycle-20261113/release-controls/legacy_v1/batch-000.json",
+      "pid": 38585,
+      "returncode": 0,
+      "started_at": "2026-11-13T18:38:51.110355+00:00",
+      "status": "completed"
+    },
+    "batch-001": {
+      "finished_at": "2026-11-13T18:41:32.445884+00:00",
+      "log": "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v5-cycle-20261113/release-controls/legacy_v1/batch-001.log",
+      "output": "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v5-cycle-20261113/release-controls/legacy_v1/batch-001.json",
+      "pid": 38590,
+      "returncode": 0,
+      "started_at": "2026-11-13T18:38:51.303350+00:00",
+      "status": "completed"
+    }
+  },
+  "pending": [],
+  "plan_sha256": "59cad13cfb6360508fc609af0dc10079adf029b0073b319570b206dd6e66d150",
+  "reason": null,
+  "status": "running"
+}

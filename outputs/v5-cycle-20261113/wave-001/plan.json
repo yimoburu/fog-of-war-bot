@@ -1,0 +1,187 @@
+{
+  "candidate": "/Users/xwli/Documents/soloco/allearn/ffwb/bot.py",
+  "candidates": [
+    {
+      "args": [
+        "--risk-policy",
+        "hypothesis",
+        "--search-ms",
+        "600",
+        "--particles",
+        "128",
+        "--worlds",
+        "4",
+        "--depth",
+        "5",
+        "--nodes",
+        "120000"
+      ],
+      "name": "hypothesis_600"
+    },
+    {
+      "args": [
+        "--risk-policy",
+        "robust",
+        "--search-ms",
+        "600",
+        "--particles",
+        "128",
+        "--worlds",
+        "4",
+        "--depth",
+        "5",
+        "--nodes",
+        "120000"
+      ],
+      "name": "robust_600"
+    },
+    {
+      "args": [
+        "--risk-policy",
+        "bank",
+        "--search-ms",
+        "600",
+        "--particles",
+        "256",
+        "--worlds",
+        "6",
+        "--depth",
+        "4",
+        "--nodes",
+        "120000"
+      ],
+      "name": "bank_600"
+    },
+    {
+      "args": [
+        "--risk-policy",
+        "learned",
+        "--search-ms",
+        "600",
+        "--particles",
+        "256",
+        "--worlds",
+        "6",
+        "--depth",
+        "4",
+        "--nodes",
+        "120000"
+      ],
+      "name": "learned_600"
+    }
+  ],
+  "created_utc": "2026-11-13T17:16:30.201949+00:00",
+  "design_file": "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v5-cycle-20261113/design.json",
+  "design_sha256": "0ada87aaaba292f0f6fd2aaa8f258d861c769deb94ce2c1aa289027a352203f5",
+  "host_activity": "Development may overlap small unit checks and native cloud reviews; final primary workload is exclusive",
+  "rules": {
+    "candidates_per_wave": 4,
+    "confirmation_block_pairs": 16,
+    "confirmation_candidates_per_wave": 2,
+    "confirmation_gate": "zero failures and score strictly above .5 in each 16-pair block and overall",
+    "confirmation_pairs_per_candidate": 32,
+    "failed_candidate_policy": "retain failed stage evidence; candidate ineligible; source drift aborts whole wave",
+    "family_alpha": 0.05,
+    "final_pairs": 200,
+    "final_readiness": "development stops at final_ready; explicit final command records native QA and exclusive-host readiness",
+    "final_selection": "highest confirmation score among qualifiers, ties by frozen candidate order",
+    "final_statistical_gate": "complete audited final; mean pair score minus sqrt(log(2/alpha)/(2*n)) > .5",
+    "maximum_final_attempts": 3,
+    "maximum_full_games": 1776,
+    "maximum_waves": 3,
+    "per_final_two_sided_alpha": 0.016666666666666666,
+    "retry_policy": "at most one final per wave; later frozen waves may adapt to prior results; fresh final seeds",
+    "screen_pairs_per_candidate": 8,
+    "selection": "highest completed screen score, ties by frozen candidate order; top two confirm",
+    "stop_policy": "finish every started successful stage; stop cycle at first final statistical pass; no score-based early stopping",
+    "zero_failures": "qualifying candidate screen, confirmation and final must all be complete and failure-free"
+  },
+  "schema_version": 1,
+  "source_archive": {
+    "entries": {
+      "/Users/xwli/Documents/soloco/allearn/ffwb/arena_eval.py": "arena_eval.py",
+      "/Users/xwli/Documents/soloco/allearn/ffwb/audit_replays.py": "audit_replays.py",
+      "/Users/xwli/Documents/soloco/allearn/ffwb/belief.py": "belief.py",
+      "/Users/xwli/Documents/soloco/allearn/ffwb/bot.py": "bot.py",
+      "/Users/xwli/Documents/soloco/allearn/ffwb/fast_observation.py": "fast_observation.py",
+      "/Users/xwli/Documents/soloco/allearn/ffwb/opponents/v2/SOURCES.md": "opponents/v2/SOURCES.md",
+      "/Users/xwli/Documents/soloco/allearn/ffwb/opponents/v2/belief.py": "opponents/v2/belief.py",
+      "/Users/xwli/Documents/soloco/allearn/ffwb/opponents/v2/bot.py": "opponents/v2/bot.py",
+      "/Users/xwli/Documents/soloco/allearn/ffwb/opponents/v2/provenance.json": "opponents/v2/provenance.json",
+      "/Users/xwli/Documents/soloco/allearn/ffwb/opponents/v2/referee.py": "opponents/v2/referee.py",
+      "/Users/xwli/Documents/soloco/allearn/ffwb/opponents/v2/requirements.txt": "opponents/v2/requirements.txt",
+      "/Users/xwli/Documents/soloco/allearn/ffwb/opponents/v2/search.py": "opponents/v2/search.py",
+      "/Users/xwli/Documents/soloco/allearn/ffwb/opponents/v2/uniform_random.py": "opponents/v2/uniform_random.py",
+      "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v5-cycle-20261113/design.json": "outputs/v5-cycle-20261113/design.json",
+      "/Users/xwli/Documents/soloco/allearn/ffwb/referee.py": "referee.py",
+      "/Users/xwli/Documents/soloco/allearn/ffwb/requirements.txt": "requirements.txt",
+      "/Users/xwli/Documents/soloco/allearn/ffwb/risk_model.json": "risk_model.json",
+      "/Users/xwli/Documents/soloco/allearn/ffwb/risk_model.py": "risk_model.py",
+      "/Users/xwli/Documents/soloco/allearn/ffwb/run_paired_suite.py": "run_paired_suite.py",
+      "/Users/xwli/Documents/soloco/allearn/ffwb/search.py": "search.py",
+      "/Users/xwli/Documents/soloco/allearn/ffwb/uniform_random.py": "uniform_random.py",
+      "/Users/xwli/Documents/soloco/allearn/ffwb/v2_bot.py": "v2_bot.py",
+      "/Users/xwli/Documents/soloco/allearn/ffwb/v5_experiments.py": "v5_experiments.py"
+    },
+    "path": "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v5-cycle-20261113/wave-001/sources.zip",
+    "sha256": "6e5e24d581e26be307252662c540258de142c02513d54108bcddc995b3e878f4"
+  },
+  "source_sha256": {
+    "/Users/xwli/Documents/soloco/allearn/ffwb/arena_eval.py": "b674c8c649eec2626b5d55d40c9acca967d2afe4aa2fb5e6c21dd5efa6ef27ba",
+    "/Users/xwli/Documents/soloco/allearn/ffwb/audit_replays.py": "38421d2c45ca61cd2f298f246b7fd14038e6bff680ed347bb98dfea06626f2f8",
+    "/Users/xwli/Documents/soloco/allearn/ffwb/belief.py": "fdfe6c78ad8911e259a52c1a645e294a62e94e4f20ebf053218471db1119841e",
+    "/Users/xwli/Documents/soloco/allearn/ffwb/bot.py": "0d00f07a120166821b76a04e5ef2eb991c8197701bb4392d082ebbec5d4a85e8",
+    "/Users/xwli/Documents/soloco/allearn/ffwb/fast_observation.py": "dd537258e8b4afda6acdd0ff46409a98e58a6a7d290795f8bdedb5faf3af092f",
+    "/Users/xwli/Documents/soloco/allearn/ffwb/opponents/v2/SOURCES.md": "c64d82f80b5c364dd28f37d56297d264688db01a8ec0f52b2b1e07279ce379a2",
+    "/Users/xwli/Documents/soloco/allearn/ffwb/opponents/v2/belief.py": "7c9f57397d5552c90eb70c425aac5cec80363d707ac71c632480bae93e504d63",
+    "/Users/xwli/Documents/soloco/allearn/ffwb/opponents/v2/bot.py": "99be8f7028bed556459bedab5b0163799bac4970686e33f33adea6b86c891232",
+    "/Users/xwli/Documents/soloco/allearn/ffwb/opponents/v2/provenance.json": "c816c4683a3fa776420b1c1c59dce8fe58af30846329b6c53a9629377707c833",
+    "/Users/xwli/Documents/soloco/allearn/ffwb/opponents/v2/referee.py": "2f82ac292bfad29bcb2d701b73c060d1ca8281378b4598f08a620fe5c97255be",
+    "/Users/xwli/Documents/soloco/allearn/ffwb/opponents/v2/requirements.txt": "391e529739e99dc63461425af4ad7afb10d89aa275922928ceb8e2f5dffa7149",
+    "/Users/xwli/Documents/soloco/allearn/ffwb/opponents/v2/search.py": "a2cb6000bf92c026edba87d790d0b49f47ef759e77d7ed27a1ae4a5a6791992e",
+    "/Users/xwli/Documents/soloco/allearn/ffwb/opponents/v2/uniform_random.py": "a9d2d69c1893652dae938c596be59fc16fdf1edba3ccf491d9cf2c92d75b514a",
+    "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v5-cycle-20261113/design.json": "0ada87aaaba292f0f6fd2aaa8f258d861c769deb94ce2c1aa289027a352203f5",
+    "/Users/xwli/Documents/soloco/allearn/ffwb/referee.py": "2f82ac292bfad29bcb2d701b73c060d1ca8281378b4598f08a620fe5c97255be",
+    "/Users/xwli/Documents/soloco/allearn/ffwb/requirements.txt": "391e529739e99dc63461425af4ad7afb10d89aa275922928ceb8e2f5dffa7149",
+    "/Users/xwli/Documents/soloco/allearn/ffwb/risk_model.json": "fb517196cf82698e6224cbe20ca6e1e02fe63d18d8d490dc0a5f29f813e5028b",
+    "/Users/xwli/Documents/soloco/allearn/ffwb/risk_model.py": "042df37ae31e3a587b654184189e4c2e39c76c34ffa0d6530f8e83509ae37a81",
+    "/Users/xwli/Documents/soloco/allearn/ffwb/run_paired_suite.py": "aced8453cf75991c35d9ea0c4e976193528b0336e58d045a91a852e2c036e969",
+    "/Users/xwli/Documents/soloco/allearn/ffwb/search.py": "f8bf2df2008936c77950e0d35da00bc986ac89e14d400b0813c2768e0be0f1b1",
+    "/Users/xwli/Documents/soloco/allearn/ffwb/uniform_random.py": "a9d2d69c1893652dae938c596be59fc16fdf1edba3ccf491d9cf2c92d75b514a",
+    "/Users/xwli/Documents/soloco/allearn/ffwb/v2_bot.py": "f3c236892586cf2577745f310b4bd9c37321c158ea0c15b17dc388d20f831ed8",
+    "/Users/xwli/Documents/soloco/allearn/ffwb/v5_experiments.py": "7be06f1cf1e4800dd466a7728cf2d7111c22fe0d152e34ec961cfc7d41687379"
+  },
+  "stages": {
+    "confirmation": {
+      "batch_pairs": 8,
+      "pairs": 32,
+      "seed_bases": [
+        1793602664,
+        1793612664,
+        1793622664,
+        1793632664
+      ]
+    },
+    "final": {
+      "batch_pairs": 50,
+      "pairs": 200,
+      "seed_bases": [
+        1793702664,
+        1793712664,
+        1793722664,
+        1793732664
+      ]
+    },
+    "screen": {
+      "batch_pairs": 2,
+      "pairs": 8,
+      "seed_bases": [
+        1793502664,
+        1793512664,
+        1793522664,
+        1793532664
+      ]
+    }
+  },
+  "wave": 1
+}
