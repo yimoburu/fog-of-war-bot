@@ -6,4 +6,4 @@ The comparison uses equal 180+2 clocks, but V5's internal budget is 600 ms versu
 
 Tested ZIP SHA256: `5b190981af47c62f9cd22834eb0bffc4be06611ac43cf6d106b6db910083d99c`.
 
-Local technical acceptance: `decision-efb31c3b-1d39-4be8-92b6-159df37e507d`. Public publication is currently held pending reconciliation of earlier private-update scope with the repository's observed public visibility. This file is a prepared PR description; no PR has been created.
+Local technical acceptance: `decision-efb31c3b-1d39-4be8-92b6-159df37e507d`. The founder explicitly approved publication to this existing public repository; decision `decision-bde36f02-3bd5-4285-8d42-f00c2496f891` closes the earlier private-scope hold. Runtime, ZIP and raw results are unchanged.

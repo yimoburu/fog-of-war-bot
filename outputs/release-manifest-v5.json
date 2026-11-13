@@ -1,6 +1,6 @@
 {
   "created_utc": "2026-11-13T19:04:36.564864+00:00",
-  "status": "accepted_local_publication_held",
+  "status": "qualified_for_public_delivery",
   "branch": "experiment/beat-v2-v5",
   "primary": {
     "wins": 261,
@@ -25,7 +25,7 @@
     "uniform_random.py": "a9d2d69c1893652dae938c596be59fc16fdf1edba3ccf491d9cf2c92d75b514a"
   },
   "evidence_sha256": {
-    "outputs/validation-v5.md": "9c3a99e5deb315549f371e7a719c31f8a8c5949b51263e71ad315752b6386135",
+    "outputs/validation-v5.md": "692af9dcc744a32d04be75f3a09467d76497c1aafadefdd6699c43e7fa719a38",
     "outputs/tests-v5.json": "93fac59d257b4c83364851e489e7ffec8c9d269a0e1390bbcdbc5163034c8c68",
     "outputs/package-static-tests-v5-claim-repair.json": "06a2bcd60f0d3e6a02cc8ce09cb8fdee87570419d55ac716273766433214b65b",
     "outputs/outcome-audit-v5.json": "cf235ce1c38660b7faa5b612d45135669a6c4e32eba0eb7b08c14fea79f9912d",
@@ -34,8 +34,12 @@
     "outputs/source-review-v5-release-failed.json": "829c26330401eb19f2f01de7230ea1c624f1c0fbb7dc9f3e4b341a8edb3b5042",
     "outputs/source-review-v5-release-claim-repair.json": "eb7e8477bdc7b9e1383b676fa3fc6155239eb597b03dd54b9196907b80535396",
     "outputs/source-review-v5-publication-scope.json": "0c1d79c52651baa47373f803546afe966abca017c69cc6ed3cc6d38ce9a1a040",
-    "outputs/acceptance-v5.json": "848809e13184c50b437712e999029971e2502665c443f2f5032ef0de8c3f8699"
+    "outputs/acceptance-v5.json": "848809e13184c50b437712e999029971e2502665c443f2f5032ef0de8c3f8699",
+    "outputs/publication-authorization-v5.json": "150ac3360f4f2c3e44d09ba0376e2d04c7d52a9c86f4296780670cf7744824df"
   },
-  "publication": "No V5 push or PR yet; existing repo is public, earlier recorded delivery scope was private; scope QA requires clarification.",
-  "absolute_mit_elo": null
+  "publication": "Founder explicitly approved publishing the validated V5 bot, ZIP and evaluation evidence to existing public yimoburu/fog-of-war-bot. Earlier scope hold is satisfied; GitHub branch/PR/merge state is verified separately.",
+  "absolute_mit_elo": null,
+  "previous_manifest_sha256": "eaaf829ab493811a65b6e531d746c0ec58a6b795529d55ce0d019407d54c04a3",
+  "updated_utc": "2026-11-13T19:11:07.243884+00:00",
+  "publication_authorization": "decision-bde36f02-3bd5-4285-8d42-f00c2496f891"
 }
