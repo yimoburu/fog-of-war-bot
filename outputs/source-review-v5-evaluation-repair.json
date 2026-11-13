@@ -1,0 +1,85 @@
+{
+  "id": "artifact-4665fbff-f1bb-4c7a-97c9-630c29623fb1",
+  "kind": "review",
+  "content": "Source-only verdict: Pass for artifact-05af547d-1f61-45a1-a8b5-01773c229ca8, revision 1, limited to prospective closure of V5 B1, B2 and guarded-command serialization. Historical Fail artifact-76e945a0-ff81-4430-8d2f-4dc6a88da9ad remains unchanged.\n\nReviewer: standalone QA instance qa-a39ad19a-514d-4e15-ad1a-9935626c31b8. Governing basis: supplied SoloCo v0.21 and team_sha256 7dc8081a08646135a7e021f1651eb3ac2952af9f63cf48ed0418efdcab8695b3. Review used supplied text only. No tools, external access, commands, tests, file changes or hash recomputation occurred.\n\nFindings:\n1. B1 cleared prospectively within the required guarded-entry boundary. verify_design rejects sys.executable disagreement with the frozen design before dependency fingerprinting or driver delegation. verify_manifest checks design, driver, guard and experiment identity, then compares the current interpreter identity, executable digest, Python metadata, installed dependency versions, imported chess location and chess Python-source digests against the bound manifest. Delegation imports the unchanged driver into that same process. Together with the previously reviewed downstream use of sys.executable, this addresses the original interpreter substitution defect. This is entry-time trusted-local checking, not continuous attestation of child processes or every runtime dependency.\n2. B2 supplied-evidence gap cleared. The exact wave plan identifies hypothesis_600, robust_600, bank_600 and learned_600, their arguments, stage seeds, source manifest and archive. The supplied binding receipt reports archive/current/frozen source agreement and records interpreter/version agreement for 16 completed screen batches totaling 64 games. The v2 provenance and host comparison bind seven snapshot files to released commit 65fde033a2e65394a676e44969a992832ee17470. The inspected launcher verifies snapshot digests, starts an isolated interpreter and checks snapshot-local application imports. These establish a coherent supplied binding chain; archive contents, Git comparisons and historical execution were not independently reproduced here.\n3. Serialization cleared for overlapping guarded invocations of the same experiment. The nonblocking flock is acquired before bind or verification/delegation and held until delegation returns or raises. A contender is rejected before entering the driver. Closing without unlinking preserves the common lock inode. This removes the previously identified competing-final result overwrite path within this boundary. It does not serialize other experiments, an already-running direct invocation, unrelated workloads or surviving descendants after coordinator termination.\n4. Regression evidence is relevant. The supplied receipt reports seven tests passing with return code 0 and binds both test and guard hashes. Tests cover unchanged argument delegation while locked, interpreter rejection before dependency inspection, fingerprint mismatches, manifest tampering/rebinding, and same-process plus separate-process contention without result mutation. The alternate-interpreter test mocks sys.executable; it is not an actual second-interpreter launch. The separate-process test genuinely exercises lock contention according to the supplied source and host receipt. All execution results remain host-reported.\n5. Historical limits remain explicit. Earlier development was unguarded and lacks contemporaneous installed-package byte hashes. The new manifest cannot supply those retrospectively. The wrapper neither resets attempts nor changes the supplied frozen design. The three-final family, fresh final schedules and 244/400 first attainable passing score remain unchanged; independence and valid audited outcomes remain necessary assumptions. No strength result is supplied by this repair.\n\nBlockers: None for this narrow prospective source-remedy acceptance.\n\nRemaining final-entry conditions, owned by runner: establish completion and closure of the existing direct development invocation and any outstanding descendants; establish exclusive experimental workload readiness; verify the unchanged candidate qualifies through the frozen selection rules; retain current exact-source QA and record readiness against this review; use v5_guard.py for every subsequent register/run/final invocation. A readiness note alone does not establish those facts. Qualification, final_ready status and host exclusivity are not independently established by this packet.\n\nGuarded final may proceed under existing host authority only after those conditions are evidenced. This review grants no execution authority or additional attempt. It does not accept runtime qualification, release, packaging, Linux compatibility, playing-strength superiority or MIT Elo. Historical failures and the unresolved notice remain intact.\n\nExact supplied bindings reviewed, not recomputed:\nv5_guard.py: b2841c6da88428dbf79d25668dd08d36959482b3d8b79a8333b0b3f55523b47f\ntest_v5_guard.py: 66e55c670657405b6a7d3496a38daad454b0b933933f4ca8f73e905ed43809d4\nguard-manifest.json: 95a34f3894cb1ba93eadcbebd6e93dd460c3dabeaa7f83dac9925f75ab1a5a19\nguard-tests.json: 228cd9771535aea285437c7c5020e112e4f54156837ddc149f8629f1e46d07a0\ndesign.json: 0ada87aaaba292f0f6fd2aaa8f258d861c769deb94ce2c1aa289027a352203f5\nwave-001/plan.json: fa0976687f836343c5e348f18802ca2023214044bbd4848ea7c3dabbbfd818e4\nwave-001/sources.zip: 6e5e24d581e26be307252662c540258de142c02513d54108bcddc995b3e878f4\nwave-001-binding.json: f196ccd27094e4a79bfb02d8bf5bb4d907a71a0b92fa67f9fd6c2d3967d8e817\nv2-environment-binding.json: 3a2194a04f3d87ada34b0e2bb7a35b91b63cd5acbe66802d0587a6b5be845ea6\nv2_bot.py: f3c236892586cf2577745f310b4bd9c37321c158ea0c15b17dc388d20f831ed8\nopponents/v2/provenance.json: c816c4683a3fa776420b1c1c59dce8fe58af30846329b6c53a9629377707c833\n\nReceiver/resolver: runner. Record this supplemental closure against the exact remedy, preserve the historical Fail and consumed work, and establish the remaining readiness conditions before final entry. No deadline was supplied.",
+  "author_role": "qa",
+  "author_instance": "qa-a39ad19a-514d-4e15-ad1a-9935626c31b8",
+  "revision": 1,
+  "status": "Submitted",
+  "job_id": "job-97f35210-0fc5-4860-9854-08160cdfa1aa",
+  "inputs": [
+    {
+      "id": "artifact-0259a9e6-0c1d-4e5a-a571-abb4e415bbfa",
+      "revision": 1
+    },
+    {
+      "id": "artifact-05af547d-1f61-45a1-a8b5-01773c229ca8",
+      "revision": 1
+    },
+    {
+      "id": "artifact-76e945a0-ff81-4430-8d2f-4dc6a88da9ad",
+      "revision": 1
+    },
+    {
+      "id": "artifact-9194a3ff-904f-468b-b987-b62a3ddf18d2",
+      "revision": 1
+    },
+    {
+      "id": "artifact-ff82939b-0fb9-4d25-bf2b-29577e2f7b66",
+      "revision": 1
+    },
+    {
+      "id": "decision-23352f20-cb56-4e86-84a0-471ee16e22f8",
+      "revision": 1
+    },
+    {
+      "id": "decision-5bb19ad8-645e-4255-ae18-2e0e2893f792",
+      "revision": 1
+    },
+    {
+      "id": "decision-81b8c6d6-c6ee-4703-8422-dda6c9e36789",
+      "revision": 1
+    },
+    {
+      "id": "decision-842e5db4-c60f-4e7e-adb5-066a3897c952",
+      "revision": 1
+    },
+    {
+      "id": "decision-cd9026aa-f192-4894-996a-2234398f1902",
+      "revision": 1
+    },
+    {
+      "id": "development-authorization-6dadf1f3-ee7d-4dd4-a45f-02c8b692137f",
+      "revision": 1
+    },
+    {
+      "id": "intent-29a81338-5a22-4976-bd0f-2058ceb3a529",
+      "revision": 1
+    },
+    {
+      "id": "intent-2f26bb5a-aba1-4800-ba28-a66c73b6355b",
+      "revision": 2
+    },
+    {
+      "id": "intent-63b28c01-b5a2-4769-b2e0-a384cd542538",
+      "revision": 1
+    },
+    {
+      "id": "intent-ba2d0d71-23b3-4922-9d2b-e06d62cff97e",
+      "revision": 1
+    },
+    {
+      "id": "intent-ca1fe87f-6849-4941-87aa-0358ee68923d",
+      "revision": 1
+    }
+  ],
+  "review_of": {
+    "id": "artifact-05af547d-1f61-45a1-a8b5-01773c229ca8",
+    "revision": 1
+  },
+  "review": {
+    "verdict": "Pass",
+    "reason": "The supplied guard rejects frozen-interpreter and bound-environment drift before driver delegation and holds a nonblocking experiment lock across the delegated command. Relevant host-reported regression evidence supports these boundaries. The exact wave configurations, archive/source bindings, released-v2 provenance and historical screen-binding receipts now supply the previously missing B2 evidence. Acceptance is limited to this prospective trusted-local remedy; qualification, closure of unguarded work and exclusive-host readiness remain prerequisites to guarded final execution under separate existing authority."
+  },
+  "created_at": "2026-11-13T17:35:07.682Z"
+}

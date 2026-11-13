@@ -1,0 +1,41 @@
+{
+  "created_utc": "2026-11-13T19:04:36.564864+00:00",
+  "status": "accepted_local_publication_held",
+  "branch": "experiment/beat-v2-v5",
+  "primary": {
+    "wins": 261,
+    "draws": 8,
+    "losses": 131,
+    "games": 400,
+    "score": 0.6625
+  },
+  "zip_sha256": "5b190981af47c62f9cd22834eb0bffc4be06611ac43cf6d106b6db910083d99c",
+  "readme_sha256": "fee30e181608fb11bfa90d1da7b6fa2b74ac0c6ad055008702f92ec226ece619",
+  "runtime_sha256": {
+    "SOURCES.md": "2c5c5314b17cfe01a29a3bb690d8ea52dd35aea9d701869545cb050630670102",
+    "belief.py": "fdfe6c78ad8911e259a52c1a645e294a62e94e4f20ebf053218471db1119841e",
+    "bot.py": "0d00f07a120166821b76a04e5ef2eb991c8197701bb4392d082ebbec5d4a85e8",
+    "fast_observation.py": "dd537258e8b4afda6acdd0ff46409a98e58a6a7d290795f8bdedb5faf3af092f",
+    "referee.py": "2f82ac292bfad29bcb2d701b73c060d1ca8281378b4598f08a620fe5c97255be",
+    "requirements.txt": "391e529739e99dc63461425af4ad7afb10d89aa275922928ceb8e2f5dffa7149",
+    "risk_model.json": "fb517196cf82698e6224cbe20ca6e1e02fe63d18d8d490dc0a5f29f813e5028b",
+    "risk_model.py": "042df37ae31e3a587b654184189e4c2e39c76c34ffa0d6530f8e83509ae37a81",
+    "run.sh": "bf1f24f9805b0d3e1c39876be7dc21f7af5beef75f3c05a4e19d1255e9166f36",
+    "search.py": "f8bf2df2008936c77950e0d35da00bc986ac89e14d400b0813c2768e0be0f1b1",
+    "uniform_random.py": "a9d2d69c1893652dae938c596be59fc16fdf1edba3ccf491d9cf2c92d75b514a"
+  },
+  "evidence_sha256": {
+    "outputs/validation-v5.md": "9c3a99e5deb315549f371e7a719c31f8a8c5949b51263e71ad315752b6386135",
+    "outputs/tests-v5.json": "93fac59d257b4c83364851e489e7ffec8c9d269a0e1390bbcdbc5163034c8c68",
+    "outputs/package-static-tests-v5-claim-repair.json": "06a2bcd60f0d3e6a02cc8ce09cb8fdee87570419d55ac716273766433214b65b",
+    "outputs/outcome-audit-v5.json": "cf235ce1c38660b7faa5b612d45135669a6c4e32eba0eb7b08c14fea79f9912d",
+    "outputs/release-audit-v5.json": "3f3b737b4e00ca6357e85bff254c6bc0f8606d645b1952a5591924a6bcbe97b0",
+    "outputs/package-check-v5/verification.json": "474b4cfc82b75bac7720fef681b1751e28b63c932f95bf4ad681c3b92f10939f",
+    "outputs/source-review-v5-release-failed.json": "829c26330401eb19f2f01de7230ea1c624f1c0fbb7dc9f3e4b341a8edb3b5042",
+    "outputs/source-review-v5-release-claim-repair.json": "eb7e8477bdc7b9e1383b676fa3fc6155239eb597b03dd54b9196907b80535396",
+    "outputs/source-review-v5-publication-scope.json": "0c1d79c52651baa47373f803546afe966abca017c69cc6ed3cc6d38ce9a1a040",
+    "outputs/acceptance-v5.json": "848809e13184c50b437712e999029971e2502665c443f2f5032ef0de8c3f8699"
+  },
+  "publication": "No V5 push or PR yet; existing repo is public, earlier recorded delivery scope was private; scope QA requires clarification.",
+  "absolute_mit_elo": null
+}

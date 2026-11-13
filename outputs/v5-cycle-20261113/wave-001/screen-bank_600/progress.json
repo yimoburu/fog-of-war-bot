@@ -1,0 +1,44 @@
+{
+  "jobs": {
+    "batch-000": {
+      "finished_at": "2026-11-13T17:23:45.343742+00:00",
+      "log": "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v5-cycle-20261113/wave-001/screen-bank_600/batch-000.log",
+      "output": "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v5-cycle-20261113/wave-001/screen-bank_600/batch-000.json",
+      "pid": 90124,
+      "returncode": 0,
+      "started_at": "2026-11-13T17:21:41.402764+00:00",
+      "status": "completed"
+    },
+    "batch-001": {
+      "finished_at": "2026-11-13T17:23:43.788940+00:00",
+      "log": "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v5-cycle-20261113/wave-001/screen-bank_600/batch-001.log",
+      "output": "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v5-cycle-20261113/wave-001/screen-bank_600/batch-001.json",
+      "pid": 90127,
+      "returncode": 0,
+      "started_at": "2026-11-13T17:21:41.595572+00:00",
+      "status": "completed"
+    },
+    "batch-002": {
+      "finished_at": "2026-11-13T17:23:06.126730+00:00",
+      "log": "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v5-cycle-20261113/wave-001/screen-bank_600/batch-002.log",
+      "output": "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v5-cycle-20261113/wave-001/screen-bank_600/batch-002.json",
+      "pid": 90128,
+      "returncode": 0,
+      "started_at": "2026-11-13T17:21:41.753199+00:00",
+      "status": "completed"
+    },
+    "batch-003": {
+      "finished_at": "2026-11-13T17:23:30.731641+00:00",
+      "log": "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v5-cycle-20261113/wave-001/screen-bank_600/batch-003.log",
+      "output": "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v5-cycle-20261113/wave-001/screen-bank_600/batch-003.json",
+      "pid": 90134,
+      "returncode": 0,
+      "started_at": "2026-11-13T17:21:41.969653+00:00",
+      "status": "completed"
+    }
+  },
+  "pending": [],
+  "plan_sha256": "a72fe27a761d17ad555b27921f21617fba195a60d566136dfd6b6aa0759e9c7a",
+  "reason": null,
+  "status": "running"
+}

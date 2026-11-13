@@ -1,0 +1,101 @@
+{
+  "id": "artifact-14723338-0bf4-4d47-9769-2658c97d32d3",
+  "kind": "review",
+  "content": "Verdict: Blocked for artifact-e22cc82f-dc04-4936-a35c-16f81221101c, revision 1, limited to its proposed public-delivery disposition. Review used supplied text only; no tools, external access, execution, file changes or hash recomputation occurred.\n\nThe supplied connector observation supports correcting the repository description to public. It does not establish who changed visibility, when, or under what authority. No coordinator visibility change or completed publication is established.\n\nBlocker B1 — The governing delivery records explicitly retain private scope: decision-5bb19ad8-645e-4255-ae18-2e0e2893f792 revision 1 directs creation “as private yimoburu/fog-of-war-bot”; decision-cd9026aa-f192-4894-996a-2234398f1902 revision 1 specifies “private GitHub publication”; intent-29a81338-5a22-4976-bd0f-2058ceb3a529 revision 1 states that “private GitHub updates remain within the user's authorized project.” These are coordinator-authored records, not evidence that the founder personally demanded privacy. Nevertheless, they are explicit recorded scope limits, and the supplied packet contains no attributable disposition removing them. Later general instructions to continue improvements and beat v2 do not explicitly resolve that exposure boundary. Under SoloCo sections 4–6, unresolved scope conflicts hold affected work and continuing conditions remain binding until appropriately changed. Public visibility and a project-only content description cannot by themselves supply that change.\n\nConsequently, “private” is demonstrably inaccurate as current descriptive metadata, but cannot safely be classified as merely stale metadata in the delivery authorization. The evidence is insufficient to approve public delivery or to assert that the founder expressly required private-only exposure.\n\nExact correction to the prior delivery paragraph: “The supplied connector observation reports yimoburu/fog-of-war-bot as public. The README B1 correction remains accepted. Delivery eligibility is held pending reconciliation of that public exposure with the recorded private publication scope. This review attests neither a visibility change nor completed publication.”\n\nPreserve artifact-6289d952-f4e0-4255-ba30-b595078a3cf9 revision 1 as the supplemental documentation Pass and preserve the historical Fail verdicts. Do not extend that Pass to public exposure. Supplied bindings remain README.md fee30e181608fb11bfa90d1da7b6fa2b74ac0c6ad055008702f92ec226ece619 and submission-v5-final.zip 5b190981af47c62f9cd22834eb0bffc4be06611ac43cf6d106b6db910083d99c; neither was independently recomputed. No engine, statistical or package re-review is requested.\n\nResolver and receiver: runner/Chief of Staff. Clearing condition: supply an attributable existing authority record resolving public delivery versus the recorded private scope, or obtain the appropriate founder disposition if no such authority exists. No exact additional source ID/hash was supplied for that evidence, so no supplemental read can be requested. Hold only dependent publication; do not change repository visibility as a workaround. No deadline was supplied. This verdict grants no execution authority and leaves all prior technical limitations and the unresolved cancellation notice intact.",
+  "author_role": "qa",
+  "author_instance": "qa-49a86866-b19f-4c5d-a905-31cb1c40ee40",
+  "revision": 1,
+  "status": "Submitted",
+  "job_id": "job-214496e7-5271-4510-9b98-2bba4488d18f",
+  "inputs": [
+    {
+      "id": "artifact-0259a9e6-0c1d-4e5a-a571-abb4e415bbfa",
+      "revision": 1
+    },
+    {
+      "id": "artifact-2b07c45d-7ebf-4853-94da-3c9d93a886de",
+      "revision": 1
+    },
+    {
+      "id": "artifact-6289d952-f4e0-4255-ba30-b595078a3cf9",
+      "revision": 1
+    },
+    {
+      "id": "artifact-76e945a0-ff81-4430-8d2f-4dc6a88da9ad",
+      "revision": 1
+    },
+    {
+      "id": "artifact-9194a3ff-904f-468b-b987-b62a3ddf18d2",
+      "revision": 1
+    },
+    {
+      "id": "artifact-e22cc82f-dc04-4936-a35c-16f81221101c",
+      "revision": 1
+    },
+    {
+      "id": "artifact-ff82939b-0fb9-4d25-bf2b-29577e2f7b66",
+      "revision": 1
+    },
+    {
+      "id": "decision-23352f20-cb56-4e86-84a0-471ee16e22f8",
+      "revision": 1
+    },
+    {
+      "id": "decision-4ac64fd0-4f41-4c31-b530-80a56d233986",
+      "revision": 1
+    },
+    {
+      "id": "decision-5bb19ad8-645e-4255-ae18-2e0e2893f792",
+      "revision": 1
+    },
+    {
+      "id": "decision-81b8c6d6-c6ee-4703-8422-dda6c9e36789",
+      "revision": 1
+    },
+    {
+      "id": "decision-842e5db4-c60f-4e7e-adb5-066a3897c952",
+      "revision": 1
+    },
+    {
+      "id": "decision-cd9026aa-f192-4894-996a-2234398f1902",
+      "revision": 1
+    },
+    {
+      "id": "decision-fbd60390-3a43-4937-84e2-94b5b9ae3641",
+      "revision": 1
+    },
+    {
+      "id": "development-authorization-6dadf1f3-ee7d-4dd4-a45f-02c8b692137f",
+      "revision": 1
+    },
+    {
+      "id": "intent-29a81338-5a22-4976-bd0f-2058ceb3a529",
+      "revision": 1
+    },
+    {
+      "id": "intent-2f26bb5a-aba1-4800-ba28-a66c73b6355b",
+      "revision": 2
+    },
+    {
+      "id": "intent-63b28c01-b5a2-4769-b2e0-a384cd542538",
+      "revision": 1
+    },
+    {
+      "id": "intent-ba2d0d71-23b3-4922-9d2b-e06d62cff97e",
+      "revision": 1
+    },
+    {
+      "id": "intent-ca1fe87f-6849-4941-87aa-0358ee68923d",
+      "revision": 1
+    }
+  ],
+  "review_of": {
+    "id": "artifact-e22cc82f-dc04-4936-a35c-16f81221101c",
+    "revision": 1
+  },
+  "review": {
+    "verdict": "Blocked",
+    "reason": "The supplied observation establishes reported public visibility, but not authority to supersede explicit private-publication scope in current company records. Founder quotations do not themselves require privacy, yet no supplied disposition resolves those recorded limits. Correct the factual repository description while preserving the README Pass and holding dependent public publication pending authority reconciliation."
+  },
+  "created_at": "2026-11-13T19:02:43.692Z"
+}

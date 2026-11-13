@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "observed_date_utc": "2026-11-13",
+  "phase": "before any V5 final game",
+  "development_driver": {"session": 25863, "exit_code": 0, "status": "final_ready"},
+  "development_worker_pids": [96664,96665,96667,96669,92554,92555,92559,92562,90124,90127,90128,90134,87084,87085,87087,87089,91376,91377,91378,91380,88797,88800,88801,88805],
+  "worker_closure_check": {"command": "ps -p <listed PIDs> -o pid=,ppid=,stat=,comm=", "exit_code": 1, "output": "", "meaning": "None of the24 listed development worker PIDs existed at inspection."},
+  "background_observation": {
+    "method": "ps -A -o pid=,ppid=,pcpu=,comm= filtered to reported CPU above20%",
+    "other_python_processes": 7,
+    "other_python_reported_cpu_percent_sum": 575.6,
+    "security_service_processes": 5,
+    "security_service_reported_cpu_percent_sum": 373.3,
+    "scope": "Point-in-time process-reported CPU, not a controlled instantaneous machine utilization measurement. Unrelated command arguments and project paths are intentionally omitted."
+  },
+  "control_boundary": "No unrelated process is stopped or reprioritized. FFWB-owned tests, training, profiling, package/control games and other match runs will be stopped before the primary final. Four registered match workers remain the sole FFWB experimental workload.",
+  "limitation": "Whole-machine isolation is not established. Shared host load may affect time-limited decisions and pair independence. Inferential intervals remain conditional on their stated independence assumption; no arena, algorithm-only or controlled-hardware claim."
+}

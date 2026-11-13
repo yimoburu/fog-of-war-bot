@@ -1,0 +1,44 @@
+{
+  "jobs": {
+    "batch-000": {
+      "finished_at": "2026-11-13T18:37:54.540469+00:00",
+      "log": "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v5-cycle-20261113/wave-001/final-learned_600/batch-000.log",
+      "output": "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v5-cycle-20261113/wave-001/final-learned_600/batch-000.json",
+      "pid": 7468,
+      "returncode": 0,
+      "started_at": "2026-11-13T17:47:59.857484+00:00",
+      "status": "completed"
+    },
+    "batch-001": {
+      "finished_at": "2026-11-13T18:33:28.579607+00:00",
+      "log": "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v5-cycle-20261113/wave-001/final-learned_600/batch-001.log",
+      "output": "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v5-cycle-20261113/wave-001/final-learned_600/batch-001.json",
+      "pid": 7470,
+      "returncode": 0,
+      "started_at": "2026-11-13T17:47:59.988943+00:00",
+      "status": "completed"
+    },
+    "batch-002": {
+      "finished_at": "2026-11-13T18:33:23.024533+00:00",
+      "log": "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v5-cycle-20261113/wave-001/final-learned_600/batch-002.log",
+      "output": "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v5-cycle-20261113/wave-001/final-learned_600/batch-002.json",
+      "pid": 7474,
+      "returncode": 0,
+      "started_at": "2026-11-13T17:48:00.128138+00:00",
+      "status": "completed"
+    },
+    "batch-003": {
+      "finished_at": "2026-11-13T18:35:00.131720+00:00",
+      "log": "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v5-cycle-20261113/wave-001/final-learned_600/batch-003.log",
+      "output": "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v5-cycle-20261113/wave-001/final-learned_600/batch-003.json",
+      "pid": 7482,
+      "returncode": 0,
+      "started_at": "2026-11-13T17:48:00.278909+00:00",
+      "status": "completed"
+    }
+  },
+  "pending": [],
+  "plan_sha256": "9a92a9ccdf1ee00a52784e4f543b6bde80a02bb11e971b722536bd36ea126622",
+  "reason": null,
+  "status": "running"
+}

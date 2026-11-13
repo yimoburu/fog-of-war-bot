@@ -1,0 +1,7 @@
+{
+  "candidate": "learned_600",
+  "plan_sha256": "fa0976687f836343c5e348f18802ca2023214044bbd4848ea7c3dabbbfd818e4",
+  "readiness_note": "Source QA artifact-4665fbff-f1bb-4c7a-97c9-630c29623fb1; shared-host methodology QA artifact-72371b3b-154a-48c0-8b4d-5bd22e53c49e; readiness SHA256 9b967c1c71cd4e1705549fa147eafe90954b8875a1b030ac5edeb4e6c60a2912. Only four registered FFWB match workers; unrelated host work continues.",
+  "started_utc": "2026-11-13T17:47:59.444292+00:00",
+  "two_sided_alpha": 0.016666666666666666
+}

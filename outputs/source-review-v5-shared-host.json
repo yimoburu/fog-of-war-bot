@@ -1,0 +1,97 @@
+{
+  "id": "artifact-72371b3b-154a-48c0-8b4d-5bd22e53c49e",
+  "kind": "review",
+  "content": "Prospective methodology verdict: Pass for artifact-8d48dfab-dde7-46a2-90ca-87d38e43d370, revision 1, limited to the shared-host amendment and the claim limits below. Reviewer: standalone QA instance qa-18e6efab-6156-44ad-9f22-1d7becc24a82. Governing basis: supplied SoloCo v0.21 and team_sha256 7dc8081a08646135a7e021f1651eb3ac2952af9f63cf48ed0418efdcab8695b3. Review used supplied records only; no tools, external access, commands, tests, file changes or hash recomputation occurred.\n\nRationale:\n1. Whole-machine isolation is not established. The reported unrelated Python jobs and security services contradict any such claim; their aggregate process CPU percentages do not measure precise instantaneous utilization. The amendment correctly preserves that limitation and prospectively replaces the condition before any reported final game. It does not retroactively satisfy the original condition.\n2. A local comparison under shared-host conditions remains useful. Restricting project-owned experimental work to the registered four workers removes a controllable source of interference without requiring authority over unrelated processes. Unrelated load can affect the two implementations differently, particularly with unequal internal compute budgets and wall-clock charging. Such effects belong to this setup's measured outcome; they prevent interpreting it as isolated algorithm quality or compute-matched superiority.\n3. Shared load may create dependence across pairs and variation over time. Color pairing does not eliminate these risks. Before/after CPU context and charged-turn latency are relevant diagnostics, but cannot prove independence or reconstruct all interference during the run. The frozen Hoeffding calculation and three-attempt error allocation remain valid only under their stated probabilistic assumptions, including independent bounded pair outcomes. This review does not certify those assumptions. Disclosure alone cannot establish unconditional confidence coverage.\n4. Keeping candidate/opponent bindings, arguments, clocks, seeds, 200 pairs, four workers, maximum plies and error allocation unchanged preserves the declared comparison. Retain every scheduled outcome and all partial or failed execution records. 'Retain all 400 games' must not mean treating malformed, incomplete or otherwise invalid evidence as valid scored games: existing failure classification, audit and qualification rules still govern. Do not remove slow or unfavorable games, restart an attempt for favorable host conditions, or alter the gate after observing results.\n\nPermitted claims after complete, valid execution:\n- Report the exact observed score against released v2 under the recorded local shared-host setup and unequal internal budgets.\n- If the unchanged final gate passes, report that it passed the preregistered multiplicity-adjusted gate, with inferential coverage explicitly conditional on independent bounded pair outcomes and the other evaluation assumptions.\n- A superiority statement must retain both qualifications: this local shared-host comparison and conditional inference. If material evidence undermines independence, report descriptive results and the numerical gate outcome without asserting established confidence coverage or statistically demonstrated superiority.\n\nUnsupported claims: proven pair independence, whole-machine isolation, algorithm-only improvement, compute-matched superiority, general hardware performance, Linux qualification, arena strength or MIT Elo. Development confirmation scores are selection evidence, not final superiority evidence.\n\nBlockers: None for accepting this prospective methodological amendment. Final-entry readiness remains unverified by this review: completion of helper tests; closure of prior development processes and descendants; absence of other project-owned experimental workloads; unchanged qualifying candidate and exact-source review bindings; and required guarded invocation. The supplied process and completion summaries are host-reported evidence, not independently reproduced checks. This amendment does not clear or waive any separate open source, model, harness or readiness condition.\n\nReceiver/resolver: runner. Record acceptance of the prospective amendment before final entry, retain the original condition and its non-satisfaction, and establish all remaining readiness conditions under existing authority. No resolution deadline was supplied. Historical verdicts and consumed attempts remain unchanged. This Pass grants no execution authority, additional attempt, release acceptance or strength verdict.",
+  "author_role": "qa",
+  "author_instance": "qa-18e6efab-6156-44ad-9f22-1d7becc24a82",
+  "revision": 1,
+  "status": "Submitted",
+  "job_id": "job-e687ebb9-b8b2-4a08-831d-0fb848c8d204",
+  "inputs": [
+    {
+      "id": "artifact-0259a9e6-0c1d-4e5a-a571-abb4e415bbfa",
+      "revision": 1
+    },
+    {
+      "id": "artifact-4665fbff-f1bb-4c7a-97c9-630c29623fb1",
+      "revision": 1
+    },
+    {
+      "id": "artifact-76e945a0-ff81-4430-8d2f-4dc6a88da9ad",
+      "revision": 1
+    },
+    {
+      "id": "artifact-8d48dfab-dde7-46a2-90ca-87d38e43d370",
+      "revision": 1
+    },
+    {
+      "id": "artifact-9194a3ff-904f-468b-b987-b62a3ddf18d2",
+      "revision": 1
+    },
+    {
+      "id": "artifact-ff82939b-0fb9-4d25-bf2b-29577e2f7b66",
+      "revision": 1
+    },
+    {
+      "id": "decision-23352f20-cb56-4e86-84a0-471ee16e22f8",
+      "revision": 1
+    },
+    {
+      "id": "decision-5bb19ad8-645e-4255-ae18-2e0e2893f792",
+      "revision": 1
+    },
+    {
+      "id": "decision-81b8c6d6-c6ee-4703-8422-dda6c9e36789",
+      "revision": 1
+    },
+    {
+      "id": "decision-842e5db4-c60f-4e7e-adb5-066a3897c952",
+      "revision": 1
+    },
+    {
+      "id": "decision-cd9026aa-f192-4894-996a-2234398f1902",
+      "revision": 1
+    },
+    {
+      "id": "decision-fbd60390-3a43-4937-84e2-94b5b9ae3641",
+      "revision": 1
+    },
+    {
+      "id": "development-authorization-6dadf1f3-ee7d-4dd4-a45f-02c8b692137f",
+      "revision": 1
+    },
+    {
+      "id": "intent-29a81338-5a22-4976-bd0f-2058ceb3a529",
+      "revision": 1
+    },
+    {
+      "id": "intent-2f26bb5a-aba1-4800-ba28-a66c73b6355b",
+      "revision": 2
+    },
+    {
+      "id": "intent-63b28c01-b5a2-4769-b2e0-a384cd542538",
+      "revision": 1
+    },
+    {
+      "id": "intent-ba2d0d71-23b3-4922-9d2b-e06d62cff97e",
+      "revision": 1
+    },
+    {
+      "id": "intent-ca1fe87f-6849-4941-87aa-0358ee68923d",
+      "revision": 1
+    },
+    {
+      "id": "plan-dc7fa35d-a42a-4edf-92e7-e07017026ad9",
+      "revision": 1
+    }
+  ],
+  "review_of": {
+    "id": "artifact-8d48dfab-dde7-46a2-90ca-87d38e43d370",
+    "revision": 1
+  },
+  "review": {
+    "verdict": "Pass",
+    "reason": "The prospective amendment supports a bounded local comparison while explicitly acknowledging shared-host interference, unequal internal budgets and unproven pair independence. It preserves the frozen comparison and statistical gate without claiming historical isolation. Acceptance is limited to methodology and qualified claims; conditional Hoeffding inference is not certified coverage, and final execution still depends on separately evidenced readiness and existing authority."
+  },
+  "created_at": "2026-11-13T17:46:34.952Z"
+}

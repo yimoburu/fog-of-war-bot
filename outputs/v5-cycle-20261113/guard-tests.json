@@ -1,0 +1,18 @@
+{
+  "command": [
+    "/Users/xwli/Documents/soloco/allearn/ffwb/.venv/bin/python",
+    "-B",
+    "-m",
+    "unittest",
+    "test_v5_guard",
+    "-v"
+  ],
+  "returncode": 0,
+  "stdout": "",
+  "stderr": "test_alternate_interpreter_rejected_before_dependency_import_or_delegate (test_v5_guard.GuardTests.test_alternate_interpreter_rejected_before_dependency_import_or_delegate) ... ok\ntest_concurrent_invocation_cannot_reach_driver_or_modify_result (test_v5_guard.GuardTests.test_concurrent_invocation_cannot_reach_driver_or_modify_result) ... ok\ntest_dependency_source_mismatch_rejected_before_delegate (test_v5_guard.GuardTests.test_dependency_source_mismatch_rejected_before_delegate) ... ok\ntest_dependency_version_mismatch_rejected_before_delegate (test_v5_guard.GuardTests.test_dependency_version_mismatch_rejected_before_delegate) ... ok\ntest_manifest_tampering_and_rebinding_are_rejected (test_v5_guard.GuardTests.test_manifest_tampering_and_rebinding_are_rejected) ... ok\ntest_matching_identity_delegates_exact_tokens_while_lock_held (test_v5_guard.GuardTests.test_matching_identity_delegates_exact_tokens_while_lock_held) ... ok\ntest_separate_process_is_rejected_while_experiment_lock_is_held (test_v5_guard.GuardTests.test_separate_process_is_rejected_while_experiment_lock_is_held) ... ok\n\n----------------------------------------------------------------------\nRan 7 tests in 9.976s\n\nOK\n",
+  "elapsed_seconds": 10.163434028625488,
+  "source_hashes": {
+    "v5_guard.py": "b2841c6da88428dbf79d25668dd08d36959482b3d8b79a8333b0b3f55523b47f",
+    "test_v5_guard.py": "66e55c670657405b6a7d3496a38daad454b0b933933f4ca8f73e905ed43809d4"
+  }
+}

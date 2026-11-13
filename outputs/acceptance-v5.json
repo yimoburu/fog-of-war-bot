@@ -1,0 +1,13 @@
+{
+  "id": "decision-efb31c3b-1d39-4be8-92b6-159df37e507d",
+  "kind": "decision",
+  "content": "Chief of Staff receiver acceptance: accept the exact local V5 runtime and tested ZIP after host execution/audits and standalone final review artifact-2b07c45d-7ebf-4853-94da-3c9d93a886de with sole documentation B1 closed by Pass artifact-6289d952-f4e0-4255-ba30-b595078a3cf9. Corrected README SHA fee30e181608fb11bfa90d1da7b6fa2b74ac0c6ad055008702f92ec226ece619; ZIP SHA 5b190981af47c62f9cd22834eb0bffc4be06611ac43cf6d106b6db910083d99c; runtime unchanged from reviewed 11-member manifest. Observed local primary261W8D131L/400, controls59W1L/60,188Python+2static tests,2actualZIP smoke games pass. Statistical coverage remains conditional, shared-host and600msvs180ms limits explicit; noMIT Elo or survival guarantee. Preserve all historical failures/cancel notice. Local source/report/commit delivery is accepted. Public GitHub publication remains HELD under artifact-14723338-0bf4-4d47-9769-2658c97d32d3 because earlier coordinator records specified private scope while current repo is public. No visibility change or new push has occurred. Complete local commit and concrete PR body, then request only founder disposition of public publication. No engine/replay rework needed.",
+  "author_role": "runner",
+  "author_instance": "01a1d317-fc6d-7fe2-987e-2db91158335d",
+  "revision": 1,
+  "status": "Draft",
+  "source_reference": "Standing local build/test/package authority and exact independent QA reviews; public scope held separately",
+  "basis": "explicit",
+  "updated_at": "2026-11-13T19:03:50.663Z",
+  "previous": []
+}

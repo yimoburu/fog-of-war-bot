@@ -1,0 +1,33 @@
+{
+  "all24_development_workers_absent": true,
+  "all_frozen_sources_unchanged": true,
+  "claim_limit": "Observed local shared-host score; numerical gate and inferential coverage conditional on independent bounded pair outcomes, no MIT Elo.",
+  "created_utc": "2026-11-13T17:47:51.551317+00:00",
+  "development_session_exit": 0,
+  "guard_environment_verified": true,
+  "guard_manifest_sha256": "95a34f3894cb1ba93eadcbebd6e93dd460c3dabeaa7f83dac9925f75ab1a5a19",
+  "helper_tests_stopped": true,
+  "host_observation_sha256": "ab0c247be4d7062c51e1053c5e0bc577feea2f7a39db60ae8d2e964f88146288",
+  "host_scope": "Shared host. Only the four registered workers may execute FFWB experiments; unrelated user jobs/services continue.",
+  "methodology_qa": "artifact-72371b3b-154a-48c0-8b4d-5bd22e53c49e",
+  "other_ffwb_matches_training_profiling_tests_package_games": false,
+  "pre_final_result_sha256": "8a1db3cea6f6a0ef302325012da78084d1d7ae7386f1ba00ee3be5353e524de9",
+  "prototypes": "Source-only preparation allowed; none imported by selected candidate.",
+  "selected_args": [
+    "--risk-policy",
+    "learned",
+    "--search-ms",
+    "600",
+    "--particles",
+    "256",
+    "--worlds",
+    "6",
+    "--depth",
+    "4",
+    "--nodes",
+    "120000"
+  ],
+  "selected_candidate": "learned_600",
+  "source_qa": "artifact-4665fbff-f1bb-4c7a-97c9-630c29623fb1",
+  "wave_plan_sha256": "fa0976687f836343c5e348f18802ca2023214044bbd4848ea7c3dabbbfd818e4"
+}

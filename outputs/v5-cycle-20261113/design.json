@@ -1,0 +1,189 @@
+{
+  "absolute_arena_elo": null,
+  "base_time": 180,
+  "comparison": "Candidate up to 1500 ms vs byte-exact released v2 default 180 ms, same 180+2; NOT compute-matched.",
+  "created_utc": "2026-11-13T17:16:29.777263+00:00",
+  "driver_sha256": "7be06f1cf1e4800dd466a7728cf2d7111c22fe0d152e34ec961cfc7d41687379",
+  "historical_schedule_file_sha256": {
+    "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/belief-quality-v3-smoke-638900.json": "92a7d9beb3551862095b221ae63215b741e3a7d4b5e60210d01dd84f4a4fb574",
+    "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/development-search-21980.json": "10f7fd842b64224ba4f6f90b29adf354ee7f9e9e2360ed3a59e4c23089cf3201",
+    "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/evaluation-7980.json": "dbe7a5ec58e160ce0beaecdacaca2719f8eebf0e09145c6ab7050ae9aec2c10c",
+    "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/experiment-v4-registration.json": "9dc20d465384b9c3f3fb39e31e8ce5ef36391dd1d9f861d928f2fcd118e3e2be",
+    "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/package-check-v4.json": "02e00483a52692b2c921740993f7101463b264cf05595cff39e79c7a0be2a68a",
+    "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/policy-replay-v4-bank.json": "b4bf61bd957b0f001e19a766b869fcf226c2146eac42c5f2d4618151b8cc1d2e",
+    "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/policy-replay-v4-learned.json": "eca69565e0972b2c0e44dc78adefc7fd23b3af4a5b0e12f4f2a3181f0529bd87",
+    "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/resource-profile-v2.json": "646057342d766433f2dfab65a068f7ee87e8fea16fa9471b5f50abd0bb926cfb",
+    "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/resource-profile-v3.json": "6cbe1ea52f8619c8f5f342819a8a2b2703c22ad5d0d0a566216951b9715cf300",
+    "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/risk-model-training-v4.json": "441c02c76e63b53bcc2c0d3f7a2b9e6b70b8c7dab0d8e8c7e233255bdbab532b",
+    "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/root-coverage-v3.json": "c904cd4d00cea2c92c8b9ae4eb0f6be1cf45a47394105048289b61c54c0eb3c6",
+    "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/search-profile-v3.json": "d3e037b1ada48d41b9382cfc056e56dc0de1d28c86dca5e573dc0ca7e457e703",
+    "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/strength-v2-61980.json": "6e6883163b64bca6079ba584eda1070a607bdfad027d75d9d32f873ab0653f74",
+    "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/strength-v2-final-71980.json": "3f1ea54b64cbdb504d902cc63ecf51ae99144cfa5311f812a47091de50993920",
+    "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v3-control-baseline-291980.json": "3eea11e897ecf5da99d093fa7bfaf2caa99481a5acb56e63e996c5370cf16820",
+    "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v3-control-legacy_bot-271980.json": "492e50d0a2d472c9e5fde86d72d9044d810986fd33666a199738ce9b94304531",
+    "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v3-control-uniform_random-311980.json": "208fd082a12a7e919c6592760ab742637ad8744bfd9af74fd5c15c6eb807b6f4",
+    "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v3-development-hypothesis-121980.json": "89f361347f80bfe4162716efc4772da0caec75623fed6fda3953a7a655ab4828",
+    "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v3-development-legacy-121980.json": "f71ab2ac73ebdc59971d81e2d25c3b4881dff50b8861812fb778592e3dd86f38",
+    "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v3-development-robust-121980.json": "a5fd9a570ec0072dd3a55d3adc9d5f4f847e3db59e4b94a41f9104898c011e13",
+    "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v3-holdout-171980/batch-000.json": "1988073a8a227d3bee73e123a479668219f330de07863397c80bd88300f91ef6",
+    "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v3-holdout-171980/batch-001.json": "c3ceca6589e141a12f78ff4fc40bb87c24e2f7a780fba6890646f268be13e93c",
+    "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v3-holdout-171980/batch-002.json": "362046cac308b1ba8341db619be39820e053a0ce9db34bf31f9c9f5d7dd6b535",
+    "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v3-holdout-171980/batch-003.json": "0e5a6ff77bb4ec6bbece4a9ae0d76f88c5767c299b98a813efc2ac9ce1ef03ee",
+    "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v3-holdout-171980/plan.json": "df08cbee1081e92a7f0cef7de550cb176b2e5b9a1d48a603a65ff9d2538975e2",
+    "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v3-holdout-171980/suite.json": "117c2c55b114678fd3e1ebb129714965f93c6fc6cdb6e5990f61a9729e7f913f"
+  },
+  "historical_seed_count": 606,
+  "historical_seed_max": 1084195699,
+  "increment": 2,
+  "limitations": [
+    "Local shared host, not arena isolation; no paid compute or arena rating.",
+    "Later waves may inspect failed-final diagnostics for development; every subsequent final uses fresh seeds and its allocated alpha.",
+    "Bonferroni allocation covers at most 3 final attempts; pair independence remains an assumption.",
+    "Package checks and compute-matched follow-ups are separate from this experiment."
+  ],
+  "max_plies": 1000,
+  "opponent": "/Users/xwli/Documents/soloco/allearn/ffwb/v2_bot.py",
+  "opponent_args": [
+    "--search-ms",
+    "180"
+  ],
+  "python_executable": "/Users/xwli/Documents/soloco/allearn/ffwb/.venv/bin/python",
+  "release_controls": {
+    "maximum_extra_games_per_qualifying_candidate": 60,
+    "maximum_failures": 0,
+    "minimum_scores": {
+      "legacy_v1": 0.75,
+      "official_baseline": 0.9,
+      "uniform_random": 0.95
+    },
+    "owner": "parent-run after statistical pass; not supplied by this driver",
+    "pairs_per_opponent": 10,
+    "pooled_strength_claim": false,
+    "separate_from_maximum_1776_strength_games": true,
+    "statistical_pass_is_not_release": true
+  },
+  "rules": {
+    "candidates_per_wave": 4,
+    "confirmation_block_pairs": 16,
+    "confirmation_candidates_per_wave": 2,
+    "confirmation_gate": "zero failures and score strictly above .5 in each 16-pair block and overall",
+    "confirmation_pairs_per_candidate": 32,
+    "failed_candidate_policy": "retain failed stage evidence; candidate ineligible; source drift aborts whole wave",
+    "family_alpha": 0.05,
+    "final_pairs": 200,
+    "final_readiness": "development stops at final_ready; explicit final command records native QA and exclusive-host readiness",
+    "final_selection": "highest confirmation score among qualifiers, ties by frozen candidate order",
+    "final_statistical_gate": "complete audited final; mean pair score minus sqrt(log(2/alpha)/(2*n)) > .5",
+    "maximum_final_attempts": 3,
+    "maximum_full_games": 1776,
+    "maximum_waves": 3,
+    "per_final_two_sided_alpha": 0.016666666666666666,
+    "retry_policy": "at most one final per wave; later frozen waves may adapt to prior results; fresh final seeds",
+    "screen_pairs_per_candidate": 8,
+    "selection": "highest completed screen score, ties by frozen candidate order; top two confirm",
+    "stop_policy": "finish every started successful stage; stop cycle at first final statistical pass; no score-based early stopping",
+    "zero_failures": "qualifying candidate screen, confirmation and final must all be complete and failure-free"
+  },
+  "schema_version": 1,
+  "seed_base": 1793502664,
+  "seed_layout": [
+    {
+      "confirmation": {
+        "batch_pairs": 8,
+        "pairs": 32,
+        "seed_bases": [
+          1793602664,
+          1793612664,
+          1793622664,
+          1793632664
+        ]
+      },
+      "final": {
+        "batch_pairs": 50,
+        "pairs": 200,
+        "seed_bases": [
+          1793702664,
+          1793712664,
+          1793722664,
+          1793732664
+        ]
+      },
+      "screen": {
+        "batch_pairs": 2,
+        "pairs": 8,
+        "seed_bases": [
+          1793502664,
+          1793512664,
+          1793522664,
+          1793532664
+        ]
+      }
+    },
+    {
+      "confirmation": {
+        "batch_pairs": 8,
+        "pairs": 32,
+        "seed_bases": [
+          1794602664,
+          1794612664,
+          1794622664,
+          1794632664
+        ]
+      },
+      "final": {
+        "batch_pairs": 50,
+        "pairs": 200,
+        "seed_bases": [
+          1794702664,
+          1794712664,
+          1794722664,
+          1794732664
+        ]
+      },
+      "screen": {
+        "batch_pairs": 2,
+        "pairs": 8,
+        "seed_bases": [
+          1794502664,
+          1794512664,
+          1794522664,
+          1794532664
+        ]
+      }
+    },
+    {
+      "confirmation": {
+        "batch_pairs": 8,
+        "pairs": 32,
+        "seed_bases": [
+          1795602664,
+          1795612664,
+          1795622664,
+          1795632664
+        ]
+      },
+      "final": {
+        "batch_pairs": 50,
+        "pairs": 200,
+        "seed_bases": [
+          1795702664,
+          1795712664,
+          1795722664,
+          1795732664
+        ]
+      },
+      "screen": {
+        "batch_pairs": 2,
+        "pairs": 8,
+        "seed_bases": [
+          1795502664,
+          1795512664,
+          1795522664,
+          1795532664
+        ]
+      }
+    }
+  ],
+  "seed_note": "Stage/wave ranges are disjoint; candidates intentionally share within-stage panels. Historical scalar seeds and seed-base arrays were checked with 2000-seed batch reservations.",
+  "workers": 4
+}

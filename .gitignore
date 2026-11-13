@@ -3,6 +3,7 @@ __pycache__/
 *.pyc
 .company/
 .DS_Store
+.v5-guard.lock
 outputs/review-source.json
 outputs/static-tests.log
 outputs/evaluation-run.log

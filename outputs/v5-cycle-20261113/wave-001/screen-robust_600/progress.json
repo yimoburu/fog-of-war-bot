@@ -1,0 +1,44 @@
+{
+  "jobs": {
+    "batch-000": {
+      "finished_at": "2026-11-13T17:21:39.982739+00:00",
+      "log": "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v5-cycle-20261113/wave-001/screen-robust_600/batch-000.log",
+      "output": "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v5-cycle-20261113/wave-001/screen-robust_600/batch-000.json",
+      "pid": 88797,
+      "returncode": 0,
+      "started_at": "2026-11-13T17:19:34.957142+00:00",
+      "status": "completed"
+    },
+    "batch-001": {
+      "finished_at": "2026-11-13T17:21:24.392529+00:00",
+      "log": "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v5-cycle-20261113/wave-001/screen-robust_600/batch-001.log",
+      "output": "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v5-cycle-20261113/wave-001/screen-robust_600/batch-001.json",
+      "pid": 88800,
+      "returncode": 0,
+      "started_at": "2026-11-13T17:19:35.076438+00:00",
+      "status": "completed"
+    },
+    "batch-002": {
+      "finished_at": "2026-11-13T17:21:37.205990+00:00",
+      "log": "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v5-cycle-20261113/wave-001/screen-robust_600/batch-002.log",
+      "output": "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v5-cycle-20261113/wave-001/screen-robust_600/batch-002.json",
+      "pid": 88801,
+      "returncode": 0,
+      "started_at": "2026-11-13T17:19:35.199425+00:00",
+      "status": "completed"
+    },
+    "batch-003": {
+      "finished_at": "2026-11-13T17:21:32.122390+00:00",
+      "log": "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v5-cycle-20261113/wave-001/screen-robust_600/batch-003.log",
+      "output": "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v5-cycle-20261113/wave-001/screen-robust_600/batch-003.json",
+      "pid": 88805,
+      "returncode": 0,
+      "started_at": "2026-11-13T17:19:35.267025+00:00",
+      "status": "completed"
+    }
+  },
+  "pending": [],
+  "plan_sha256": "53f0fa0a43df55fc6fe30ff172cead76e9dded22ee496b815c4756ec1f38e754",
+  "reason": null,
+  "status": "running"
+}
