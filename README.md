@@ -1,10 +1,12 @@
 # Fog of War chess bot
 
+**Experimental v3 candidate: not promoted.** It scored **97 wins, 1 draw and 102 losses** against frozen v2 in 200 games and failed the predeclared promotion criterion. The released bot remains v2 on `main`. This experimental revision retains the faster search, risk-policy experiments, isolated v2 opponent and reproducible evaluation tools; its `run.sh` runs the unpromoted candidate. See [v3 validation](outputs/validation-v3.md).
+
 An observation-only Python engine for the [MIT 6.7980 challenge](https://www.mit.edu/~6.7980/fow/). Version 2 combines hidden-position hypotheses, inference from missing pawn destinations, tactical search and a deadline-aware fallback.
 
 **Target: 2200–2500 MIT arena Elo. Current arena rating: unmeasured.** Local matches against starter opponents cannot certify that target. The [research note](analysis/research-strength.md) explains the rating pool and stronger-engine research. The original bot and its evidence remain available as `legacy_bot.py` and [v1 validation](outputs/validation.md).
 
-Locally validated: **118 wins / 2 losses in 120 held-out games**, including **39/40 wins against the previous bot**. All **68 Python tests** and the independent source review passed. See [v2 validation](outputs/validation-v2.md) and the [tested submission ZIP](outputs/submission-v2-final.zip). These are local results, not an arena rating.
+**Released v2 evidence:** 118 wins / 2 losses in 120 held-out games, including **39/40 wins against the previous bot**. All **68 Python tests** and the independent source review passed. See [v2 validation](outputs/validation-v2.md) and the [tested submission ZIP](outputs/submission-v2-final.zip). These are local results, not an arena rating.
 
 ## Run and test
 
@@ -44,7 +46,7 @@ Use fresh output paths:
 
 Evaluation records paired seeds and swapped colors, source hashes, full replays, failures, per-color results and conservative pair-level uncertainty. Any relative Elo transform is descriptive of that opponent sample; it is never an absolute MIT rating. The referee runs trusted local processes without the arena sandbox.
 
-The ZIP contains eight allowlisted files: `bot.py`, `belief.py`, `search.py`, `referee.py`, `uniform_random.py`, `run.sh`, `requirements.txt`, and `SOURCES.md`. Credentials, local environments and SoloCo state are excluded. The project and packager use a 250,000-byte ceiling; historical v1 scopes keep their original limits.
+The ZIP contains eight allowlisted files: `bot.py`, `belief.py`, `search.py`, `referee.py`, `uniform_random.py`, `run.sh`, `requirements.txt`, and `SOURCES.md`. Credentials, local environments and SoloCo state are excluded. The packager uses a 250,000-byte ceiling; historical v1 scopes keep their original limits.
 
 ## Arena validation
 

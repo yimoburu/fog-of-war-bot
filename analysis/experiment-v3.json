@@ -1,0 +1,15 @@
+{
+  "phase": "development, not held-out",
+  "seed": 121980,
+  "games_per_color": 8,
+  "policies": [
+    "legacy",
+    "hypothesis",
+    "robust"
+  ],
+  "opponent": "frozen v2 commit65fde033a2e65394a676e44969a992832ee17470",
+  "time_control": "180+2",
+  "search_ms": 180,
+  "acceptance": "Select a promising variant for a separately predeclared fresh paired evaluation; development results cannot establish strength. Keep v2 if no credible gain.",
+  "final_test": "100 fresh color-swapped seed pairs vs v2; require lower95% bounded-pair score confidence limit>0.5 and no execution failures; avoid optional stopping."
+}

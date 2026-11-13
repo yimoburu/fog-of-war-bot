@@ -1,0 +1,32 @@
+{
+  "purpose": "Fresh regression controls, separate from primaryv2 comparison; never pooled for Elo",
+  "games_per_color": 20,
+  "workers": 3,
+  "base_time": 180,
+  "increment": 2,
+  "max_plies": 1000,
+  "candidate": "bot.py",
+  "candidate_args": [
+    "--risk-policy",
+    "hypothesis"
+  ],
+  "controls": [
+    {
+      "opponent": "legacy_bot.py",
+      "seed": 271980,
+      "minimum_score": 0.85
+    },
+    {
+      "opponent": "baseline.py",
+      "seed": 291980,
+      "minimum_score": 0.85
+    },
+    {
+      "opponent": "uniform_random.py",
+      "seed": 311980,
+      "minimum_score": 0.95
+    }
+  ],
+  "criterion": "Zero failures and scores at or above each predeclared minimum; final v2 strength criterion still independently required.",
+  "host_activity": "Three serial control workers may overlap four primary workers on14logicalCPUs; resource/profile/package checks also overlapped portions. Not arena isolation."
+}

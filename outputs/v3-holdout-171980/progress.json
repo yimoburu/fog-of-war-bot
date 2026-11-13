@@ -1,0 +1,44 @@
+{
+  "jobs": {
+    "batch-000": {
+      "finished_at": "2026-11-13T07:38:15.627801+00:00",
+      "log": "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v3-holdout-171980/batch-000.log",
+      "output": "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v3-holdout-171980/batch-000.json",
+      "pid": 65264,
+      "returncode": 0,
+      "started_at": "2026-11-13T07:27:35.319193+00:00",
+      "status": "completed"
+    },
+    "batch-001": {
+      "finished_at": "2026-11-13T07:38:46.004081+00:00",
+      "log": "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v3-holdout-171980/batch-001.log",
+      "output": "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v3-holdout-171980/batch-001.json",
+      "pid": 65265,
+      "returncode": 0,
+      "started_at": "2026-11-13T07:27:35.439500+00:00",
+      "status": "completed"
+    },
+    "batch-002": {
+      "finished_at": "2026-11-13T07:38:16.677118+00:00",
+      "log": "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v3-holdout-171980/batch-002.log",
+      "output": "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v3-holdout-171980/batch-002.json",
+      "pid": 65272,
+      "returncode": 0,
+      "started_at": "2026-11-13T07:27:35.612154+00:00",
+      "status": "completed"
+    },
+    "batch-003": {
+      "finished_at": "2026-11-13T07:38:11.824838+00:00",
+      "log": "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v3-holdout-171980/batch-003.log",
+      "output": "/Users/xwli/Documents/soloco/allearn/ffwb/outputs/v3-holdout-171980/batch-003.json",
+      "pid": 65278,
+      "returncode": 0,
+      "started_at": "2026-11-13T07:27:35.772701+00:00",
+      "status": "completed"
+    }
+  },
+  "pending": [],
+  "plan_sha256": "df08cbee1081e92a7f0cef7de550cb176b2e5b9a1d48a603a65ff9d2538975e2",
+  "reason": null,
+  "status": "running"
+}

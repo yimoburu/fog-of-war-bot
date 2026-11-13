@@ -19,7 +19,7 @@ MAX_DETAIL_SECONDS = 0.12
 
 
 class State:
-    def __init__(self, side, rights=None, seed=0, search_ms=180):
+    def __init__(self, side, rights=None, seed=0, search_ms=180, risk_policy='hypothesis'):
         self.side = side
         self.tracker = ObservationTracker(side, rights)
         self.ply = -1
@@ -27,6 +27,9 @@ class State:
         self.belief = Belief(side, seed=seed)
         self.belief_events = []
         self.search_ms = search_ms
+        if risk_policy not in ('legacy', 'hypothesis', 'robust'):
+            raise ValueError('Unknown risk policy')
+        self.risk_policy = risk_policy
         self.last_search = {}
         self.move_history = []
 
@@ -256,6 +259,21 @@ def choose_move(state, remaining, rng, now=time.monotonic):
             real_deadline = time.monotonic() + max(0, inference_deadline - now())
             state.belief.observe(value, deadline=real_deadline)
     current_particles = state.belief.particles if not state.belief_events else []
+    if current_particles and state.risk_policy != 'legacy':
+        # A forced blocker is already represented in every current hypothesis.
+        # Do not ALSO pretend it can be every starting piece type. The fallback
+        # retains the generic penalty when the bank is absent or stale.
+        revised = []
+        for score, tie, move in detailed:
+            if now() >= deadline:
+                return fallback
+            generic = blocker_risk(state, after_move(board, move),
+                                   capture_square(board, move))
+            revised.append((score + generic, tie, move))
+            priors[move] += generic
+        detailed = sorted(revised, key=lambda row: (row[0], row[1]), reverse=True)
+        # Retain the conservative fallback until the whole survival batch is
+        # complete; removing a generic penalty alone does not establish safety.
     worlds = state.belief.sample(4) if current_particles else []
     complete = bool(worlds)
     if not worlds:
@@ -274,15 +292,23 @@ def choose_move(state, remaining, rng, now=time.monotonic):
             finally:
                 world.pop()
         survival[move] = losses / max(1, len(current_particles))
-        priors[move] -= 30000 * survival[move]
+        if state.risk_policy != 'robust' or not current_particles:
+            priors[move] -= 30000 * survival[move]
     # Keep twelve candidates for depth search, including low-risk quiet moves.
-    detailed.sort(key=lambda row: (row[0] - 30000 * survival[row[2]], row[1]), reverse=True)
+    risk_weight = 1600 if state.risk_policy == 'robust' and current_particles else 30000
+    detailed.sort(key=lambda row: (row[0] - risk_weight * survival[row[2]], row[1]), reverse=True)
+    if state.risk_policy == 'robust' and current_particles:
+        survivors = [row for row in detailed if survival[row[2]] < 1]
+        if survivors:
+            detailed = survivors
     selected = [row[2] for row in detailed[:12]]
     fallback = selected[0]
     if now() >= deadline:
         return fallback
+    options = ({'utility_scale': 800, 'immediate_risks': survival}
+               if state.risk_policy == 'robust' and current_particles else {})
     chosen, stats = search_root(worlds, selected, priors, deadline, now=now,
-                                complete=complete, max_depth=3)
+                                complete=complete, max_depth=3, **options)
     state.last_search = stats
     state.last_search['status'] = 'searched' if stats['depth'] else 'fallback'
     return chosen if stats['depth'] else fallback
@@ -295,7 +321,7 @@ def positive_float(text):
     return value
 
 
-def serve(stream_in, stream_out, seed, search_ms=180):
+def serve(stream_in, stream_out, seed, search_ms=180, risk_policy='hypothesis'):
     if stream_in.readline().strip().lower() != 'fow':
         raise ValueError('Expected fow handshake')
     header = stream_in.readline().split()
@@ -305,7 +331,8 @@ def serve(stream_in, stream_out, seed, search_ms=180):
     increment = float(header[2])
     if not math.isfinite(increment) or increment < 0:
         raise ValueError('Invalid increment')
-    state = State(header[0].lower() == 'w', seed=seed, search_ms=search_ms)
+    state = State(header[0].lower() == 'w', seed=seed, search_ms=search_ms,
+                  risk_policy=risk_policy)
     rng = random.Random(seed)
     stream_out.write('ready\n')
     stream_out.flush()
@@ -334,11 +361,13 @@ def main():
     parser.add_argument('--seed', type=int, default=1)
     parser.add_argument('--search-ms', type=float, default=180,
                         help='Maximum optional search milliseconds per move (default180).')
+    parser.add_argument('--risk-policy', choices=('legacy', 'hypothesis', 'robust'),
+                        default='hypothesis', help='Risk aggregation policy for reproducible comparisons.')
     args = parser.parse_args()
     try:
         if not math.isfinite(args.search_ms) or not 0 <= args.search_ms <= 2000:
             raise ValueError('search-ms must be between0 and2000')
-        serve(sys.stdin, sys.stdout, args.seed, args.search_ms)
+        serve(sys.stdin, sys.stdout, args.seed, args.search_ms, args.risk_policy)
     except (ValueError, EOFError) as error:
         print('bot: ' + str(error), file=sys.stderr, flush=True)
         return 2

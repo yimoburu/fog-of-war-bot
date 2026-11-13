@@ -18,7 +18,7 @@ const generated = ['README.md', 'SOURCES.md', 'bot.py', 'evaluate.py',
 const url = name => new URL(name, import.meta.url);
 const bytes = name => readFileSync(url(name));
 
-test('exact upstream hashes and bounded complete candidate', () => {
+test('exact upstream hashes and bounded selected bot sources', () => {
   let total = 0, added = 0;
   for (const name of [...Object.keys(upstream), ...generated]) {
     assert.ok(lstatSync(url(name)).isFile(), name);

@@ -1,0 +1,56 @@
+{
+  "selected": "hypothesis",
+  "reason": "Best development score10W6L; bounded-risk9W7L, speed-only8W8L. Development evidence selects an experiment but does not establish gain.",
+  "development": {
+    "v3-development-hypothesis-121980.json": {
+      "sha256": "89f361347f80bfe4162716efc4772da0caec75623fed6fda3953a7a655ab4828",
+      "result": {
+        "draw": 0,
+        "loss": 6,
+        "resolved": 16,
+        "score": 0.625,
+        "unresolved": 0,
+        "win": 10
+      }
+    },
+    "v3-development-legacy-121980.json": {
+      "sha256": "f71ab2ac73ebdc59971d81e2d25c3b4881dff50b8861812fb778592e3dd86f38",
+      "result": {
+        "draw": 0,
+        "loss": 8,
+        "resolved": 16,
+        "score": 0.5,
+        "unresolved": 0,
+        "win": 8
+      }
+    },
+    "v3-development-robust-121980.json": {
+      "sha256": "a5fd9a570ec0072dd3a55d3adc9d5f4f847e3db59e4b94a41f9104898c011e13",
+      "result": {
+        "draw": 0,
+        "loss": 7,
+        "resolved": 16,
+        "score": 0.5625,
+        "unresolved": 0,
+        "win": 9
+      }
+    }
+  },
+  "final_plan": {
+    "pairs": 100,
+    "games": 200,
+    "seed_bases": [
+      171980,
+      181980,
+      191980,
+      201980
+    ],
+    "workers": 4,
+    "time_control": "180+2",
+    "search_ms": 180,
+    "max_plies": 1000,
+    "opponent": "frozen v2",
+    "acceptance": "Zero execution failures and lower95% bounded-pair score confidence limit>0.5; no optional stopping. If not passed, do not claim or promote demonstrated strength improvement."
+  },
+  "default_change": "Only three default literals changed robust to hypothesis after development; the selected policy implementation is unchanged."
+}
