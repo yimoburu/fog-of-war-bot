@@ -1,0 +1,15 @@
+{
+  "candidate_response_ms": {
+    "samples": 2085,
+    "mean": 174.69749880095924,
+    "p95": 180.91699999999378,
+    "max": 191.94699999999898
+  },
+  "unique_game_trajectories": {
+    "legacy_bot.py": 40,
+    "baseline.py": 40,
+    "uniform_random.py": 40
+  },
+  "derivation": "Previous clock +increment -next clock for candidate moves, official replay rounded clock values; includes local referee-measured response overhead, not Linux sandbox isolation.",
+  "evaluation_sha256": "3f1ea54b64cbdb504d902cc63ecf51ae99144cfa5311f812a47091de50993920"
+}

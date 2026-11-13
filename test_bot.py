@@ -26,7 +26,8 @@ def ucis(moves):
 
 def state_for(board, side=None):
     side = board.turn if side is None else side
-    state = State(side, int(board.clean_castling_rights()))
+    # These oracle tests exercise root legality/safety; search has its own suite.
+    state = State(side, int(board.clean_castling_rights()), search_ms=0)
     state.observe(observation(board, side))
     return state
 
@@ -142,7 +143,7 @@ class StrategyTests(unittest.TestCase):
         checked = 0
         for _ in range(20):
             truth = FowBoard()
-            states = {side: State(side) for side in (True, False)}
+            states = {side: State(side, search_ms=0) for side in (True, False)}
             repetitions = collections.Counter({position_key(truth): 1})
             for _ in range(100):
                 if outcome(truth, repetitions):

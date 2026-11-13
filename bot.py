@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Observation-only FOW policy; hidden-risk scores are uncalibrated heuristics."""
+"""Observation-only FOW belief search; strength must be measured in the arena."""
 import argparse
 import math
 import random
@@ -7,6 +7,8 @@ import sys
 import time
 
 import chess
+from belief import Belief, forced_blockers
+from search import search_root
 from uniform_random import OBSERVATION_CHARACTERS, ObservationTracker, candidates
 
 VALUES = {chess.PAWN: 100, chess.KNIGHT: 310, chess.BISHOP: 325,
@@ -17,16 +19,24 @@ MAX_DETAIL_SECONDS = 0.12
 
 
 class State:
-    def __init__(self, side, rights=None):
+    def __init__(self, side, rights=None, seed=0, search_ms=180):
         self.side = side
         self.tracker = ObservationTracker(side, rights)
         self.ply = -1
         self.sightings = {}
+        self.belief = Belief(side, seed=seed)
+        self.belief_events = []
+        self.search_ms = search_ms
+        self.last_search = {}
+        self.move_history = []
 
     def observe(self, view):
         if len(view) != 64 or not set(view) <= OBSERVATION_CHARACTERS:
             raise ValueError('Expected a 64-square FOW observation')
         self.tracker.observe(view)
+        # Arena observations may be queued while the process is frozen. Defer
+        # optional inference until the following clock establishes its budget.
+        self.belief_events.append(('observe', view))
         self.ply += 1
         for square, (_, seen) in list(self.sightings.items()):
             if self.ply - seen > MEMORY_PLIES or view[square] != '?':
@@ -46,6 +56,9 @@ class State:
         self.sightings.pop(capture_square(board, move), None)
         self.sightings.pop(move.to_square, None)
         self.tracker.record_move(move)
+        self.belief_events.append(('move', move))
+        self.move_history.append(move)
+        self.move_history = self.move_history[-12:]
 
 
 def capture_square(board, move):
@@ -173,12 +186,31 @@ def detail_score(state, before, after, move):
     return score
 
 
+def blocker_risk(state, after, captured):
+    """Penalty for a proven enemy blocker whose unknown type can kill us."""
+    king = after.king(state.side)
+    if king is None:
+        return 10000
+    risks = 0
+    for square in forced_blockers(state.tracker.current, state.side):
+        if square == captured or after.piece_at(square):
+            continue
+        for kind, weight in ((chess.PAWN, 8), (chess.KNIGHT, 2),
+                             (chess.BISHOP, 2), (chess.ROOK, 2),
+                             (chess.QUEEN, 1), (chess.KING, 1)):
+            if geometric_attack(kind, not state.side, square, king, after):
+                risks += weight
+    return risks * 4000
+
+
 def choose_move(state, remaining, rng, now=time.monotonic):
     if not math.isfinite(remaining) or remaining <= 0:
         raise ValueError('Clock must be finite and positive')
+    state.last_search = {'depth': 0, 'nodes': 0, 'status': 'fallback'}
     started = now()
     reserve = max(0.01, min(0.5, remaining * 0.10))
-    budget = min(MAX_DETAIL_SECONDS, max(0, remaining - reserve), remaining * 0.02)
+    budget = min(max(0, state.search_ms) / 1000,
+                 max(0, remaining - reserve), remaining * 0.035)
     deadline = started + budget
     board, moves = state.reconstruct()
     if not moves:
@@ -188,7 +220,8 @@ def choose_move(state, remaining, rng, now=time.monotonic):
     for move in sorted(moves, key=lambda item: item.uci()):
         after = after_move(board, move)
         ranked.append((visibly_safe(after, state.side),
-                       quick_score(board, after, move, state.side),
+                       quick_score(board, after, move, state.side) -
+                       blocker_risk(state, after, capture_square(board, move)),
                        rng.random(), move, after))
     safe_exists = any(row[0] for row in ranked)
     pool = [row for row in ranked if row[0] == safe_exists]
@@ -197,14 +230,62 @@ def choose_move(state, remaining, rng, now=time.monotonic):
     if budget <= 0 or now() >= deadline:
         return fallback
     detailed = []
+    priors = {}
     for _, quick, tie, move, after in pool[:MAX_DETAIL_MOVES]:
         if now() >= deadline:
             return fallback
-        detailed.append((quick + detail_score(state, board, after, move), tie, move))
+        detail = detail_score(state, board, after, move)
+        # Penalize oscillation without inventing a full-board repetition count.
+        repeat = 35 * sum(old == move for old in state.move_history[-8:])
+        detailed.append((quick + detail - repeat, tie, move))
+        priors[move] = (.3 * detail + .1 * quick - repeat + tie * .05
+                        - .9 * blocker_risk(state, after, capture_square(board, move)))
     # Discard incomplete batches; never compare quick and detailed scores.
     if now() >= deadline:
         return fallback
-    return max(detailed, key=lambda row: (row[0], row[1]))[2]
+    detailed.sort(key=lambda row: (row[0], row[1]), reverse=True)
+    fallback = detailed[0][2]
+    inference_deadline = min(deadline, started + budget * .35)
+    while state.belief_events and now() < inference_deadline:
+        kind, value = state.belief_events.pop(0)
+        if kind == 'move':
+            state.belief.record_move(value)
+        else:
+            # The production clock is monotonic; an injected test clock still
+            # gets a real finite bound for the hypothesis tracker.
+            real_deadline = time.monotonic() + max(0, inference_deadline - now())
+            state.belief.observe(value, deadline=real_deadline)
+    current_particles = state.belief.particles if not state.belief_events else []
+    worlds = state.belief.sample(4) if current_particles else []
+    complete = bool(worlds)
+    if not worlds:
+        worlds = [board.copy(stack=False)]
+    # Use every retained hypothesis for immediate survival classification, then
+    # a common small subset for deeper search. The weights are heuristic.
+    survival = {}
+    for _, _, move in detailed:
+        losses = 0
+        for world in current_particles:
+            if now() >= deadline:
+                return fallback
+            world.push(move)
+            try:
+                losses += not visibly_safe(world, state.side)
+            finally:
+                world.pop()
+        survival[move] = losses / max(1, len(current_particles))
+        priors[move] -= 30000 * survival[move]
+    # Keep twelve candidates for depth search, including low-risk quiet moves.
+    detailed.sort(key=lambda row: (row[0] - 30000 * survival[row[2]], row[1]), reverse=True)
+    selected = [row[2] for row in detailed[:12]]
+    fallback = selected[0]
+    if now() >= deadline:
+        return fallback
+    chosen, stats = search_root(worlds, selected, priors, deadline, now=now,
+                                complete=complete, max_depth=3)
+    state.last_search = stats
+    state.last_search['status'] = 'searched' if stats['depth'] else 'fallback'
+    return chosen if stats['depth'] else fallback
 
 
 def positive_float(text):
@@ -214,7 +295,7 @@ def positive_float(text):
     return value
 
 
-def serve(stream_in, stream_out, seed):
+def serve(stream_in, stream_out, seed, search_ms=180):
     if stream_in.readline().strip().lower() != 'fow':
         raise ValueError('Expected fow handshake')
     header = stream_in.readline().split()
@@ -224,7 +305,7 @@ def serve(stream_in, stream_out, seed):
     increment = float(header[2])
     if not math.isfinite(increment) or increment < 0:
         raise ValueError('Invalid increment')
-    state = State(header[0].lower() == 'w')
+    state = State(header[0].lower() == 'w', seed=seed, search_ms=search_ms)
     rng = random.Random(seed)
     stream_out.write('ready\n')
     stream_out.flush()
@@ -251,9 +332,13 @@ def serve(stream_in, stream_out, seed):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--seed', type=int, default=1)
+    parser.add_argument('--search-ms', type=float, default=180,
+                        help='Maximum optional search milliseconds per move (default180).')
     args = parser.parse_args()
     try:
-        serve(sys.stdin, sys.stdout, args.seed)
+        if not math.isfinite(args.search_ms) or not 0 <= args.search_ms <= 2000:
+            raise ValueError('search-ms must be between0 and2000')
+        serve(sys.stdin, sys.stdout, args.seed, args.search_ms)
     except (ValueError, EOFError) as error:
         print('bot: ' + str(error), file=sys.stderr, flush=True)
         return 2

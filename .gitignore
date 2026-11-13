@@ -6,3 +6,6 @@ __pycache__/
 outputs/review-source.json
 outputs/static-tests.log
 outputs/evaluation-run.log
+
+# Retained locally: superseded candidate that failed independent QA.
+outputs/submission-v2.zip

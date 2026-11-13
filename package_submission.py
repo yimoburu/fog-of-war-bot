@@ -8,14 +8,14 @@ import stat
 import zipfile
 
 ROOT = Path(__file__).resolve().parent
-RUNTIME_FILES = ('bot.py', 'referee.py', 'uniform_random.py', 'run.sh',
+RUNTIME_FILES = ('bot.py', 'belief.py', 'search.py', 'referee.py', 'uniform_random.py', 'run.sh',
                  'requirements.txt', 'SOURCES.md')
 UPSTREAM = {
     'referee.py': '2f82ac292bfad29bcb2d701b73c060d1ca8281378b4598f08a620fe5c97255be',
     'uniform_random.py': 'a9d2d69c1893652dae938c596be59fc16fdf1edba3ccf491d9cf2c92d75b514a',
     'requirements.txt': '391e529739e99dc63461425af4ad7afb10d89aa275922928ceb8e2f5dffa7149',
 }
-LIMIT = 100000
+LIMIT = 250000
 
 
 def read_regular(path):

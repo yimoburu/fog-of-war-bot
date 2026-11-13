@@ -26,4 +26,24 @@ Unmodified MIT source SHA256:
 
 Codex via SoloCo assisted research, generated the bot and supporting tools, and supplied an independent QA source review. Codex then repaired two test issues and executed local validation with the user's authorization. The original MIT move generator, referee and tests remain unchanged. See the local validation report for measured results and review limitations.
 
+The second version adds independently reviewed observation-consistent hypotheses,
+explicitly approximate recovery, negative-information reasoning, tactical search,
+and a paired evaluation harness. Host development assistants implemented and
+tested these changes; SoloCo Research reviewed the design and SoloCo QA reviewed
+the frozen engine source. `legacy_bot.py` preserves the first bot for comparison.
+The new implementation does not incorporate Misty, Stockfish, Obscuro code, or
+third-party trained weights. Its search is a determinization approximation, not
+an implementation of CFR or a claim of reproducing Obscuro's results.
+
+Additional primary references inspected for the strength work:
+
+- [MIT arena API and rating definitions](https://www.mit.edu/~6.7980/fow/api.html)
+- [Obscuro paper](https://arxiv.org/html/2506.01242v2)
+- [Misty implementation](https://github.com/brianhliou/misty)
+- [LiteEFG MIT-compatible DarkChess environment](https://liumy2010.github.io/LiteEFG/guide/deep-learning/dark-chess.html)
+
+These sources informed design and evaluation planning. They do not establish an
+Elo rating for this bot. The requested 2200–2500 MIT arena Elo remains a target
+until supported by actual rated arena games.
+
 No chess artwork is included. The archive's GPL notice concerns artwork; the inspected Python files have no license header. This document does not assign a new license to upstream code.
